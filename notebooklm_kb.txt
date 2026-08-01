@@ -1,0 +1,51 @@
+=============================================================================
+PROJECT E.L.I.Z.A: NOTEBOOKLM KNOWLEDGE BASE REFERENCE
+=============================================================================
+
+Motto:
+"Architecture before Intelligence. Intelligence before Capability. Capability before Optimization."
+
+Identity:
+ELIZA (Evolutionary Learning Intelligence & Zero-shot Architecture) is an open Cognitive Operating System research project. It is NOT a chatbot, assistant, LLM wrapper, or autonomous AGI. Foundation models act as coprocessor execution units, not the architecture itself.
+
+1. THE 10 MASTER CANONICAL SPECIFICATIONS
+- ELIZA_CANON.md (Version 1.0 Constitution: 20 Articles)
+- ELIZA_AXIOMS.md (Version 1.0 Axioms: 25 Scientific Axioms & Core Definitions)
+- ELIZA_FORMALISM.md (Version 1.0 Formalism: FCRL Representation Language, 24 Primitives, 10 Invariants)
+- ELIZA_DYNAMICS.md (Version 1.0 Dynamics: 19-Stage Cognitive Pipeline, Belief/Goal Lifecycles, Section XXIX Invariants)
+- ELIZA_KERNEL_SPEC.md (Version 1.0 Kernel: 10-Step Boot Sequence, State Manager Checkpointing, Section XXXI Invariants)
+- ELIZA_PROTOCOL.md (Version 1.0 Protocol: Cognitive Communication Protocol CCP, 8 Message Types, Priority Queueing, 8 Invariants)
+- ELIZA_COGNITIVE_RUNTIME.md (Phase 3 ECOS Runtime: 15 Layers, 20-Instruction Cognitive ISA, Compiler, CVM CPU, 7-Tier Memory, CFS, Scientific Engine)
+- ELIZA_ADAPTIVE_COGNITION.md (Phase 4 Adaptive Cognition: Hypothesis H1, Feedback Loop, CI/CD Benchmark Suite, Versioned Assets, Layer 14 Safety Boundaries)
+- ELIZA_COGNITIVE_CIVILIZATION.md (Phase 5 Civilization: Multiple Minds, P2P CCP Networking, Distributed World Model, Reputation Routing, Knowledge Federation, Human Partnership)
+- ELIZA_STUDIO_SPEC.md (Version 0.1 Studio: Cognitive Control Deck, 10 Core Screens, Signature Live Cognitive Panel, SVG World Model Visualizer)
+
+2. THE 20 PRIMITIVE COGNITIVE ISA INSTRUCTIONS
+OBSERVE, ATTEND, RECALL, STORE, BELIEVE, QUESTION, INFER, PLAN, SIMULATE, DECIDE, EXECUTE, REFLECT, LEARN, REVISE, FORGET, PRIORITIZE, MERGE, SPLIT, SUSPEND, RESUME.
+
+3. THE 7-TIER COGNITIVE MEMORY HIERARCHY
+1. Attention Register (0.1ms latency, 1 item capacity)
+2. Working Memory (1.0ms latency, 10 items capacity)
+3. Context Cache (5.0ms latency, 50 items capacity)
+4. Episodic Memory (15.0ms latency, 500 items capacity)
+5. Semantic Memory (25.0ms latency, 5,000 items capacity)
+6. Knowledge Graph (50.0ms latency, 50,000 items capacity)
+7. Long-Term Storage (100.0ms latency, unlimited capacity)
+
+4. SCIENTIFIC HYPOTHESIS H1
+"A modular cognitive architecture that combines explicit memory, world models, planning, simulation, reflection, and evidence-based adaptation can improve its task performance over time more reliably than a comparable architecture without these capabilities."
+
+5. CORE FEEDBACK LOOP
+Observe -> Act -> Measure -> Reflect -> Generate Improvement -> Validate -> Benchmark -> Human Approval -> Deploy -> Repeat.
+
+6. ELIZA STUDIO V0.1 CORE SCREENS
+Dashboard, Memory Explorer, World Model Viewer, Goal Manager, Multi-Plan Inspector, Simulator Sandbox, Reasoning Inspector, Reflection Viewer, Benchmark Center, Plugin Marketplace.
+
+7. EXECUTABLE MILESTONE RUNNERS
+- run_ecos_brainstem.py (Phase 2 Brainstem)
+- run_ecos_runtime.py (Phase 3 ECOS Runtime)
+- run_ecos_adaptive_loop.py (Phase 4 Adaptive Feedback Loop)
+- run_ecos_civilization.py (Phase 5 Cognitive Civilization)
+- run_eliza_studio.py (Version 0.1 Studio Server on http://127.0.0.1:8000)
+- run_tests.py (Master verification test suite)
+=============================================================================
