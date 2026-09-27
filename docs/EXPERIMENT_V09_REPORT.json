@@ -1,0 +1,715 @@
+{
+  "experiment": "v0.9",
+  "seed": 42,
+  "model": "mock",
+  "conditions": {
+    "MODEL_ONLY": {
+      "success_rate": "0/10",
+      "trials": [
+        {
+          "trial_id": 1,
+          "config": "MODEL_ONLY",
+          "task_family": "B",
+          "goal_completed": false,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 0,
+          "events": 9
+        },
+        {
+          "trial_id": 2,
+          "config": "MODEL_ONLY",
+          "task_family": "D",
+          "goal_completed": false,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 0,
+          "events": 9
+        },
+        {
+          "trial_id": 3,
+          "config": "MODEL_ONLY",
+          "task_family": "B",
+          "goal_completed": false,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 0,
+          "events": 9
+        },
+        {
+          "trial_id": 4,
+          "config": "MODEL_ONLY",
+          "task_family": "G",
+          "goal_completed": false,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 0,
+          "events": 9
+        },
+        {
+          "trial_id": 5,
+          "config": "MODEL_ONLY",
+          "task_family": "A",
+          "goal_completed": false,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 0,
+          "events": 9
+        },
+        {
+          "trial_id": 6,
+          "config": "MODEL_ONLY",
+          "task_family": "A",
+          "goal_completed": false,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 0,
+          "events": 9
+        },
+        {
+          "trial_id": 7,
+          "config": "MODEL_ONLY",
+          "task_family": "G",
+          "goal_completed": false,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 0,
+          "events": 9
+        },
+        {
+          "trial_id": 8,
+          "config": "MODEL_ONLY",
+          "task_family": "H",
+          "goal_completed": false,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 0,
+          "events": 9
+        },
+        {
+          "trial_id": 9,
+          "config": "MODEL_ONLY",
+          "task_family": "A",
+          "goal_completed": false,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 0,
+          "events": 9
+        },
+        {
+          "trial_id": 10,
+          "config": "MODEL_ONLY",
+          "task_family": "C",
+          "goal_completed": false,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 0,
+          "events": 9
+        }
+      ]
+    },
+    "SINGLE_ELIZA": {
+      "success_rate": "4/10",
+      "trials": [
+        {
+          "trial_id": 1,
+          "config": "SINGLE_ELIZA",
+          "task_family": "B",
+          "goal_completed": true,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 0,
+          "events": 9
+        },
+        {
+          "trial_id": 2,
+          "config": "SINGLE_ELIZA",
+          "task_family": "D",
+          "goal_completed": false,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 0,
+          "events": 9
+        },
+        {
+          "trial_id": 3,
+          "config": "SINGLE_ELIZA",
+          "task_family": "B",
+          "goal_completed": true,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 0,
+          "events": 9
+        },
+        {
+          "trial_id": 4,
+          "config": "SINGLE_ELIZA",
+          "task_family": "G",
+          "goal_completed": false,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 1,
+          "events": 9
+        },
+        {
+          "trial_id": 5,
+          "config": "SINGLE_ELIZA",
+          "task_family": "A",
+          "goal_completed": false,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 0,
+          "events": 9
+        },
+        {
+          "trial_id": 6,
+          "config": "SINGLE_ELIZA",
+          "task_family": "A",
+          "goal_completed": false,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 0,
+          "events": 9
+        },
+        {
+          "trial_id": 7,
+          "config": "SINGLE_ELIZA",
+          "task_family": "G",
+          "goal_completed": false,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 1,
+          "events": 9
+        },
+        {
+          "trial_id": 8,
+          "config": "SINGLE_ELIZA",
+          "task_family": "H",
+          "goal_completed": true,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 0,
+          "events": 9
+        },
+        {
+          "trial_id": 9,
+          "config": "SINGLE_ELIZA",
+          "task_family": "A",
+          "goal_completed": false,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 0,
+          "events": 9
+        },
+        {
+          "trial_id": 10,
+          "config": "SINGLE_ELIZA",
+          "task_family": "C",
+          "goal_completed": true,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 0,
+          "events": 9
+        }
+      ]
+    },
+    "MULTI_FIXED": {
+      "success_rate": "0/10",
+      "trials": [
+        {
+          "trial_id": 1,
+          "config": "MULTI_FIXED",
+          "task_family": "B",
+          "goal_completed": false,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 0,
+          "events": 9
+        },
+        {
+          "trial_id": 2,
+          "config": "MULTI_FIXED",
+          "task_family": "D",
+          "goal_completed": false,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 0,
+          "events": 9
+        },
+        {
+          "trial_id": 3,
+          "config": "MULTI_FIXED",
+          "task_family": "B",
+          "goal_completed": false,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 0,
+          "events": 9
+        },
+        {
+          "trial_id": 4,
+          "config": "MULTI_FIXED",
+          "task_family": "G",
+          "goal_completed": false,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 0,
+          "events": 9
+        },
+        {
+          "trial_id": 5,
+          "config": "MULTI_FIXED",
+          "task_family": "A",
+          "goal_completed": false,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 0,
+          "events": 9
+        },
+        {
+          "trial_id": 6,
+          "config": "MULTI_FIXED",
+          "task_family": "A",
+          "goal_completed": false,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 0,
+          "events": 9
+        },
+        {
+          "trial_id": 7,
+          "config": "MULTI_FIXED",
+          "task_family": "G",
+          "goal_completed": false,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 0,
+          "events": 9
+        },
+        {
+          "trial_id": 8,
+          "config": "MULTI_FIXED",
+          "task_family": "H",
+          "goal_completed": false,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 0,
+          "events": 9
+        },
+        {
+          "trial_id": 9,
+          "config": "MULTI_FIXED",
+          "task_family": "A",
+          "goal_completed": false,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 0,
+          "events": 9
+        },
+        {
+          "trial_id": 10,
+          "config": "MULTI_FIXED",
+          "task_family": "C",
+          "goal_completed": false,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 0,
+          "events": 9
+        }
+      ]
+    },
+    "MULTI_MEMORY": {
+      "success_rate": "10/10",
+      "trials": [
+        {
+          "trial_id": 1,
+          "config": "MULTI_MEMORY",
+          "task_family": "B",
+          "goal_completed": true,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 0,
+          "events": 9
+        },
+        {
+          "trial_id": 2,
+          "config": "MULTI_MEMORY",
+          "task_family": "D",
+          "goal_completed": true,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 0,
+          "events": 9
+        },
+        {
+          "trial_id": 3,
+          "config": "MULTI_MEMORY",
+          "task_family": "B",
+          "goal_completed": true,
+          "latency": 0.001436471939086914,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 0,
+          "events": 9
+        },
+        {
+          "trial_id": 4,
+          "config": "MULTI_MEMORY",
+          "task_family": "G",
+          "goal_completed": true,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 1,
+          "events": 9
+        },
+        {
+          "trial_id": 5,
+          "config": "MULTI_MEMORY",
+          "task_family": "A",
+          "goal_completed": true,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 0,
+          "events": 9
+        },
+        {
+          "trial_id": 6,
+          "config": "MULTI_MEMORY",
+          "task_family": "A",
+          "goal_completed": true,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 0,
+          "events": 9
+        },
+        {
+          "trial_id": 7,
+          "config": "MULTI_MEMORY",
+          "task_family": "G",
+          "goal_completed": true,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 1,
+          "events": 9
+        },
+        {
+          "trial_id": 8,
+          "config": "MULTI_MEMORY",
+          "task_family": "H",
+          "goal_completed": true,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 0,
+          "events": 9
+        },
+        {
+          "trial_id": 9,
+          "config": "MULTI_MEMORY",
+          "task_family": "A",
+          "goal_completed": true,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 0,
+          "events": 9
+        },
+        {
+          "trial_id": 10,
+          "config": "MULTI_MEMORY",
+          "task_family": "C",
+          "goal_completed": true,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 0,
+          "events": 9
+        }
+      ]
+    },
+    "MULTI_ADAPTIVE": {
+      "success_rate": "9/10",
+      "trials": [
+        {
+          "trial_id": 1,
+          "config": "MULTI_ADAPTIVE",
+          "task_family": "B",
+          "goal_completed": true,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 0,
+          "events": 13
+        },
+        {
+          "trial_id": 2,
+          "config": "MULTI_ADAPTIVE",
+          "task_family": "D",
+          "goal_completed": false,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 0,
+          "events": 13
+        },
+        {
+          "trial_id": 3,
+          "config": "MULTI_ADAPTIVE",
+          "task_family": "B",
+          "goal_completed": true,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 0,
+          "events": 13
+        },
+        {
+          "trial_id": 4,
+          "config": "MULTI_ADAPTIVE",
+          "task_family": "G",
+          "goal_completed": true,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 1,
+          "events": 13
+        },
+        {
+          "trial_id": 5,
+          "config": "MULTI_ADAPTIVE",
+          "task_family": "A",
+          "goal_completed": true,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 0,
+          "events": 13
+        },
+        {
+          "trial_id": 6,
+          "config": "MULTI_ADAPTIVE",
+          "task_family": "A",
+          "goal_completed": true,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 0,
+          "events": 13
+        },
+        {
+          "trial_id": 7,
+          "config": "MULTI_ADAPTIVE",
+          "task_family": "G",
+          "goal_completed": true,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 1,
+          "events": 13
+        },
+        {
+          "trial_id": 8,
+          "config": "MULTI_ADAPTIVE",
+          "task_family": "H",
+          "goal_completed": true,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 0,
+          "events": 13
+        },
+        {
+          "trial_id": 9,
+          "config": "MULTI_ADAPTIVE",
+          "task_family": "A",
+          "goal_completed": true,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 0,
+          "events": 13
+        },
+        {
+          "trial_id": 10,
+          "config": "MULTI_ADAPTIVE",
+          "task_family": "C",
+          "goal_completed": true,
+          "latency": 0.0010197162628173828,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 0,
+          "events": 13
+        }
+      ]
+    },
+    "FULL_COLLECTIVE": {
+      "success_rate": "10/10",
+      "trials": [
+        {
+          "trial_id": 1,
+          "config": "FULL_COLLECTIVE",
+          "task_family": "B",
+          "goal_completed": true,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 0,
+          "events": 13
+        },
+        {
+          "trial_id": 2,
+          "config": "FULL_COLLECTIVE",
+          "task_family": "D",
+          "goal_completed": true,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 0,
+          "events": 13
+        },
+        {
+          "trial_id": 3,
+          "config": "FULL_COLLECTIVE",
+          "task_family": "B",
+          "goal_completed": true,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 0,
+          "events": 13
+        },
+        {
+          "trial_id": 4,
+          "config": "FULL_COLLECTIVE",
+          "task_family": "G",
+          "goal_completed": true,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 1,
+          "events": 13
+        },
+        {
+          "trial_id": 5,
+          "config": "FULL_COLLECTIVE",
+          "task_family": "A",
+          "goal_completed": true,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 0,
+          "events": 13
+        },
+        {
+          "trial_id": 6,
+          "config": "FULL_COLLECTIVE",
+          "task_family": "A",
+          "goal_completed": true,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 0,
+          "events": 13
+        },
+        {
+          "trial_id": 7,
+          "config": "FULL_COLLECTIVE",
+          "task_family": "G",
+          "goal_completed": true,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 1,
+          "events": 13
+        },
+        {
+          "trial_id": 8,
+          "config": "FULL_COLLECTIVE",
+          "task_family": "H",
+          "goal_completed": true,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 0,
+          "events": 13
+        },
+        {
+          "trial_id": 9,
+          "config": "FULL_COLLECTIVE",
+          "task_family": "A",
+          "goal_completed": true,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 0,
+          "events": 13
+        },
+        {
+          "trial_id": 10,
+          "config": "FULL_COLLECTIVE",
+          "task_family": "C",
+          "goal_completed": true,
+          "latency": 0.0,
+          "replan_count": 0,
+          "verification_errors": 0,
+          "learning_events": 0,
+          "events": 13
+        }
+      ]
+    }
+  },
+  "metrics": {
+    "success_rate": {
+      "MODEL_ONLY": 0.0,
+      "SINGLE_ELIZA": 0.4,
+      "MULTI_FIXED": 0.0,
+      "MULTI_MEMORY": 1.0,
+      "MULTI_ADAPTIVE": 0.9,
+      "FULL_COLLECTIVE": 1.0
+    },
+    "verification": {},
+    "recovery": {},
+    "learning": {},
+    "transfer": {},
+    "negative_transfer": {},
+    "cost": {}
+  },
+  "provenance_valid": true,
+  "leakage_detected": false
+}

@@ -49,3 +49,8 @@ build/
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Local variants (managed via git branches on GitHub)
+Eliza-Studio/
+Eliza-Desktop/
+Eliza-multi-tenant/

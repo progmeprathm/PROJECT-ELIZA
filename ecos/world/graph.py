@@ -12,6 +12,7 @@ class ECOSWorldModel:
     def __init__(self, vm: Optional[CognitiveISAVirtualMachine] = None) -> None:
         self.world_model = WorldModel()
         self._beliefs: Dict[str, Belief] = {}
+        self._state: Dict[str, Any] = {}
         self.vm = vm
         if self.vm:
             self._bind_isa_handlers()
@@ -39,3 +40,19 @@ class ECOSWorldModel:
 
     def get_beliefs(self) -> List[Belief]:
         return list(self._beliefs.values())
+
+    def update_state(self, key: str, value: Any) -> None:
+        self._state[key] = value
+
+    def get_state(self) -> Dict[str, Any]:
+        return dict(self._state)
+
+    def process_observation(self, obs: Dict[str, Any]) -> None:
+        """
+        Updates the current world state with the latest observation.
+        Does NOT store ephemeral messages as persistent beliefs to ensure
+        separation of World Model (Current State) from Memory (Historical Events).
+        """
+        for k, v in obs.items():
+            if k != "message":
+                self.update_state(k, v)

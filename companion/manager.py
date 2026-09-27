@@ -118,51 +118,16 @@ class ConversationManager:
         # Dispatch via Model Router
         routed_result = self.model_router.route_task(intent=intent, prompt=user_text)
 
-        # Tailor responses based on query content & assistant persona
-        if "help" in text_lower or "what can you do" in text_lower:
-            response_text = (
-                f"As the **{self.current_assistant.name}**, I am your specialized interface to ECOS Kernel.\n\n"
-                f"Here is how I can assist you:\n"
-                f"1. **System Architecture**: Design decoupled modules using FCRL and CCP protocols.\n"
-                f"2. **Goal & Subgoal Management**: Break down complex goals into executable tasks.\n"
-                f"3. **7-Tier Memory Stack Querying**: Search across Attention Register, Working Memory, and Semantic Memory.\n"
-                f"4. **Counterfactual Simulation**: Run 'what-if' risk projections in isolated sandboxes.\n"
-                f"5. **Explicit Decision Provenance**: Inspect the reasoning trace for every recommendation.\n\n"
-                f"*(Execution Engine Routed via ModelRouter: `{routed_result['selected_model']}`)*"
-            )
-            chosen = "System Capability Synthesis"
-            conf = 0.95
-        elif "schedule" in text_lower or "plan" in text_lower:
-            response_text = (
-                f"I've evaluated your scheduling/planning request against ECOS memory and world model.\n\n"
-                f"**Recommended Architecture**: Work-Stealing Priority Queue\n"
-                f"- **Estimated Time**: 1.2s per 10k operations\n"
-                f"- **Resource Cost**: Low (0.45 units)\n"
-                f"- **Confidence**: 92%\n\n"
-                f"*(Execution Engine Routed via ModelRouter: `{routed_result['selected_model']}` for reasoning)*"
-            )
-            chosen = "Work-Stealing Priority Queue Scheduler"
-            conf = 0.92
-        elif "code" in text_lower or "debug" in text_lower:
-            response_text = (
-                f"I've scanned the codebase context for your query.\n\n"
-                f"All 14/14 verification tests are passing in `run_tests.py`! "
-                f"I can generate new cognitive plugins or inspect existing modules in `/cfs/`.\n\n"
-                f"*(Execution Engine Routed via ModelRouter: `{routed_result['selected_model']}` for coding)*"
-            )
-            chosen = "Verified Code Execution"
-            conf = 0.96
-        else:
-            response_text = (
-                f"I've processed your input: *'{user_text}'* through ECOS Kernel.\n\n"
-                f"**Subsystem Status**:\n"
-                f"- Memory Hierarchy: 7 Tiers active\n"
-                f"- World Model: 2,341 Entities & 18,201 Relationships\n"
-                f"- Reasoning Engine: Inferred 2 belief updates\n\n"
-                f"*(Execution Engine Routed via ModelRouter: `{routed_result['selected_model']}`)*"
-            )
-            chosen = f"Cognitive Response Formulation for '{user_text[:30]}'"
-            conf = 0.89
+        # Use actual response from the Model Router
+        output_text = routed_result.get("output_text", "")
+        
+        # If output is missing or empty due to mock/error, fallback to a sensible message
+        if not output_text:
+            output_text = f"I've processed your input: *'{user_text}'* through ECOS Kernel.\n\n*(Execution Engine Routed via ModelRouter: `{routed_result.get('selected_model', 'unknown')}`)*"
+            
+        response_text = output_text
+        chosen = f"Cognitive Response Formulation for '{user_text[:30]}'"
+        conf = 0.89
 
         # Generate explicit decision reasoning trace
         trace = DecisionReasoningTrace(

@@ -1,0 +1,3249 @@
+{
+  "experiment": "ELIZA_V05_PLANNING_BENCHMARK",
+  "mode": "mock",
+  "timestamp": 1790527592.9828992,
+  "configurations": {
+    "A": {
+      "experiment": "A - Stateless",
+      "success_rate": "0/3",
+      "trials": [
+        {
+          "trial_id": 1,
+          "config": "A - Stateless",
+          "goal_completed": false,
+          "replan_count": 0,
+          "traces": [
+            {
+              "cycle": 1,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "You are standing in the hallway at position 0."
+              }
+            },
+            {
+              "cycle": 2,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 3,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 4,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 5,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 6,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 7,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 8,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 9,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 10,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 11,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 12,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 13,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 14,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            }
+          ]
+        },
+        {
+          "trial_id": 2,
+          "config": "A - Stateless",
+          "goal_completed": false,
+          "replan_count": 0,
+          "traces": [
+            {
+              "cycle": 1,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "You are standing in the hallway at position 0."
+              }
+            },
+            {
+              "cycle": 2,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 3,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 4,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 5,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 6,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 7,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 8,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 9,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 10,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 11,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 12,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 13,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 14,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            }
+          ]
+        },
+        {
+          "trial_id": 3,
+          "config": "A - Stateless",
+          "goal_completed": false,
+          "replan_count": 0,
+          "traces": [
+            {
+              "cycle": 1,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "You are standing in the hallway at position 0."
+              }
+            },
+            {
+              "cycle": 2,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 3,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 4,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 5,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 6,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 7,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 8,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 9,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 10,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 11,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 12,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 13,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 14,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "B": {
+      "experiment": "B - World Model Only",
+      "success_rate": "0/3",
+      "trials": [
+        {
+          "trial_id": 1,
+          "config": "B - World Model Only",
+          "goal_completed": false,
+          "replan_count": 0,
+          "traces": [
+            {
+              "cycle": 1,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "You are standing in the hallway at position 0."
+              }
+            },
+            {
+              "cycle": 2,
+              "action": "read_note",
+              "observation": {
+                "agent_location": 1,
+                "door_locked": true,
+                "message": "You are in Room A. There is a note on the desk."
+              }
+            },
+            {
+              "cycle": 3,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 1,
+                "door_locked": true,
+                "message": "The note reads: 'The base code is 12'."
+              }
+            },
+            {
+              "cycle": 4,
+              "action": "read_wall",
+              "observation": {
+                "agent_location": 2,
+                "door_locked": true,
+                "message": "You are in Room B. There is writing on the wall."
+              }
+            },
+            {
+              "cycle": 5,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 2,
+                "door_locked": true,
+                "message": "The wall writing says: 'The multiplier is 4'."
+              }
+            },
+            {
+              "cycle": 6,
+              "action": "move_west",
+              "observation": {
+                "agent_location": 3,
+                "door_locked": true,
+                "message": "You are facing a locked mechanism requiring a calculated code."
+              }
+            },
+            {
+              "cycle": 7,
+              "action": "read_wall",
+              "observation": {
+                "agent_location": 2,
+                "door_locked": true,
+                "message": "You are in Room B. There is writing on the wall."
+              }
+            },
+            {
+              "cycle": 8,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 2,
+                "door_locked": true,
+                "message": "The wall writing says: 'The multiplier is 4'."
+              }
+            },
+            {
+              "cycle": 9,
+              "action": "move_west",
+              "observation": {
+                "agent_location": 3,
+                "door_locked": true,
+                "message": "You are facing a locked mechanism requiring a calculated code."
+              }
+            },
+            {
+              "cycle": 10,
+              "action": "read_wall",
+              "observation": {
+                "agent_location": 2,
+                "door_locked": true,
+                "message": "You are in Room B. There is writing on the wall."
+              }
+            },
+            {
+              "cycle": 11,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 2,
+                "door_locked": true,
+                "message": "The wall writing says: 'The multiplier is 4'."
+              }
+            },
+            {
+              "cycle": 12,
+              "action": "move_west",
+              "observation": {
+                "agent_location": 3,
+                "door_locked": true,
+                "message": "You are facing a locked mechanism requiring a calculated code."
+              }
+            },
+            {
+              "cycle": 13,
+              "action": "read_wall",
+              "observation": {
+                "agent_location": 2,
+                "door_locked": true,
+                "message": "You are in Room B. There is writing on the wall."
+              }
+            },
+            {
+              "cycle": 14,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 2,
+                "door_locked": true,
+                "message": "The wall writing says: 'The multiplier is 4'."
+              }
+            }
+          ]
+        },
+        {
+          "trial_id": 2,
+          "config": "B - World Model Only",
+          "goal_completed": false,
+          "replan_count": 0,
+          "traces": [
+            {
+              "cycle": 1,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "You are standing in the hallway at position 0."
+              }
+            },
+            {
+              "cycle": 2,
+              "action": "read_note",
+              "observation": {
+                "agent_location": 1,
+                "door_locked": true,
+                "message": "You are in Room A. There is a note on the desk."
+              }
+            },
+            {
+              "cycle": 3,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 1,
+                "door_locked": true,
+                "message": "The note reads: 'The base code is 12'."
+              }
+            },
+            {
+              "cycle": 4,
+              "action": "read_wall",
+              "observation": {
+                "agent_location": 2,
+                "door_locked": true,
+                "message": "You are in Room B. There is writing on the wall."
+              }
+            },
+            {
+              "cycle": 5,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 2,
+                "door_locked": true,
+                "message": "The wall writing says: 'The multiplier is 4'."
+              }
+            },
+            {
+              "cycle": 6,
+              "action": "move_west",
+              "observation": {
+                "agent_location": 3,
+                "door_locked": true,
+                "message": "You are facing a locked mechanism requiring a calculated code."
+              }
+            },
+            {
+              "cycle": 7,
+              "action": "read_wall",
+              "observation": {
+                "agent_location": 2,
+                "door_locked": true,
+                "message": "You are in Room B. There is writing on the wall."
+              }
+            },
+            {
+              "cycle": 8,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 2,
+                "door_locked": true,
+                "message": "The wall writing says: 'The multiplier is 4'."
+              }
+            },
+            {
+              "cycle": 9,
+              "action": "move_west",
+              "observation": {
+                "agent_location": 3,
+                "door_locked": true,
+                "message": "You are facing a locked mechanism requiring a calculated code."
+              }
+            },
+            {
+              "cycle": 10,
+              "action": "read_wall",
+              "observation": {
+                "agent_location": 2,
+                "door_locked": true,
+                "message": "You are in Room B. There is writing on the wall."
+              }
+            },
+            {
+              "cycle": 11,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 2,
+                "door_locked": true,
+                "message": "The wall writing says: 'The multiplier is 4'."
+              }
+            },
+            {
+              "cycle": 12,
+              "action": "move_west",
+              "observation": {
+                "agent_location": 3,
+                "door_locked": true,
+                "message": "You are facing a locked mechanism requiring a calculated code."
+              }
+            },
+            {
+              "cycle": 13,
+              "action": "read_wall",
+              "observation": {
+                "agent_location": 2,
+                "door_locked": true,
+                "message": "You are in Room B. There is writing on the wall."
+              }
+            },
+            {
+              "cycle": 14,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 2,
+                "door_locked": true,
+                "message": "The wall writing says: 'The multiplier is 4'."
+              }
+            }
+          ]
+        },
+        {
+          "trial_id": 3,
+          "config": "B - World Model Only",
+          "goal_completed": false,
+          "replan_count": 0,
+          "traces": [
+            {
+              "cycle": 1,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "You are standing in the hallway at position 0."
+              }
+            },
+            {
+              "cycle": 2,
+              "action": "read_note",
+              "observation": {
+                "agent_location": 1,
+                "door_locked": true,
+                "message": "You are in Room A. There is a note on the desk."
+              }
+            },
+            {
+              "cycle": 3,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 1,
+                "door_locked": true,
+                "message": "The note reads: 'The base code is 12'."
+              }
+            },
+            {
+              "cycle": 4,
+              "action": "read_wall",
+              "observation": {
+                "agent_location": 2,
+                "door_locked": true,
+                "message": "You are in Room B. There is writing on the wall."
+              }
+            },
+            {
+              "cycle": 5,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 2,
+                "door_locked": true,
+                "message": "The wall writing says: 'The multiplier is 4'."
+              }
+            },
+            {
+              "cycle": 6,
+              "action": "move_west",
+              "observation": {
+                "agent_location": 3,
+                "door_locked": true,
+                "message": "You are facing a locked mechanism requiring a calculated code."
+              }
+            },
+            {
+              "cycle": 7,
+              "action": "read_wall",
+              "observation": {
+                "agent_location": 2,
+                "door_locked": true,
+                "message": "You are in Room B. There is writing on the wall."
+              }
+            },
+            {
+              "cycle": 8,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 2,
+                "door_locked": true,
+                "message": "The wall writing says: 'The multiplier is 4'."
+              }
+            },
+            {
+              "cycle": 9,
+              "action": "move_west",
+              "observation": {
+                "agent_location": 3,
+                "door_locked": true,
+                "message": "You are facing a locked mechanism requiring a calculated code."
+              }
+            },
+            {
+              "cycle": 10,
+              "action": "read_wall",
+              "observation": {
+                "agent_location": 2,
+                "door_locked": true,
+                "message": "You are in Room B. There is writing on the wall."
+              }
+            },
+            {
+              "cycle": 11,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 2,
+                "door_locked": true,
+                "message": "The wall writing says: 'The multiplier is 4'."
+              }
+            },
+            {
+              "cycle": 12,
+              "action": "move_west",
+              "observation": {
+                "agent_location": 3,
+                "door_locked": true,
+                "message": "You are facing a locked mechanism requiring a calculated code."
+              }
+            },
+            {
+              "cycle": 13,
+              "action": "read_wall",
+              "observation": {
+                "agent_location": 2,
+                "door_locked": true,
+                "message": "You are in Room B. There is writing on the wall."
+              }
+            },
+            {
+              "cycle": 14,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 2,
+                "door_locked": true,
+                "message": "The wall writing says: 'The multiplier is 4'."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "C": {
+      "experiment": "C - Memory Only",
+      "success_rate": "0/3",
+      "trials": [
+        {
+          "trial_id": 1,
+          "config": "C - Memory Only",
+          "goal_completed": false,
+          "replan_count": 0,
+          "traces": [
+            {
+              "cycle": 1,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "You are standing in the hallway at position 0."
+              }
+            },
+            {
+              "cycle": 2,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 3,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 4,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 5,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 6,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 7,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 8,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 9,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 10,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 11,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 12,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 13,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 14,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            }
+          ]
+        },
+        {
+          "trial_id": 2,
+          "config": "C - Memory Only",
+          "goal_completed": false,
+          "replan_count": 0,
+          "traces": [
+            {
+              "cycle": 1,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "You are standing in the hallway at position 0."
+              }
+            },
+            {
+              "cycle": 2,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 3,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 4,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 5,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 6,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 7,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 8,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 9,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 10,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 11,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 12,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 13,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 14,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            }
+          ]
+        },
+        {
+          "trial_id": 3,
+          "config": "C - Memory Only",
+          "goal_completed": false,
+          "replan_count": 0,
+          "traces": [
+            {
+              "cycle": 1,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "You are standing in the hallway at position 0."
+              }
+            },
+            {
+              "cycle": 2,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 3,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 4,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 5,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 6,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 7,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 8,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 9,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 10,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 11,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 12,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 13,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 14,
+              "action": "move_forward",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "D": {
+      "experiment": "D - E.L.I.Z.A. Core",
+      "success_rate": "0/3",
+      "trials": [
+        {
+          "trial_id": 1,
+          "config": "D - E.L.I.Z.A. Core",
+          "goal_completed": false,
+          "replan_count": 0,
+          "traces": [
+            {
+              "cycle": 1,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "You are standing in the hallway at position 0."
+              }
+            },
+            {
+              "cycle": 2,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 1,
+                "door_locked": true,
+                "message": "You are in Room A. There is a note on the desk."
+              }
+            },
+            {
+              "cycle": 3,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 2,
+                "door_locked": true,
+                "message": "You are in Room B. There is writing on the wall."
+              }
+            },
+            {
+              "cycle": 4,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 3,
+                "door_locked": true,
+                "message": "You are facing a locked mechanism requiring a calculated code."
+              }
+            },
+            {
+              "cycle": 5,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 3,
+                "door_locked": true,
+                "message": "The locked mechanism prevents you from moving east."
+              }
+            },
+            {
+              "cycle": 6,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 3,
+                "door_locked": true,
+                "message": "The locked mechanism prevents you from moving east."
+              }
+            },
+            {
+              "cycle": 7,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 3,
+                "door_locked": true,
+                "message": "The locked mechanism prevents you from moving east."
+              }
+            },
+            {
+              "cycle": 8,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 3,
+                "door_locked": true,
+                "message": "The locked mechanism prevents you from moving east."
+              }
+            },
+            {
+              "cycle": 9,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 3,
+                "door_locked": true,
+                "message": "The locked mechanism prevents you from moving east."
+              }
+            },
+            {
+              "cycle": 10,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 3,
+                "door_locked": true,
+                "message": "The locked mechanism prevents you from moving east."
+              }
+            },
+            {
+              "cycle": 11,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 3,
+                "door_locked": true,
+                "message": "The locked mechanism prevents you from moving east."
+              }
+            },
+            {
+              "cycle": 12,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 3,
+                "door_locked": true,
+                "message": "The locked mechanism prevents you from moving east."
+              }
+            },
+            {
+              "cycle": 13,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 3,
+                "door_locked": true,
+                "message": "The locked mechanism prevents you from moving east."
+              }
+            },
+            {
+              "cycle": 14,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 3,
+                "door_locked": true,
+                "message": "The locked mechanism prevents you from moving east."
+              }
+            }
+          ]
+        },
+        {
+          "trial_id": 2,
+          "config": "D - E.L.I.Z.A. Core",
+          "goal_completed": false,
+          "replan_count": 0,
+          "traces": [
+            {
+              "cycle": 1,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "You are standing in the hallway at position 0."
+              }
+            },
+            {
+              "cycle": 2,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 1,
+                "door_locked": true,
+                "message": "You are in Room A. There is a note on the desk."
+              }
+            },
+            {
+              "cycle": 3,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 2,
+                "door_locked": true,
+                "message": "You are in Room B. There is writing on the wall."
+              }
+            },
+            {
+              "cycle": 4,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 3,
+                "door_locked": true,
+                "message": "You are facing a locked mechanism requiring a calculated code."
+              }
+            },
+            {
+              "cycle": 5,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 3,
+                "door_locked": true,
+                "message": "The locked mechanism prevents you from moving east."
+              }
+            },
+            {
+              "cycle": 6,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 3,
+                "door_locked": true,
+                "message": "The locked mechanism prevents you from moving east."
+              }
+            },
+            {
+              "cycle": 7,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 3,
+                "door_locked": true,
+                "message": "The locked mechanism prevents you from moving east."
+              }
+            },
+            {
+              "cycle": 8,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 3,
+                "door_locked": true,
+                "message": "The locked mechanism prevents you from moving east."
+              }
+            },
+            {
+              "cycle": 9,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 3,
+                "door_locked": true,
+                "message": "The locked mechanism prevents you from moving east."
+              }
+            },
+            {
+              "cycle": 10,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 3,
+                "door_locked": true,
+                "message": "The locked mechanism prevents you from moving east."
+              }
+            },
+            {
+              "cycle": 11,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 3,
+                "door_locked": true,
+                "message": "The locked mechanism prevents you from moving east."
+              }
+            },
+            {
+              "cycle": 12,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 3,
+                "door_locked": true,
+                "message": "The locked mechanism prevents you from moving east."
+              }
+            },
+            {
+              "cycle": 13,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 3,
+                "door_locked": true,
+                "message": "The locked mechanism prevents you from moving east."
+              }
+            },
+            {
+              "cycle": 14,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 3,
+                "door_locked": true,
+                "message": "The locked mechanism prevents you from moving east."
+              }
+            }
+          ]
+        },
+        {
+          "trial_id": 3,
+          "config": "D - E.L.I.Z.A. Core",
+          "goal_completed": false,
+          "replan_count": 0,
+          "traces": [
+            {
+              "cycle": 1,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 0,
+                "door_locked": true,
+                "message": "You are standing in the hallway at position 0."
+              }
+            },
+            {
+              "cycle": 2,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 1,
+                "door_locked": true,
+                "message": "You are in Room A. There is a note on the desk."
+              }
+            },
+            {
+              "cycle": 3,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 2,
+                "door_locked": true,
+                "message": "You are in Room B. There is writing on the wall."
+              }
+            },
+            {
+              "cycle": 4,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 3,
+                "door_locked": true,
+                "message": "You are facing a locked mechanism requiring a calculated code."
+              }
+            },
+            {
+              "cycle": 5,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 3,
+                "door_locked": true,
+                "message": "The locked mechanism prevents you from moving east."
+              }
+            },
+            {
+              "cycle": 6,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 3,
+                "door_locked": true,
+                "message": "The locked mechanism prevents you from moving east."
+              }
+            },
+            {
+              "cycle": 7,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 3,
+                "door_locked": true,
+                "message": "The locked mechanism prevents you from moving east."
+              }
+            },
+            {
+              "cycle": 8,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 3,
+                "door_locked": true,
+                "message": "The locked mechanism prevents you from moving east."
+              }
+            },
+            {
+              "cycle": 9,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 3,
+                "door_locked": true,
+                "message": "The locked mechanism prevents you from moving east."
+              }
+            },
+            {
+              "cycle": 10,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 3,
+                "door_locked": true,
+                "message": "The locked mechanism prevents you from moving east."
+              }
+            },
+            {
+              "cycle": 11,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 3,
+                "door_locked": true,
+                "message": "The locked mechanism prevents you from moving east."
+              }
+            },
+            {
+              "cycle": 12,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 3,
+                "door_locked": true,
+                "message": "The locked mechanism prevents you from moving east."
+              }
+            },
+            {
+              "cycle": 13,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 3,
+                "door_locked": true,
+                "message": "The locked mechanism prevents you from moving east."
+              }
+            },
+            {
+              "cycle": 14,
+              "action": "move_east",
+              "observation": {
+                "agent_location": 3,
+                "door_locked": true,
+                "message": "The locked mechanism prevents you from moving east."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "E": {
+      "experiment": "E - E.L.I.Z.A. + Planning",
+      "success_rate": "3/3",
+      "trials": [
+        {
+          "trial_id": 1,
+          "config": "E - E.L.I.Z.A. + Planning",
+          "goal_completed": true,
+          "plan_created": true,
+          "plan_validation_errors": 0,
+          "replan_count": 0,
+          "invalid_actions": 0,
+          "environment_errors": 0,
+          "tool_calls": 0,
+          "successful_tool_calls": 0,
+          "failed_tool_calls": 0,
+          "memory_retrievals": 0,
+          "traces": {
+            "plan_id": "plan-588f0a06",
+            "goal": "Navigate through the rooms, find the base code and multiplier, calculate the password, unlock the door, and reach the final destination.",
+            "assumptions": [
+              "Goal is reachable"
+            ],
+            "steps": [
+              {
+                "step_id": "step-1",
+                "description": "Move east to Room A",
+                "action": {
+                  "tool": "environment_action",
+                  "arguments": {
+                    "action": "move_east"
+                  }
+                },
+                "expected_result": "In Room A",
+                "dependencies": [],
+                "status": "COMPLETED",
+                "actual_result": {
+                  "observation": {
+                    "agent_location": 1,
+                    "door_locked": true,
+                    "message": "You are in Room A. There is a note on the desk."
+                  }
+                }
+              },
+              {
+                "step_id": "step-2",
+                "description": "Read note",
+                "action": {
+                  "tool": "environment_action",
+                  "arguments": {
+                    "action": "read_note"
+                  }
+                },
+                "expected_result": "Got base code",
+                "dependencies": [
+                  "step-1"
+                ],
+                "status": "COMPLETED",
+                "actual_result": {
+                  "observation": {
+                    "agent_location": 1,
+                    "door_locked": true,
+                    "message": "The note reads: 'The base code is 12'."
+                  }
+                }
+              },
+              {
+                "step_id": "step-3",
+                "description": "Move east to Room B",
+                "action": {
+                  "tool": "environment_action",
+                  "arguments": {
+                    "action": "move_east"
+                  }
+                },
+                "expected_result": "In Room B",
+                "dependencies": [
+                  "step-2"
+                ],
+                "status": "COMPLETED",
+                "actual_result": {
+                  "observation": {
+                    "agent_location": 2,
+                    "door_locked": true,
+                    "message": "You are in Room B. There is writing on the wall."
+                  }
+                }
+              },
+              {
+                "step_id": "step-4",
+                "description": "Read wall",
+                "action": {
+                  "tool": "environment_action",
+                  "arguments": {
+                    "action": "read_wall"
+                  }
+                },
+                "expected_result": "Got multiplier",
+                "dependencies": [
+                  "step-3"
+                ],
+                "status": "COMPLETED",
+                "actual_result": {
+                  "observation": {
+                    "agent_location": 2,
+                    "door_locked": true,
+                    "message": "The wall writing says: 'The multiplier is 4'."
+                  }
+                }
+              },
+              {
+                "step_id": "step-5",
+                "description": "Calculate code",
+                "action": {
+                  "tool": "calculator",
+                  "arguments": {
+                    "expression": "12 * 4"
+                  }
+                },
+                "expected_result": "48",
+                "dependencies": [
+                  "step-4"
+                ],
+                "status": "COMPLETED",
+                "actual_result": {
+                  "result": 48
+                }
+              },
+              {
+                "step_id": "step-6",
+                "description": "Move east to Door",
+                "action": {
+                  "tool": "environment_action",
+                  "arguments": {
+                    "action": "move_east"
+                  }
+                },
+                "expected_result": "At door",
+                "dependencies": [
+                  "step-5"
+                ],
+                "status": "COMPLETED",
+                "actual_result": {
+                  "observation": {
+                    "agent_location": 3,
+                    "door_locked": true,
+                    "message": "You are facing a locked mechanism requiring a calculated code."
+                  }
+                }
+              },
+              {
+                "step_id": "step-7",
+                "description": "Unlock Door",
+                "action": {
+                  "tool": "environment_action",
+                  "arguments": {
+                    "action": "unlock_door_48"
+                  }
+                },
+                "expected_result": "Door unlocked",
+                "dependencies": [
+                  "step-6"
+                ],
+                "status": "COMPLETED",
+                "actual_result": {
+                  "observation": {
+                    "agent_location": 3,
+                    "door_locked": false,
+                    "message": "Correct code. The mechanism unlocks."
+                  }
+                }
+              },
+              {
+                "step_id": "step-8",
+                "description": "Move east to Goal",
+                "action": {
+                  "tool": "environment_action",
+                  "arguments": {
+                    "action": "move_east"
+                  }
+                },
+                "expected_result": "At goal",
+                "dependencies": [
+                  "step-7"
+                ],
+                "status": "COMPLETED",
+                "actual_result": {
+                  "observation": {
+                    "agent_location": 4,
+                    "door_locked": false,
+                    "message": "You have reached the final destination."
+                  }
+                }
+              }
+            ],
+            "current_step": 8,
+            "status": "COMPLETED",
+            "observations": [
+              {
+                "observation": {
+                  "agent_location": 1,
+                  "door_locked": true,
+                  "message": "You are in Room A. There is a note on the desk."
+                }
+              },
+              {
+                "observation": {
+                  "agent_location": 1,
+                  "door_locked": true,
+                  "message": "The note reads: 'The base code is 12'."
+                }
+              },
+              {
+                "observation": {
+                  "agent_location": 2,
+                  "door_locked": true,
+                  "message": "You are in Room B. There is writing on the wall."
+                }
+              },
+              {
+                "observation": {
+                  "agent_location": 2,
+                  "door_locked": true,
+                  "message": "The wall writing says: 'The multiplier is 4'."
+                }
+              },
+              {
+                "result": 48
+              },
+              {
+                "observation": {
+                  "agent_location": 3,
+                  "door_locked": true,
+                  "message": "You are facing a locked mechanism requiring a calculated code."
+                }
+              },
+              {
+                "observation": {
+                  "agent_location": 3,
+                  "door_locked": false,
+                  "message": "Correct code. The mechanism unlocks."
+                }
+              },
+              {
+                "observation": {
+                  "agent_location": 4,
+                  "door_locked": false,
+                  "message": "You have reached the final destination."
+                }
+              }
+            ],
+            "replanning_history": [],
+            "completion_reason": "All steps executed."
+          },
+          "leakage_detected": false,
+          "critical_information_source": "UNKNOWN"
+        },
+        {
+          "trial_id": 2,
+          "config": "E - E.L.I.Z.A. + Planning",
+          "goal_completed": true,
+          "plan_created": true,
+          "plan_validation_errors": 0,
+          "replan_count": 0,
+          "invalid_actions": 0,
+          "environment_errors": 0,
+          "tool_calls": 0,
+          "successful_tool_calls": 0,
+          "failed_tool_calls": 0,
+          "memory_retrievals": 0,
+          "traces": {
+            "plan_id": "plan-8452e8ce",
+            "goal": "Navigate through the rooms, find the base code and multiplier, calculate the password, unlock the door, and reach the final destination.",
+            "assumptions": [
+              "Goal is reachable"
+            ],
+            "steps": [
+              {
+                "step_id": "step-1",
+                "description": "Move east to Room A",
+                "action": {
+                  "tool": "environment_action",
+                  "arguments": {
+                    "action": "move_east"
+                  }
+                },
+                "expected_result": "In Room A",
+                "dependencies": [],
+                "status": "COMPLETED",
+                "actual_result": {
+                  "observation": {
+                    "agent_location": 1,
+                    "door_locked": true,
+                    "message": "You are in Room A. There is a note on the desk."
+                  }
+                }
+              },
+              {
+                "step_id": "step-2",
+                "description": "Read note",
+                "action": {
+                  "tool": "environment_action",
+                  "arguments": {
+                    "action": "read_note"
+                  }
+                },
+                "expected_result": "Got base code",
+                "dependencies": [
+                  "step-1"
+                ],
+                "status": "COMPLETED",
+                "actual_result": {
+                  "observation": {
+                    "agent_location": 1,
+                    "door_locked": true,
+                    "message": "The note reads: 'The base code is 12'."
+                  }
+                }
+              },
+              {
+                "step_id": "step-3",
+                "description": "Move east to Room B",
+                "action": {
+                  "tool": "environment_action",
+                  "arguments": {
+                    "action": "move_east"
+                  }
+                },
+                "expected_result": "In Room B",
+                "dependencies": [
+                  "step-2"
+                ],
+                "status": "COMPLETED",
+                "actual_result": {
+                  "observation": {
+                    "agent_location": 2,
+                    "door_locked": true,
+                    "message": "You are in Room B. There is writing on the wall."
+                  }
+                }
+              },
+              {
+                "step_id": "step-4",
+                "description": "Read wall",
+                "action": {
+                  "tool": "environment_action",
+                  "arguments": {
+                    "action": "read_wall"
+                  }
+                },
+                "expected_result": "Got multiplier",
+                "dependencies": [
+                  "step-3"
+                ],
+                "status": "COMPLETED",
+                "actual_result": {
+                  "observation": {
+                    "agent_location": 2,
+                    "door_locked": true,
+                    "message": "The wall writing says: 'The multiplier is 4'."
+                  }
+                }
+              },
+              {
+                "step_id": "step-5",
+                "description": "Calculate code",
+                "action": {
+                  "tool": "calculator",
+                  "arguments": {
+                    "expression": "12 * 4"
+                  }
+                },
+                "expected_result": "48",
+                "dependencies": [
+                  "step-4"
+                ],
+                "status": "COMPLETED",
+                "actual_result": {
+                  "result": 48
+                }
+              },
+              {
+                "step_id": "step-6",
+                "description": "Move east to Door",
+                "action": {
+                  "tool": "environment_action",
+                  "arguments": {
+                    "action": "move_east"
+                  }
+                },
+                "expected_result": "At door",
+                "dependencies": [
+                  "step-5"
+                ],
+                "status": "COMPLETED",
+                "actual_result": {
+                  "observation": {
+                    "agent_location": 3,
+                    "door_locked": true,
+                    "message": "You are facing a locked mechanism requiring a calculated code."
+                  }
+                }
+              },
+              {
+                "step_id": "step-7",
+                "description": "Unlock Door",
+                "action": {
+                  "tool": "environment_action",
+                  "arguments": {
+                    "action": "unlock_door_48"
+                  }
+                },
+                "expected_result": "Door unlocked",
+                "dependencies": [
+                  "step-6"
+                ],
+                "status": "COMPLETED",
+                "actual_result": {
+                  "observation": {
+                    "agent_location": 3,
+                    "door_locked": false,
+                    "message": "Correct code. The mechanism unlocks."
+                  }
+                }
+              },
+              {
+                "step_id": "step-8",
+                "description": "Move east to Goal",
+                "action": {
+                  "tool": "environment_action",
+                  "arguments": {
+                    "action": "move_east"
+                  }
+                },
+                "expected_result": "At goal",
+                "dependencies": [
+                  "step-7"
+                ],
+                "status": "COMPLETED",
+                "actual_result": {
+                  "observation": {
+                    "agent_location": 4,
+                    "door_locked": false,
+                    "message": "You have reached the final destination."
+                  }
+                }
+              }
+            ],
+            "current_step": 8,
+            "status": "COMPLETED",
+            "observations": [
+              {
+                "observation": {
+                  "agent_location": 1,
+                  "door_locked": true,
+                  "message": "You are in Room A. There is a note on the desk."
+                }
+              },
+              {
+                "observation": {
+                  "agent_location": 1,
+                  "door_locked": true,
+                  "message": "The note reads: 'The base code is 12'."
+                }
+              },
+              {
+                "observation": {
+                  "agent_location": 2,
+                  "door_locked": true,
+                  "message": "You are in Room B. There is writing on the wall."
+                }
+              },
+              {
+                "observation": {
+                  "agent_location": 2,
+                  "door_locked": true,
+                  "message": "The wall writing says: 'The multiplier is 4'."
+                }
+              },
+              {
+                "result": 48
+              },
+              {
+                "observation": {
+                  "agent_location": 3,
+                  "door_locked": true,
+                  "message": "You are facing a locked mechanism requiring a calculated code."
+                }
+              },
+              {
+                "observation": {
+                  "agent_location": 3,
+                  "door_locked": false,
+                  "message": "Correct code. The mechanism unlocks."
+                }
+              },
+              {
+                "observation": {
+                  "agent_location": 4,
+                  "door_locked": false,
+                  "message": "You have reached the final destination."
+                }
+              }
+            ],
+            "replanning_history": [],
+            "completion_reason": "All steps executed."
+          },
+          "leakage_detected": false,
+          "critical_information_source": "UNKNOWN"
+        },
+        {
+          "trial_id": 3,
+          "config": "E - E.L.I.Z.A. + Planning",
+          "goal_completed": true,
+          "plan_created": true,
+          "plan_validation_errors": 0,
+          "replan_count": 0,
+          "invalid_actions": 0,
+          "environment_errors": 0,
+          "tool_calls": 0,
+          "successful_tool_calls": 0,
+          "failed_tool_calls": 0,
+          "memory_retrievals": 0,
+          "traces": {
+            "plan_id": "plan-fa472c77",
+            "goal": "Navigate through the rooms, find the base code and multiplier, calculate the password, unlock the door, and reach the final destination.",
+            "assumptions": [
+              "Goal is reachable"
+            ],
+            "steps": [
+              {
+                "step_id": "step-1",
+                "description": "Move east to Room A",
+                "action": {
+                  "tool": "environment_action",
+                  "arguments": {
+                    "action": "move_east"
+                  }
+                },
+                "expected_result": "In Room A",
+                "dependencies": [],
+                "status": "COMPLETED",
+                "actual_result": {
+                  "observation": {
+                    "agent_location": 1,
+                    "door_locked": true,
+                    "message": "You are in Room A. There is a note on the desk."
+                  }
+                }
+              },
+              {
+                "step_id": "step-2",
+                "description": "Read note",
+                "action": {
+                  "tool": "environment_action",
+                  "arguments": {
+                    "action": "read_note"
+                  }
+                },
+                "expected_result": "Got base code",
+                "dependencies": [
+                  "step-1"
+                ],
+                "status": "COMPLETED",
+                "actual_result": {
+                  "observation": {
+                    "agent_location": 1,
+                    "door_locked": true,
+                    "message": "The note reads: 'The base code is 12'."
+                  }
+                }
+              },
+              {
+                "step_id": "step-3",
+                "description": "Move east to Room B",
+                "action": {
+                  "tool": "environment_action",
+                  "arguments": {
+                    "action": "move_east"
+                  }
+                },
+                "expected_result": "In Room B",
+                "dependencies": [
+                  "step-2"
+                ],
+                "status": "COMPLETED",
+                "actual_result": {
+                  "observation": {
+                    "agent_location": 2,
+                    "door_locked": true,
+                    "message": "You are in Room B. There is writing on the wall."
+                  }
+                }
+              },
+              {
+                "step_id": "step-4",
+                "description": "Read wall",
+                "action": {
+                  "tool": "environment_action",
+                  "arguments": {
+                    "action": "read_wall"
+                  }
+                },
+                "expected_result": "Got multiplier",
+                "dependencies": [
+                  "step-3"
+                ],
+                "status": "COMPLETED",
+                "actual_result": {
+                  "observation": {
+                    "agent_location": 2,
+                    "door_locked": true,
+                    "message": "The wall writing says: 'The multiplier is 4'."
+                  }
+                }
+              },
+              {
+                "step_id": "step-5",
+                "description": "Calculate code",
+                "action": {
+                  "tool": "calculator",
+                  "arguments": {
+                    "expression": "12 * 4"
+                  }
+                },
+                "expected_result": "48",
+                "dependencies": [
+                  "step-4"
+                ],
+                "status": "COMPLETED",
+                "actual_result": {
+                  "result": 48
+                }
+              },
+              {
+                "step_id": "step-6",
+                "description": "Move east to Door",
+                "action": {
+                  "tool": "environment_action",
+                  "arguments": {
+                    "action": "move_east"
+                  }
+                },
+                "expected_result": "At door",
+                "dependencies": [
+                  "step-5"
+                ],
+                "status": "COMPLETED",
+                "actual_result": {
+                  "observation": {
+                    "agent_location": 3,
+                    "door_locked": true,
+                    "message": "You are facing a locked mechanism requiring a calculated code."
+                  }
+                }
+              },
+              {
+                "step_id": "step-7",
+                "description": "Unlock Door",
+                "action": {
+                  "tool": "environment_action",
+                  "arguments": {
+                    "action": "unlock_door_48"
+                  }
+                },
+                "expected_result": "Door unlocked",
+                "dependencies": [
+                  "step-6"
+                ],
+                "status": "COMPLETED",
+                "actual_result": {
+                  "observation": {
+                    "agent_location": 3,
+                    "door_locked": false,
+                    "message": "Correct code. The mechanism unlocks."
+                  }
+                }
+              },
+              {
+                "step_id": "step-8",
+                "description": "Move east to Goal",
+                "action": {
+                  "tool": "environment_action",
+                  "arguments": {
+                    "action": "move_east"
+                  }
+                },
+                "expected_result": "At goal",
+                "dependencies": [
+                  "step-7"
+                ],
+                "status": "COMPLETED",
+                "actual_result": {
+                  "observation": {
+                    "agent_location": 4,
+                    "door_locked": false,
+                    "message": "You have reached the final destination."
+                  }
+                }
+              }
+            ],
+            "current_step": 8,
+            "status": "COMPLETED",
+            "observations": [
+              {
+                "observation": {
+                  "agent_location": 1,
+                  "door_locked": true,
+                  "message": "You are in Room A. There is a note on the desk."
+                }
+              },
+              {
+                "observation": {
+                  "agent_location": 1,
+                  "door_locked": true,
+                  "message": "The note reads: 'The base code is 12'."
+                }
+              },
+              {
+                "observation": {
+                  "agent_location": 2,
+                  "door_locked": true,
+                  "message": "You are in Room B. There is writing on the wall."
+                }
+              },
+              {
+                "observation": {
+                  "agent_location": 2,
+                  "door_locked": true,
+                  "message": "The wall writing says: 'The multiplier is 4'."
+                }
+              },
+              {
+                "result": 48
+              },
+              {
+                "observation": {
+                  "agent_location": 3,
+                  "door_locked": true,
+                  "message": "You are facing a locked mechanism requiring a calculated code."
+                }
+              },
+              {
+                "observation": {
+                  "agent_location": 3,
+                  "door_locked": false,
+                  "message": "Correct code. The mechanism unlocks."
+                }
+              },
+              {
+                "observation": {
+                  "agent_location": 4,
+                  "door_locked": false,
+                  "message": "You have reached the final destination."
+                }
+              }
+            ],
+            "replanning_history": [],
+            "completion_reason": "All steps executed."
+          },
+          "leakage_detected": false,
+          "critical_information_source": "UNKNOWN"
+        }
+      ]
+    },
+    "F": {
+      "experiment": "F - Full v0.5",
+      "success_rate": "3/3",
+      "trials": [
+        {
+          "trial_id": 1,
+          "config": "F - Full v0.5",
+          "goal_completed": true,
+          "plan_created": true,
+          "plan_validation_errors": 0,
+          "replan_count": 0,
+          "invalid_actions": 0,
+          "environment_errors": 0,
+          "tool_calls": 0,
+          "successful_tool_calls": 0,
+          "failed_tool_calls": 0,
+          "memory_retrievals": 0,
+          "traces": {
+            "plan_id": "plan-8d9ec3ec",
+            "goal": "Navigate through the rooms, find the base code and multiplier, calculate the password, unlock the door, and reach the final destination.",
+            "assumptions": [
+              "Goal is reachable"
+            ],
+            "steps": [
+              {
+                "step_id": "step-1",
+                "description": "Move east to Room A",
+                "action": {
+                  "tool": "environment_action",
+                  "arguments": {
+                    "action": "move_east"
+                  }
+                },
+                "expected_result": "In Room A",
+                "dependencies": [],
+                "status": "COMPLETED",
+                "actual_result": {
+                  "observation": {
+                    "agent_location": 1,
+                    "door_locked": true,
+                    "message": "You are in Room A. There is a note on the desk."
+                  }
+                }
+              },
+              {
+                "step_id": "step-2",
+                "description": "Read note",
+                "action": {
+                  "tool": "environment_action",
+                  "arguments": {
+                    "action": "read_note"
+                  }
+                },
+                "expected_result": "Got base code",
+                "dependencies": [
+                  "step-1"
+                ],
+                "status": "COMPLETED",
+                "actual_result": {
+                  "observation": {
+                    "agent_location": 1,
+                    "door_locked": true,
+                    "message": "The note reads: 'The base code is 12'."
+                  }
+                }
+              },
+              {
+                "step_id": "step-3",
+                "description": "Move east to Room B",
+                "action": {
+                  "tool": "environment_action",
+                  "arguments": {
+                    "action": "move_east"
+                  }
+                },
+                "expected_result": "In Room B",
+                "dependencies": [
+                  "step-2"
+                ],
+                "status": "COMPLETED",
+                "actual_result": {
+                  "observation": {
+                    "agent_location": 2,
+                    "door_locked": true,
+                    "message": "You are in Room B. There is writing on the wall."
+                  }
+                }
+              },
+              {
+                "step_id": "step-4",
+                "description": "Read wall",
+                "action": {
+                  "tool": "environment_action",
+                  "arguments": {
+                    "action": "read_wall"
+                  }
+                },
+                "expected_result": "Got multiplier",
+                "dependencies": [
+                  "step-3"
+                ],
+                "status": "COMPLETED",
+                "actual_result": {
+                  "observation": {
+                    "agent_location": 2,
+                    "door_locked": true,
+                    "message": "The wall writing says: 'The multiplier is 4'."
+                  }
+                }
+              },
+              {
+                "step_id": "step-5",
+                "description": "Calculate code",
+                "action": {
+                  "tool": "calculator",
+                  "arguments": {
+                    "expression": "12 * 4"
+                  }
+                },
+                "expected_result": "48",
+                "dependencies": [
+                  "step-4"
+                ],
+                "status": "COMPLETED",
+                "actual_result": {
+                  "result": 48
+                }
+              },
+              {
+                "step_id": "step-6",
+                "description": "Move east to Door",
+                "action": {
+                  "tool": "environment_action",
+                  "arguments": {
+                    "action": "move_east"
+                  }
+                },
+                "expected_result": "At door",
+                "dependencies": [
+                  "step-5"
+                ],
+                "status": "COMPLETED",
+                "actual_result": {
+                  "observation": {
+                    "agent_location": 3,
+                    "door_locked": true,
+                    "message": "You are facing a locked mechanism requiring a calculated code."
+                  }
+                }
+              },
+              {
+                "step_id": "step-7",
+                "description": "Unlock Door",
+                "action": {
+                  "tool": "environment_action",
+                  "arguments": {
+                    "action": "unlock_door_48"
+                  }
+                },
+                "expected_result": "Door unlocked",
+                "dependencies": [
+                  "step-6"
+                ],
+                "status": "COMPLETED",
+                "actual_result": {
+                  "observation": {
+                    "agent_location": 3,
+                    "door_locked": false,
+                    "message": "Correct code. The mechanism unlocks."
+                  }
+                }
+              },
+              {
+                "step_id": "step-8",
+                "description": "Move east to Goal",
+                "action": {
+                  "tool": "environment_action",
+                  "arguments": {
+                    "action": "move_east"
+                  }
+                },
+                "expected_result": "At goal",
+                "dependencies": [
+                  "step-7"
+                ],
+                "status": "COMPLETED",
+                "actual_result": {
+                  "observation": {
+                    "agent_location": 4,
+                    "door_locked": false,
+                    "message": "You have reached the final destination."
+                  }
+                }
+              }
+            ],
+            "current_step": 8,
+            "status": "COMPLETED",
+            "observations": [
+              {
+                "observation": {
+                  "agent_location": 1,
+                  "door_locked": true,
+                  "message": "You are in Room A. There is a note on the desk."
+                }
+              },
+              {
+                "observation": {
+                  "agent_location": 1,
+                  "door_locked": true,
+                  "message": "The note reads: 'The base code is 12'."
+                }
+              },
+              {
+                "observation": {
+                  "agent_location": 2,
+                  "door_locked": true,
+                  "message": "You are in Room B. There is writing on the wall."
+                }
+              },
+              {
+                "observation": {
+                  "agent_location": 2,
+                  "door_locked": true,
+                  "message": "The wall writing says: 'The multiplier is 4'."
+                }
+              },
+              {
+                "result": 48
+              },
+              {
+                "observation": {
+                  "agent_location": 3,
+                  "door_locked": true,
+                  "message": "You are facing a locked mechanism requiring a calculated code."
+                }
+              },
+              {
+                "observation": {
+                  "agent_location": 3,
+                  "door_locked": false,
+                  "message": "Correct code. The mechanism unlocks."
+                }
+              },
+              {
+                "observation": {
+                  "agent_location": 4,
+                  "door_locked": false,
+                  "message": "You have reached the final destination."
+                }
+              }
+            ],
+            "replanning_history": [],
+            "completion_reason": "All steps executed."
+          },
+          "leakage_detected": false,
+          "critical_information_source": "UNKNOWN"
+        },
+        {
+          "trial_id": 2,
+          "config": "F - Full v0.5",
+          "goal_completed": true,
+          "plan_created": true,
+          "plan_validation_errors": 0,
+          "replan_count": 1,
+          "invalid_actions": 0,
+          "environment_errors": 0,
+          "tool_calls": 0,
+          "successful_tool_calls": 0,
+          "failed_tool_calls": 0,
+          "memory_retrievals": 0,
+          "traces": {
+            "plan_id": "plan-f15227fc",
+            "goal": "Navigate through the rooms, find the base code and multiplier, calculate the password, unlock the door, and reach the final destination.\n\nNote: The previous plan failed. Failure observation: {'observation': {'agent_location': 3, 'door_locked': True, 'message': 'Incorrect code.'}}",
+            "assumptions": [
+              "Multiplier changed"
+            ],
+            "steps": [
+              {
+                "step_id": "step-1",
+                "description": "Calculate new code",
+                "action": {
+                  "tool": "calculator",
+                  "arguments": {
+                    "expression": "12 * 5"
+                  }
+                },
+                "expected_result": "60",
+                "dependencies": [],
+                "status": "COMPLETED",
+                "actual_result": {
+                  "result": 60
+                }
+              },
+              {
+                "step_id": "step-2",
+                "description": "Unlock Door",
+                "action": {
+                  "tool": "environment_action",
+                  "arguments": {
+                    "action": "unlock_door_60"
+                  }
+                },
+                "expected_result": "Door unlocked",
+                "dependencies": [
+                  "step-1"
+                ],
+                "status": "COMPLETED",
+                "actual_result": {
+                  "observation": {
+                    "agent_location": 3,
+                    "door_locked": false,
+                    "message": "Correct code. The mechanism unlocks."
+                  }
+                }
+              },
+              {
+                "step_id": "step-3",
+                "description": "Move east to Goal",
+                "action": {
+                  "tool": "environment_action",
+                  "arguments": {
+                    "action": "move_east"
+                  }
+                },
+                "expected_result": "At goal",
+                "dependencies": [
+                  "step-2"
+                ],
+                "status": "COMPLETED",
+                "actual_result": {
+                  "observation": {
+                    "agent_location": 4,
+                    "door_locked": false,
+                    "message": "You have reached the final destination."
+                  }
+                }
+              }
+            ],
+            "current_step": 3,
+            "status": "COMPLETED",
+            "observations": [
+              {
+                "result": 60
+              },
+              {
+                "observation": {
+                  "agent_location": 3,
+                  "door_locked": false,
+                  "message": "Correct code. The mechanism unlocks."
+                }
+              },
+              {
+                "observation": {
+                  "agent_location": 4,
+                  "door_locked": false,
+                  "message": "You have reached the final destination."
+                }
+              }
+            ],
+            "replanning_history": [
+              {
+                "plan_id": "plan-fc557ac5",
+                "goal": "Navigate through the rooms, find the base code and multiplier, calculate the password, unlock the door, and reach the final destination.",
+                "assumptions": [
+                  "Goal is reachable"
+                ],
+                "steps": [
+                  {
+                    "step_id": "step-1",
+                    "description": "Move east to Room A",
+                    "action": {
+                      "tool": "environment_action",
+                      "arguments": {
+                        "action": "move_east"
+                      }
+                    },
+                    "expected_result": "In Room A",
+                    "dependencies": [],
+                    "status": "COMPLETED",
+                    "actual_result": {
+                      "observation": {
+                        "agent_location": 1,
+                        "door_locked": true,
+                        "message": "You are in Room A. There is a note on the desk."
+                      }
+                    }
+                  },
+                  {
+                    "step_id": "step-2",
+                    "description": "Read note",
+                    "action": {
+                      "tool": "environment_action",
+                      "arguments": {
+                        "action": "read_note"
+                      }
+                    },
+                    "expected_result": "Got base code",
+                    "dependencies": [
+                      "step-1"
+                    ],
+                    "status": "COMPLETED",
+                    "actual_result": {
+                      "observation": {
+                        "agent_location": 1,
+                        "door_locked": true,
+                        "message": "The note reads: 'The base code is 12'."
+                      }
+                    }
+                  },
+                  {
+                    "step_id": "step-3",
+                    "description": "Move east to Room B",
+                    "action": {
+                      "tool": "environment_action",
+                      "arguments": {
+                        "action": "move_east"
+                      }
+                    },
+                    "expected_result": "In Room B",
+                    "dependencies": [
+                      "step-2"
+                    ],
+                    "status": "COMPLETED",
+                    "actual_result": {
+                      "observation": {
+                        "agent_location": 2,
+                        "door_locked": true,
+                        "message": "You are in Room B. There is writing on the wall. You notice the writing has been recently altered."
+                      }
+                    }
+                  },
+                  {
+                    "step_id": "step-4",
+                    "description": "Read wall",
+                    "action": {
+                      "tool": "environment_action",
+                      "arguments": {
+                        "action": "read_wall"
+                      }
+                    },
+                    "expected_result": "Got multiplier",
+                    "dependencies": [
+                      "step-3"
+                    ],
+                    "status": "COMPLETED",
+                    "actual_result": {
+                      "observation": {
+                        "agent_location": 2,
+                        "door_locked": true,
+                        "message": "The wall writing says: 'The multiplier is 5'."
+                      }
+                    }
+                  },
+                  {
+                    "step_id": "step-5",
+                    "description": "Calculate code",
+                    "action": {
+                      "tool": "calculator",
+                      "arguments": {
+                        "expression": "12 * 4"
+                      }
+                    },
+                    "expected_result": "48",
+                    "dependencies": [
+                      "step-4"
+                    ],
+                    "status": "COMPLETED",
+                    "actual_result": {
+                      "result": 48
+                    }
+                  },
+                  {
+                    "step_id": "step-6",
+                    "description": "Move east to Door",
+                    "action": {
+                      "tool": "environment_action",
+                      "arguments": {
+                        "action": "move_east"
+                      }
+                    },
+                    "expected_result": "At door",
+                    "dependencies": [
+                      "step-5"
+                    ],
+                    "status": "COMPLETED",
+                    "actual_result": {
+                      "observation": {
+                        "agent_location": 3,
+                        "door_locked": true,
+                        "message": "You are facing a locked mechanism requiring a calculated code."
+                      }
+                    }
+                  },
+                  {
+                    "step_id": "step-7",
+                    "description": "Unlock Door",
+                    "action": {
+                      "tool": "environment_action",
+                      "arguments": {
+                        "action": "unlock_door_48"
+                      }
+                    },
+                    "expected_result": "Door unlocked",
+                    "dependencies": [
+                      "step-6"
+                    ],
+                    "status": "FAILED",
+                    "actual_result": {
+                      "observation": {
+                        "agent_location": 3,
+                        "door_locked": true,
+                        "message": "Incorrect code."
+                      }
+                    }
+                  },
+                  {
+                    "step_id": "step-8",
+                    "description": "Move east to Goal",
+                    "action": {
+                      "tool": "environment_action",
+                      "arguments": {
+                        "action": "move_east"
+                      }
+                    },
+                    "expected_result": "At goal",
+                    "dependencies": [
+                      "step-7"
+                    ],
+                    "status": "PENDING",
+                    "actual_result": null
+                  }
+                ],
+                "current_step": 6,
+                "status": "REPLANNING",
+                "observations": [
+                  {
+                    "observation": {
+                      "agent_location": 1,
+                      "door_locked": true,
+                      "message": "You are in Room A. There is a note on the desk."
+                    }
+                  },
+                  {
+                    "observation": {
+                      "agent_location": 1,
+                      "door_locked": true,
+                      "message": "The note reads: 'The base code is 12'."
+                    }
+                  },
+                  {
+                    "observation": {
+                      "agent_location": 2,
+                      "door_locked": true,
+                      "message": "You are in Room B. There is writing on the wall. You notice the writing has been recently altered."
+                    }
+                  },
+                  {
+                    "observation": {
+                      "agent_location": 2,
+                      "door_locked": true,
+                      "message": "The wall writing says: 'The multiplier is 5'."
+                    }
+                  },
+                  {
+                    "result": 48
+                  },
+                  {
+                    "observation": {
+                      "agent_location": 3,
+                      "door_locked": true,
+                      "message": "You are facing a locked mechanism requiring a calculated code."
+                    }
+                  },
+                  {
+                    "observation": {
+                      "agent_location": 3,
+                      "door_locked": true,
+                      "message": "Incorrect code."
+                    }
+                  }
+                ],
+                "replanning_history": [],
+                "completion_reason": "Environmental failure: Incorrect code."
+              }
+            ],
+            "completion_reason": "All steps executed."
+          },
+          "leakage_detected": false,
+          "critical_information_source": "UNKNOWN"
+        },
+        {
+          "trial_id": 3,
+          "config": "F - Full v0.5",
+          "goal_completed": true,
+          "plan_created": true,
+          "plan_validation_errors": 0,
+          "replan_count": 0,
+          "invalid_actions": 0,
+          "environment_errors": 0,
+          "tool_calls": 0,
+          "successful_tool_calls": 0,
+          "failed_tool_calls": 0,
+          "memory_retrievals": 0,
+          "traces": {
+            "plan_id": "plan-cb843f62",
+            "goal": "Navigate through the rooms, find the base code and multiplier, calculate the password, unlock the door, and reach the final destination.",
+            "assumptions": [
+              "Goal is reachable"
+            ],
+            "steps": [
+              {
+                "step_id": "step-1",
+                "description": "Move east to Room A",
+                "action": {
+                  "tool": "environment_action",
+                  "arguments": {
+                    "action": "move_east"
+                  }
+                },
+                "expected_result": "In Room A",
+                "dependencies": [],
+                "status": "COMPLETED",
+                "actual_result": {
+                  "observation": {
+                    "agent_location": 1,
+                    "door_locked": true,
+                    "message": "You are in Room A. There is a note on the desk."
+                  }
+                }
+              },
+              {
+                "step_id": "step-2",
+                "description": "Read note",
+                "action": {
+                  "tool": "environment_action",
+                  "arguments": {
+                    "action": "read_note"
+                  }
+                },
+                "expected_result": "Got base code",
+                "dependencies": [
+                  "step-1"
+                ],
+                "status": "COMPLETED",
+                "actual_result": {
+                  "observation": {
+                    "agent_location": 1,
+                    "door_locked": true,
+                    "message": "The note reads: 'The base code is 12'."
+                  }
+                }
+              },
+              {
+                "step_id": "step-3",
+                "description": "Move east to Room B",
+                "action": {
+                  "tool": "environment_action",
+                  "arguments": {
+                    "action": "move_east"
+                  }
+                },
+                "expected_result": "In Room B",
+                "dependencies": [
+                  "step-2"
+                ],
+                "status": "COMPLETED",
+                "actual_result": {
+                  "observation": {
+                    "agent_location": 2,
+                    "door_locked": true,
+                    "message": "You are in Room B. There is writing on the wall."
+                  }
+                }
+              },
+              {
+                "step_id": "step-4",
+                "description": "Read wall",
+                "action": {
+                  "tool": "environment_action",
+                  "arguments": {
+                    "action": "read_wall"
+                  }
+                },
+                "expected_result": "Got multiplier",
+                "dependencies": [
+                  "step-3"
+                ],
+                "status": "COMPLETED",
+                "actual_result": {
+                  "observation": {
+                    "agent_location": 2,
+                    "door_locked": true,
+                    "message": "The wall writing says: 'The multiplier is 4'."
+                  }
+                }
+              },
+              {
+                "step_id": "step-5",
+                "description": "Calculate code",
+                "action": {
+                  "tool": "calculator",
+                  "arguments": {
+                    "expression": "12 * 4"
+                  }
+                },
+                "expected_result": "48",
+                "dependencies": [
+                  "step-4"
+                ],
+                "status": "COMPLETED",
+                "actual_result": {
+                  "result": 48
+                }
+              },
+              {
+                "step_id": "step-6",
+                "description": "Move east to Door",
+                "action": {
+                  "tool": "environment_action",
+                  "arguments": {
+                    "action": "move_east"
+                  }
+                },
+                "expected_result": "At door",
+                "dependencies": [
+                  "step-5"
+                ],
+                "status": "COMPLETED",
+                "actual_result": {
+                  "observation": {
+                    "agent_location": 3,
+                    "door_locked": true,
+                    "message": "You are facing a locked mechanism requiring a calculated code."
+                  }
+                }
+              },
+              {
+                "step_id": "step-7",
+                "description": "Unlock Door",
+                "action": {
+                  "tool": "environment_action",
+                  "arguments": {
+                    "action": "unlock_door_48"
+                  }
+                },
+                "expected_result": "Door unlocked",
+                "dependencies": [
+                  "step-6"
+                ],
+                "status": "COMPLETED",
+                "actual_result": {
+                  "observation": {
+                    "agent_location": 3,
+                    "door_locked": false,
+                    "message": "Correct code. The mechanism unlocks."
+                  }
+                }
+              },
+              {
+                "step_id": "step-8",
+                "description": "Move east to Goal",
+                "action": {
+                  "tool": "environment_action",
+                  "arguments": {
+                    "action": "move_east"
+                  }
+                },
+                "expected_result": "At goal",
+                "dependencies": [
+                  "step-7"
+                ],
+                "status": "COMPLETED",
+                "actual_result": {
+                  "observation": {
+                    "agent_location": 4,
+                    "door_locked": false,
+                    "message": "You have reached the final destination."
+                  }
+                }
+              }
+            ],
+            "current_step": 8,
+            "status": "COMPLETED",
+            "observations": [
+              {
+                "observation": {
+                  "agent_location": 1,
+                  "door_locked": true,
+                  "message": "You are in Room A. There is a note on the desk."
+                }
+              },
+              {
+                "observation": {
+                  "agent_location": 1,
+                  "door_locked": true,
+                  "message": "The note reads: 'The base code is 12'."
+                }
+              },
+              {
+                "observation": {
+                  "agent_location": 2,
+                  "door_locked": true,
+                  "message": "You are in Room B. There is writing on the wall."
+                }
+              },
+              {
+                "observation": {
+                  "agent_location": 2,
+                  "door_locked": true,
+                  "message": "The wall writing says: 'The multiplier is 4'."
+                }
+              },
+              {
+                "result": 48
+              },
+              {
+                "observation": {
+                  "agent_location": 3,
+                  "door_locked": true,
+                  "message": "You are facing a locked mechanism requiring a calculated code."
+                }
+              },
+              {
+                "observation": {
+                  "agent_location": 3,
+                  "door_locked": false,
+                  "message": "Correct code. The mechanism unlocks."
+                }
+              },
+              {
+                "observation": {
+                  "agent_location": 4,
+                  "door_locked": false,
+                  "message": "You have reached the final destination."
+                }
+              }
+            ],
+            "replanning_history": [],
+            "completion_reason": "All steps executed."
+          },
+          "leakage_detected": false,
+          "critical_information_source": "UNKNOWN"
+        }
+      ]
+    }
+  }
+}
