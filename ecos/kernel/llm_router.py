@@ -47,6 +47,56 @@ class LLMRouter:
                         ]
                     }
                     '''
+                elif "World Model" in system_prompt:
+                    return '''
+                    {
+                      "entities": [
+                        {
+                          "name": "WebApp",
+                          "type": "Entity",
+                          "attributes": {"confidence": 0.9, "progress": "Planning", "status": "active"}
+                        },
+                        {
+                          "name": "Fast Backend",
+                          "type": "Goal",
+                          "attributes": {"confidence": 0.8, "progress": "Pending", "status": "active"}
+                        },
+                        {
+                          "name": "FastAPI",
+                          "type": "Skill",
+                          "attributes": {"confidence": 0.95, "progress": "Known", "status": "active"}
+                        },
+                        {
+                          "name": "Async DB Connections",
+                          "type": "Obstacle",
+                          "attributes": {"confidence": 0.7, "progress": "Blocking", "status": "active"}
+                        },
+                        {
+                          "name": "SQLAlchemy 2.0",
+                          "type": "Belief",
+                          "attributes": {"confidence": 0.85, "progress": "Validating", "status": "active"}
+                        },
+                        {
+                          "name": "Tiny AWS EC2",
+                          "type": "Constraint",
+                          "attributes": {"confidence": 1.0, "progress": "Enforced", "status": "active"}
+                        },
+                        {
+                          "name": "OOM Crash",
+                          "type": "Event",
+                          "attributes": {"confidence": 1.0, "progress": "Occurred", "status": "past"}
+                        }
+                      ],
+                      "relationships": [
+                        {"source": "WebApp", "target": "Fast Backend", "relation": "REQUIRES"},
+                        {"source": "Fast Backend", "target": "FastAPI", "relation": "ENABLES"},
+                        {"source": "FastAPI", "target": "Async DB Connections", "relation": "BLOCKS"},
+                        {"source": "Fast Backend", "target": "SQLAlchemy 2.0", "relation": "BELIEVES"},
+                        {"source": "WebApp", "target": "Tiny AWS EC2", "relation": "CONSTRAINED_BY"},
+                        {"source": "WebApp", "target": "OOM Crash", "relation": "AFFECTED_BY"}
+                      ]
+                    }
+                    '''
                 # Otherwise, return a mock chat response
                 return "This is ELIZA's Tertiary Mock Engine. Your cloud API key was invalid and Ollama is not running locally, so I am providing this offline fallback response!"
 llm_router = LLMRouter()

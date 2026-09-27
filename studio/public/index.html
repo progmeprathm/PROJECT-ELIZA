@@ -3,300 +3,328 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ELIZA Workspace</title>
+  <title>E.L.I.Z.A.</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
-
-  <link rel="stylesheet" href="style.css">
-
-  <script type="importmap">
-    {
-      "imports": {
-        "@material/web/": "https://esm.run/@material/web/"
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+            display: ['Outfit', 'sans-serif'],
+            mono: ['JetBrains Mono', 'monospace'],
+          },
+          colors: {
+            background: 'var(--color-bg)',
+            surface: 'var(--color-surface)',
+            primary: 'var(--color-primary)',
+            secondary: 'var(--color-secondary)',
+            'on-surface': 'var(--color-on-surface)',
+            outline: 'var(--color-outline)',
+          },
+          boxShadow: {
+            'glow': '0 0 20px rgba(0, 122, 255, 0.1)',
+            'glow-primary': '0 0 30px rgba(0, 122, 255, 0.2)',
+          }
+        }
       }
     }
   </script>
-  <script type="module">
-    import '@material/web/all.js';
-  </script>
+  <link rel="stylesheet" href="style.css">
 </head>
-<body class="dark-theme">
-  
-  <header class="header flex items-center justify-between px-6 py-3 border-b border-outline-variant bg-surface sticky top-0 z-50">
-    <div class="brand flex items-center gap-3 cursor-pointer" id="btn-go-home">
-      <span class="material-symbols-outlined logo-icon text-primary">bolt</span>
-      <span class="title font-bold text-lg tracking-wider text-on-surface">ELIZA</span>
-    </div>
-    
-    <div class="header-actions flex items-center gap-4" id="header-user-info">
-      <span class="text-sm font-medium text-secondary" id="lbl-persona"></span>
-      <div class="w-8 h-8 rounded-full bg-surface-variant flex items-center justify-center border border-outline-variant">
-        <md-icon class="text-sm">person</md-icon>
+<body class="bg-background text-on-surface font-sans antialiased overflow-hidden">
+
+  <!-- ========================================== -->
+  <!-- LAYER 1: HUMAN E.L.I.Z.A. UI               -->
+  <!-- ========================================== -->
+
+  <!-- SCREEN A: MEET E.L.I.Z.A. (ONBOARDING) -->
+  <div id="screen-onboarding" class="screen absolute inset-0 z-50 flex items-center justify-center bg-background transition-opacity duration-700">
+    <div class="max-w-md w-full p-8 flex flex-col gap-8 animate-fade-in-up">
+      <div class="w-12 h-12 rounded-full bg-surface shadow-glow flex items-center justify-center mb-4">
+        <span class="material-symbols-outlined text-primary text-2xl">lens_blur</span>
       </div>
-      <md-outlined-button id="btn-reset">Reset</md-outlined-button>
-    </div>
-  </header>
+      
+      <h1 class="text-4xl font-display font-medium leading-tight">
+        Hi. I'm E.L.I.Z.A.<br>
+        <span class="text-secondary text-2xl mt-2 block">I can help you think, plan, create, learn, research, and get things done.</span>
+      </h1>
 
-  <main class="app-container relative w-full overflow-hidden" style="height: calc(100vh - 64px);">
-    
-    <!-- ========================================== -->
-    <!-- SCREEN A: ONBOARDING (PERSONA SELECTION)   -->
-    <!-- ========================================== -->
-    <div id="screen-onboarding" class="screen w-full h-full flex flex-col items-center justify-center bg-background absolute inset-0 z-40 p-6 overflow-y-auto">
-      <div class="max-w-[800px] w-full flex-col gap-8 animate-fade-in">
-        <div class="text-center">
-          <h1 class="text-4xl font-bold mb-3">Welcome to ELIZA.</h1>
-          <p class="text-lg text-secondary">What are you trying to achieve today?</p>
+      <div class="flex flex-col gap-6 mt-4">
+        <div class="input-group">
+          <label class="text-sm font-medium text-secondary mb-2 block">What should I call you?</label>
+          <input type="text" id="inp-user-name" placeholder="Your name" class="w-full bg-surface border border-outline rounded-xl px-4 py-3 text-lg focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none">
         </div>
-
-        <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 mt-8">
-          
-          <div class="persona-card flex-col gap-3 p-6 rounded-xl border border-outline-variant bg-surface-variant hover:bg-surface-highest cursor-pointer transition-colors" data-persona="Researcher">
-            <div class="w-12 h-12 rounded-full bg-primary-container text-primary flex items-center justify-center mb-2">
-              <md-icon>science</md-icon>
-            </div>
-            <h3 class="font-bold text-lg">Research</h3>
-            <p class="text-sm text-secondary">Literature review, hypothesis generation, and experimental design.</p>
-          </div>
-
-          <div class="persona-card flex-col gap-3 p-6 rounded-xl border border-outline-variant bg-surface-variant hover:bg-surface-highest cursor-pointer transition-colors" data-persona="Engineer">
-            <div class="w-12 h-12 rounded-full bg-tertiary-container text-tertiary flex items-center justify-center mb-2">
-              <md-icon>code</md-icon>
-            </div>
-            <h3 class="font-bold text-lg">Engineering</h3>
-            <p class="text-sm text-secondary">Architecture planning, implementation, testing, and deployment.</p>
-          </div>
-
-          <div class="persona-card flex-col gap-3 p-6 rounded-xl border border-outline-variant bg-surface-variant hover:bg-surface-highest cursor-pointer transition-colors" data-persona="Founder">
-            <div class="w-12 h-12 rounded-full bg-success-container text-success flex items-center justify-center mb-2">
-              <md-icon>rocket_launch</md-icon>
-            </div>
-            <h3 class="font-bold text-lg">Startup</h3>
-            <p class="text-sm text-secondary">Market research, product roadmaps, and execution tracking.</p>
-          </div>
-
-          <div class="persona-card flex-col gap-3 p-6 rounded-xl border border-outline-variant bg-surface-variant hover:bg-surface-highest cursor-pointer transition-colors" data-persona="Student">
-            <div class="w-12 h-12 rounded-full bg-warning-container text-warning flex items-center justify-center mb-2">
-              <md-icon>school</md-icon>
-            </div>
-            <h3 class="font-bold text-lg">Learning</h3>
-            <p class="text-sm text-secondary">Mastery tracking, topic exploration, and practice plans.</p>
-          </div>
-
-        </div>
-      </div>
-    </div>
-
-
-    <!-- ========================================== -->
-    <!-- SCREEN B: HOME DASHBOARD                   -->
-    <!-- ========================================== -->
-    <div id="screen-home" class="screen w-full h-full bg-background absolute inset-0 z-30 p-8 overflow-y-auto hidden">
-      <div class="max-w-[1000px] mx-auto flex-col gap-8 animate-fade-in">
         
-        <header class="flex justify-between items-end border-b border-outline-variant pb-6">
+        <div class="input-group">
+          <label class="text-sm font-medium text-secondary mb-2 block">How do you want E.L.I.Z.A. to behave?</label>
+          <div class="grid grid-cols-2 gap-3" id="behavior-grid">
+            <button class="behavior-btn bg-surface border border-outline rounded-xl p-4 text-left hover:border-primary transition-all active" data-behavior="Just answer me">
+              <span class="block font-medium">Just answer me</span>
+            </button>
+            <button class="behavior-btn bg-surface border border-outline rounded-xl p-4 text-left hover:border-primary transition-all" data-behavior="Help me think">
+              <span class="block font-medium">Help me think</span>
+            </button>
+            <button class="behavior-btn bg-surface border border-outline rounded-xl p-4 text-left hover:border-primary transition-all" data-behavior="Take care of things">
+              <span class="block font-medium">Take care of things</span>
+            </button>
+            <button class="behavior-btn bg-surface border border-outline rounded-xl p-4 text-left hover:border-primary transition-all" data-behavior="Be proactive">
+              <span class="block font-medium">Be proactive</span>
+            </button>
+          </div>
+        </div>
+
+        <div class="input-group mt-2 flex items-center justify-between bg-surface border border-outline rounded-xl p-4">
           <div>
-            <h1 class="text-3xl font-bold mb-2">Good Morning.</h1>
-            <p class="text-secondary" id="lbl-home-persona">Persona: Researcher</p>
+            <label class="text-sm font-medium block">Use Local Compute Only (Privacy Mode)</label>
+            <span class="text-xs text-secondary">Runs completely offline via local LLMs. No cloud APIs.</span>
           </div>
-          <md-filled-button id="btn-open-create-goal">
-            <md-icon slot="icon">add</md-icon> Create New Goal
-          </md-filled-button>
-        </header>
-
-        <div class="grid grid-cols-3 gap-6">
-          
-          <!-- Main Focus Column -->
-          <div class="col-span-2 flex-col gap-6">
-            
-            <!-- Active Goals -->
-            <section>
-              <h2 class="text-sm font-bold tracking-wider text-secondary mb-4">ACTIVE GOALS</h2>
-              <div class="flex-col gap-4" id="home-active-goals">
-                <!-- Injected via JS -->
-              </div>
-            </section>
-
-            <!-- Cognitive Stream -->
-            <section>
-              <h2 class="text-sm font-bold tracking-wider text-secondary mb-4">CURRENT THOUGHT STREAM</h2>
-              <div class="p-6 rounded-xl bg-surface-variant border border-outline-variant">
-                <div class="flex items-center gap-3 text-tertiary font-mono text-sm mb-2">
-                  <md-icon class="text-sm animate-pulse">sync</md-icon> 
-                  <span>Designing Event Bus Architecture</span>
-                </div>
-                <p class="text-sm text-secondary ml-7">Evaluating latency trade-offs between pub/sub and direct message passing.</p>
-              </div>
-            </section>
-
-          </div>
-
-          <!-- Sidebar Column -->
-          <div class="col-span-1 flex-col gap-6">
-            
-            <!-- Upcoming Tasks -->
-            <section>
-              <h2 class="text-sm font-bold tracking-wider text-secondary mb-4">UPCOMING TASKS</h2>
-              <div class="p-5 rounded-xl bg-surface border border-outline-variant flex-col gap-3">
-                <div class="flex items-center gap-3">
-                  <div class="w-2 h-2 rounded-full bg-outline"></div>
-                  <span class="text-sm font-medium">Scheduler API Specs</span>
-                </div>
-                <div class="flex items-center gap-3">
-                  <div class="w-2 h-2 rounded-full bg-outline"></div>
-                  <span class="text-sm font-medium">Plugin Sandbox Tests</span>
-                </div>
-                <div class="flex items-center gap-3">
-                  <div class="w-2 h-2 rounded-full bg-outline"></div>
-                  <span class="text-sm font-medium">Write Documentation</span>
-                </div>
-              </div>
-            </section>
-
-            <!-- Metrics -->
-            <section>
-              <h2 class="text-sm font-bold tracking-wider text-secondary mb-4">SYSTEM STATS</h2>
-              <div class="grid grid-cols-2 gap-4">
-                <div class="p-4 rounded-xl bg-surface border border-outline-variant flex-col justify-center items-center">
-                  <span class="text-2xl font-bold text-success mb-1">12</span>
-                  <span class="text-xs text-secondary text-center">New Concepts Learned</span>
-                </div>
-                <div class="p-4 rounded-xl bg-surface border border-outline-variant flex-col justify-center items-center">
-                  <span class="text-2xl font-bold text-primary mb-1">2</span>
-                  <span class="text-xs text-secondary text-center">Running Processes</span>
-                </div>
-              </div>
-            </section>
-
-          </div>
-
+          <label class="relative inline-flex items-center cursor-pointer">
+            <input type="checkbox" id="chk-local-mode" class="sr-only peer">
+            <div class="w-11 h-6 bg-outline peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-primary"></div>
+          </label>
         </div>
       </div>
+
+      <button id="btn-finish-onboarding" class="mt-4 w-full bg-on-surface text-background font-medium py-3 rounded-xl hover:opacity-90 transition-opacity">
+        Start
+      </button>
     </div>
+  </div>
 
+  <!-- SCREEN B: TODAY (COMMAND CENTER) -->
+  <div id="screen-home" class="screen absolute inset-0 z-40 bg-background hidden overflow-y-auto">
+    
+    <!-- Top Nav -->
+    <header class="w-full p-6 flex justify-between items-center max-w-4xl mx-auto">
+      <div class="flex items-center gap-3">
+        <div class="w-8 h-8 rounded-full bg-surface shadow-glow flex items-center justify-center cursor-pointer hover:bg-outline transition-colors" onclick="toggleAdvancedMode()" title="Developer Mode">
+          <span class="material-symbols-outlined text-primary text-lg">lens_blur</span>
+        </div>
+        <span class="font-display font-medium tracking-wide">E.L.I.Z.A.</span>
+      </div>
+      <div class="flex items-center gap-4">
+        <div class="w-8 h-8 rounded-full bg-surface shadow-glow flex items-center justify-center cursor-pointer hover:bg-outline transition-colors" onclick="toggleSettings()" title="Settings">
+          <span class="material-symbols-outlined text-secondary text-lg">settings</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <div class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></div>
+          <span class="text-xs font-medium text-secondary">Online</span>
+        </div>
+      </div>
+    </header>
 
-    <!-- ========================================== -->
-    <!-- SCREEN C: DUAL-PANE WORKSPACE              -->
-    <!-- ========================================== -->
-    <div id="screen-workspace" class="screen w-full h-full flex absolute inset-0 z-20 hidden">
+    <main class="max-w-3xl mx-auto w-full px-6 pt-12 pb-24 flex flex-col gap-12">
       
-      <!-- Left Pane: Persistent Goal & Plan State -->
-      <aside class="w-[45%] h-full bg-surface border-r border-outline-variant overflow-y-auto p-6 flex-col gap-8 relative z-10 shadow-lg">
+      <!-- Greeting -->
+      <section class="animate-fade-in-up" style="animation-delay: 0.1s;">
+        <h1 class="text-5xl font-display font-semibold mb-2">Good morning, <span id="lbl-greeting-name">Prathmesh</span>.</h1>
+        <p class="text-xl text-secondary">What would you like to do?</p>
+      </section>
+
+      <!-- The Core Input -->
+      <section class="w-full relative animate-fade-in-up" style="animation-delay: 0.2s;">
+        <div class="absolute inset-0 bg-gradient-to-r from-primary/10 to-blue-500/10 rounded-2xl blur-xl"></div>
+        <div class="relative bg-surface/80 backdrop-blur-md border border-outline rounded-2xl shadow-lg p-2 flex items-center transition-all focus-within:border-primary focus-within:ring-4 focus-within:ring-primary/10">
+          <input type="text" id="inp-omnibar" placeholder="Ask, tell me, or give me something to do..." class="w-full bg-transparent border-none px-4 py-3 text-lg outline-none text-on-surface placeholder:text-secondary/50">
+          <button id="btn-omnibar-send" class="w-12 h-12 rounded-xl bg-primary text-white flex items-center justify-center hover:opacity-90 transition-opacity">
+            <span class="material-symbols-outlined">arrow_upward</span>
+          </button>
+        </div>
+        <div class="flex gap-4 mt-4 px-2 overflow-x-auto no-scrollbar">
+          <button class="quick-action-btn"><span class="material-symbols-outlined text-sm">lightbulb</span> Think</button>
+          <button class="quick-action-btn"><span class="material-symbols-outlined text-sm">edit</span> Create</button>
+          <button class="quick-action-btn"><span class="material-symbols-outlined text-sm">search</span> Research</button>
+          <button class="quick-action-btn"><span class="material-symbols-outlined text-sm">account_tree</span> Plan</button>
+          <button class="quick-action-btn"><span class="material-symbols-outlined text-sm">school</span> Learn</button>
+        </div>
+      </section>
+
+      <!-- Continue / Projects -->
+      <section class="animate-fade-in-up" style="animation-delay: 0.3s;">
+        <h3 class="text-sm font-bold text-secondary uppercase tracking-wider mb-4">Continue</h3>
+        <div class="flex flex-col gap-3" id="home-projects-list">
+          <!-- Dynamically populated -->
+          <div class="p-4 rounded-xl border border-outline bg-surface/50 hover:bg-surface cursor-pointer transition-colors flex justify-between items-center group">
+            <div class="flex items-center gap-4">
+              <div class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-500">
+                <span class="material-symbols-outlined">architecture</span>
+              </div>
+              <div>
+                <h4 class="font-medium">ELIZA Architecture</h4>
+                <p class="text-sm text-secondary">Continue designing the runtime</p>
+              </div>
+            </div>
+            <span class="material-symbols-outlined text-secondary opacity-0 group-hover:opacity-100 transition-opacity">arrow_forward</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Memory / Context -->
+      <section class="animate-fade-in-up" style="animation-delay: 0.4s;">
+        <h3 class="text-sm font-bold text-secondary uppercase tracking-wider mb-4">Recently Remembered</h3>
+        <div class="p-5 rounded-xl border border-outline bg-surface/30 backdrop-blur-sm">
+          <ul class="flex flex-col gap-3 text-sm text-secondary" id="home-memory-list">
+            <li class="flex gap-3"><span class="text-primary">•</span> Your preferred development environment is VS Code with VIM bindings.</li>
+            <li class="flex gap-3"><span class="text-primary">•</span> You are planning a trip to Japan next month.</li>
+          </ul>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- SCREEN C: CONVERSATIONAL WORKSPACE -->
+  <div id="screen-workspace" class="screen absolute inset-0 z-30 bg-background hidden flex flex-col md:flex-row">
+    
+    <!-- Sidebar / Context Pane (The "Under the hood" made clean) -->
+    <aside class="w-full md:w-80 border-r border-outline bg-surface/30 flex flex-col h-full hidden md:flex">
+      <div class="p-6 border-b border-outline flex items-center gap-3 cursor-pointer hover:bg-surface/50 transition-colors" onclick="navigateTo('home')">
+        <span class="material-symbols-outlined text-secondary">arrow_back</span>
+        <span class="font-medium">Home</span>
+      </div>
+      
+      <div class="p-6 flex-1 overflow-y-auto">
+        <h2 class="text-xl font-display font-semibold mb-1" id="ws-project-title">Project Name</h2>
+        <p class="text-sm text-secondary mb-8" id="ws-project-status">Working on it...</p>
+
+        <!-- Dynamic Checklist / Plan -->
+        <div id="ws-project-plan" class="flex flex-col gap-4 relative">
+          <!-- Populated by JS -->
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Chat Area -->
+    <main class="flex-1 flex flex-col h-full relative">
+      <!-- Mobile Header -->
+      <header class="md:hidden p-4 border-b border-outline flex items-center gap-3 bg-background z-10">
+        <span class="material-symbols-outlined" onclick="navigateTo('home')">arrow_back</span>
+        <span class="font-medium truncate" id="ws-mobile-title">Project</span>
+      </header>
+
+      <!-- Chat History -->
+      <div class="flex-1 overflow-y-auto p-6 flex flex-col gap-6" id="chat-history">
+        <!-- Messages go here -->
+      </div>
+
+      <!-- Action Area -->
+      <div class="p-4 bg-gradient-to-t from-background via-background to-transparent pt-10">
+        <div class="max-w-3xl mx-auto relative">
+          <div class="absolute -top-8 left-4 text-xs font-medium text-secondary animate-pulse hidden" id="chat-typing-indicator">
+            E.L.I.Z.A. is thinking...
+          </div>
+          <div class="bg-surface border border-outline rounded-2xl shadow-sm p-2 flex items-end focus-within:border-primary focus-within:ring-2 focus-within:ring-primary/20 transition-all">
+            <textarea id="inp-chat-msg" rows="1" placeholder="Reply to E.L.I.Z.A..." class="w-full bg-transparent border-none px-3 py-2 text-base outline-none resize-none max-h-32 text-on-surface"></textarea>
+            <button id="btn-chat-send" class="w-10 h-10 rounded-xl bg-on-surface text-background flex items-center justify-center hover:opacity-80 transition-opacity shrink-0 mb-0.5 mr-0.5">
+              <span class="material-symbols-outlined text-lg">arrow_upward</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+  </div>
+
+  <!-- ========================================== -->
+  <!-- LAYER 2: E.L.I.Z.A. STUDIO (DEVELOPER)     -->
+  <!-- ========================================== -->
+  <div id="advanced-overlay" class="fixed inset-0 z-[100] bg-black/90 text-green-400 font-mono hidden flex-col transition-all duration-300 opacity-0">
+    <header class="p-4 border-b border-green-800 flex justify-between items-center bg-black">
+      <div class="flex items-center gap-4">
+        <span class="material-symbols-outlined text-green-500">terminal</span>
+        <span class="font-bold tracking-widest uppercase">E.L.I.Z.A. Studio // ECOS Runtime Metrics</span>
+      </div>
+      <button onclick="toggleAdvancedMode()" class="px-4 py-1 border border-green-700 hover:bg-green-900/30 rounded text-sm transition-colors">
+        EXIT TO HUMAN MODE
+      </button>
+    </header>
+    <div class="flex-1 overflow-auto p-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 text-sm">
+      
+      <!-- Telemetry Box -->
+      <div class="border border-green-800 bg-green-950/10 p-4 rounded">
+        <h3 class="border-b border-green-800 pb-2 mb-4 text-green-300 font-bold">SYSTEM TELEMETRY</h3>
+        <div id="adv-telemetry" class="flex flex-col gap-2 opacity-80">
+          Loading metrics...
+        </div>
+      </div>
+
+      <!-- Memory Hierarchy -->
+      <div class="border border-green-800 bg-green-950/10 p-4 rounded lg:col-span-2">
+        <h3 class="border-b border-green-800 pb-2 mb-4 text-green-300 font-bold">7-TIER MEMORY INSPECTOR</h3>
+        <div id="adv-memory" class="flex flex-col gap-2 opacity-80">
+          Loading memory buffers...
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Explainability Modal ("Why?") -->
+  <div id="modal-why" class="fixed inset-0 z-[60] bg-background/80 backdrop-blur-sm hidden items-center justify-center p-4">
+    <div class="bg-surface border border-outline rounded-2xl shadow-xl w-full max-w-lg overflow-hidden flex flex-col max-h-[80vh]">
+      <div class="p-6 border-b border-outline flex justify-between items-center">
+        <h2 class="font-display font-medium text-xl">Why I recommended this</h2>
+        <button onclick="document.getElementById('modal-why').classList.replace('flex','hidden')" class="w-8 h-8 rounded-full bg-background flex items-center justify-center hover:bg-outline transition-colors">
+          <span class="material-symbols-outlined text-sm">close</span>
+        </button>
+      </div>
+      <div class="p-6 overflow-y-auto flex flex-col gap-6" id="why-content">
+        <!-- Injected via JS -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Settings Modal -->
+  <div id="modal-settings" class="fixed inset-0 z-[70] bg-background/80 backdrop-blur-sm hidden items-center justify-center p-4 transition-opacity duration-300 opacity-0">
+    <div class="bg-surface border border-outline rounded-2xl shadow-xl w-full max-w-md overflow-hidden flex flex-col max-h-[90vh]">
+      <div class="p-6 border-b border-outline flex justify-between items-center">
+        <h2 class="font-display font-medium text-xl">Settings</h2>
+        <button onclick="toggleSettings()" class="w-8 h-8 rounded-full bg-background flex items-center justify-center hover:bg-outline transition-colors">
+          <span class="material-symbols-outlined text-sm">close</span>
+        </button>
+      </div>
+      <div class="p-6 overflow-y-auto flex flex-col gap-6">
         
-        <header>
-          <div class="text-xs font-bold text-primary tracking-wider mb-2" id="ws-status">EXECUTING</div>
-          <h1 class="text-2xl font-bold mb-4" id="ws-goal-title">Build ECOS Kernel</h1>
-          
-          <div class="flex items-center gap-4 mb-2">
-            <md-linear-progress value="0.14" class="flex-1" id="ws-progress-bar"></md-linear-progress>
-            <span class="text-sm font-bold font-mono text-success" id="ws-progress-text">14%</span>
-          </div>
-        </header>
-
-        <!-- Current Focus -->
-        <section class="p-5 rounded-xl bg-surface-variant border border-outline-variant">
-          <div class="text-xs font-bold text-secondary tracking-wider mb-2">CURRENT ACTIVITY</div>
-          <div class="font-medium text-lg text-tertiary mb-4" id="ws-activity">Designing Scheduler</div>
-          
-          <div class="text-xs font-bold text-secondary tracking-wider mb-2">NEXT STEP</div>
-          <div class="font-mono text-sm bg-background p-3 rounded-md text-primary">Kernel Interfaces</div>
-        </section>
-
-        <!-- Plan Tree -->
-        <section>
-          <div class="flex items-center justify-between mb-4">
-            <h2 class="text-sm font-bold tracking-wider text-secondary">DECOMPOSED PLAN</h2>
-          </div>
-          <div class="flex-col gap-1 border-l-2 border-outline-variant ml-2 pl-4" id="ws-plan-tree">
-            <!-- Dynamic via JS -->
-          </div>
-        </section>
-
-        <!-- Knowledge / Context -->
-        <section>
-          <h2 class="text-sm font-bold tracking-wider text-secondary mb-4">RETRIEVED CONTEXT</h2>
-          <div class="flex gap-2 flex-wrap">
-            <span class="px-3 py-1 rounded-full bg-background border border-outline-variant text-xs text-secondary">Kernel Spec</span>
-            <span class="px-3 py-1 rounded-full bg-background border border-outline-variant text-xs text-secondary">Protocol Doc</span>
-            <span class="px-3 py-1 rounded-full bg-background border border-outline-variant text-xs text-secondary">Previous Decisions</span>
-          </div>
-        </section>
-
-      </aside>
-
-      <!-- Right Pane: Conversational Interface -->
-      <main class="flex-1 h-full bg-background flex-col relative">
-        <div class="chat-header p-4 border-b border-outline-variant flex items-center justify-between bg-surface backdrop-blur">
-          <div class="flex items-center gap-2">
-            <md-icon class="text-primary text-sm">smart_toy</md-icon>
-            <span class="font-bold text-sm text-secondary">ELIZA Companion</span>
-          </div>
-          <md-outlined-button id="btn-trace" class="text-xs">
-            How I got this answer
-          </md-outlined-button>
-        </div>
-
-        <div class="chat-messages flex-1 overflow-y-auto p-6 flex-col gap-6" id="chat-messages-container">
-          <!-- Chat bubbles go here -->
-        </div>
-
-        <div class="chat-input-area p-4 bg-surface border-t border-outline-variant relative">
-          <md-outlined-text-field 
-            id="chat-user-input" 
-            class="w-full search-input"
-            placeholder="Guide ELIZA's work..."
-            type="text">
-          </md-outlined-text-field>
-          <md-filled-button id="btn-send-chat" class="absolute right-6 top-6 bottom-6 z-10" style="height: 40px; border-radius: 8px;">
-            <md-icon>send</md-icon>
-          </md-filled-button>
-          <div class="text-center text-xs text-secondary mt-3">
-            Use the chat to provide context, review decisions, or ask for explanations.
+        <div>
+          <label class="text-sm font-bold text-secondary uppercase tracking-wider mb-2 block">Personalization</label>
+          <div class="flex flex-col gap-3">
+            <input type="text" id="set-name" placeholder="Your Name" class="w-full bg-background border border-outline rounded-lg px-3 py-2 text-sm outline-none text-on-surface">
           </div>
         </div>
-      </main>
 
-    </div>
+        <div>
+          <label class="text-sm font-bold text-secondary uppercase tracking-wider mb-2 block">API Keys (Cloud Models)</label>
+          <div class="flex flex-col gap-3">
+            <input type="password" id="set-openai" placeholder="OpenAI API Key (sk-...)" class="w-full bg-background border border-outline rounded-lg px-3 py-2 text-sm outline-none text-on-surface">
+            <input type="password" id="set-groq" placeholder="Groq API Key (gsk_...)" class="w-full bg-background border border-outline rounded-lg px-3 py-2 text-sm outline-none text-on-surface">
+            <p class="text-xs text-secondary">Keys are stored securely in your browser's local storage.</p>
+          </div>
+        </div>
 
-  </main>
+        <div>
+          <label class="text-sm font-bold text-secondary uppercase tracking-wider mb-2 block">Compute Engine</label>
+          <div class="flex items-center justify-between bg-background border border-outline rounded-lg p-3">
+            <div>
+              <span class="text-sm font-medium block">Force Local LLM</span>
+              <span class="text-xs text-secondary">Uses Ollama (offline). Disables cloud.</span>
+            </div>
+            <label class="relative inline-flex items-center cursor-pointer">
+              <input type="checkbox" id="set-local-mode" class="sr-only peer">
+              <div class="w-9 h-5 bg-outline peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+            </label>
+          </div>
+        </div>
 
-  <!-- Modals -->
-  <md-dialog id="modal-create-goal">
-    <div slot="headline">Create Your First Goal</div>
-    <form slot="content" id="form-create-goal" method="dialog" class="flex-col gap-4 min-w-[400px]">
-      <p class="text-sm text-secondary mb-2">Establish a persistent objective for ELIZA to track, decompose, and execute.</p>
-      <md-outlined-text-field id="inp-goal-title" label="Goal Name" placeholder="e.g. Build ECOS Kernel" class="w-full" required></md-outlined-text-field>
-      
-      <div class="grid grid-cols-2 gap-4 mt-2">
-        <md-outlined-select id="inp-goal-priority" label="Priority" class="w-full">
-          <md-select-option value="High" selected><div slot="headline">High</div></md-select-option>
-          <md-select-option value="Medium"><div slot="headline">Medium</div></md-select-option>
-          <md-select-option value="Low"><div slot="headline">Low</div></md-select-option>
-        </md-outlined-select>
-        <md-outlined-text-field id="inp-goal-deadline" label="Deadline" value="None" class="w-full"></md-outlined-text-field>
+        <button onclick="saveSettings()" class="w-full bg-primary text-white font-medium py-2 rounded-lg hover:opacity-90 transition-opacity">Save Changes</button>
       </div>
-
-      <md-outlined-text-field id="inp-goal-criteria" type="textarea" rows="3" label="Success Criteria" placeholder="e.g. Kernel passes integration tests" class="w-full mt-2"></md-outlined-text-field>
-    </form>
-    <div slot="actions">
-      <md-text-button id="btn-cancel-goal">Cancel</md-text-button>
-      <md-filled-button id="btn-submit-goal">Save Goal</md-filled-button>
     </div>
-  </md-dialog>
-
-  <!-- Trace Modal -->
-  <md-dialog id="modal-trace">
-    <div slot="headline">Decision Trace</div>
-    <div slot="content" id="trace-modal-body" class="flex-col gap-4 min-w-[400px]">
-      <!-- Dynamic -->
-    </div>
-    <div slot="actions">
-      <md-text-button id="btn-close-trace">Close</md-text-button>
-    </div>
-  </md-dialog>
+  </div>
 
   <script src="app.js"></script>
 </body>

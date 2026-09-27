@@ -16,14 +16,49 @@ class OllamaAdapter(LanguageModel):
         super().__init__(model_name, endpoint_url)
 
     def generate(self, prompt: str, schema: Optional[Dict[str, Any]] = None, temperature: float = 0.7) -> Dict[str, Any]:
-        # Simulated local response or HTTP call to Ollama /api/generate
-        return {
-            "model": self.model_name,
-            "provider": "ollama",
-            "output_text": f"[Ollama local output for '{prompt[:30]}...']",
-            "tokens_generated": 42,
-            "latency_ms": 14.5,
+        import urllib.request
+        import urllib.error
+        
+        payload = {
+            "model": self.model_name.replace("-local-fallback", "").replace("-local", ""),
+            "prompt": prompt,
+            "stream": False,
+            "options": {
+                "temperature": temperature
+            }
         }
+        
+        if schema:
+            payload["format"] = "json"
+            payload["prompt"] = prompt + f"\n\nReturn ONLY a valid JSON object matching this schema: {json.dumps(schema)}"
+
+        req = urllib.request.Request(
+            f"{self.endpoint_url}/api/generate",
+            data=json.dumps(payload).encode('utf-8'),
+            headers={"Content-Type": "application/json"},
+            method="POST"
+        )
+        
+        try:
+            with urllib.request.urlopen(req, timeout=120) as response:
+                result = json.loads(response.read().decode('utf-8'))
+                content = result.get("response", "")
+                
+                if schema:
+                    try:
+                        parsed = json.loads(content)
+                        return {**parsed, "model": self.model_name, "provider": "ollama-local"}
+                    except Exception:
+                        pass
+
+                return {
+                    "model": self.model_name,
+                    "provider": "ollama-local",
+                    "output_text": content,
+                    "tokens_generated": result.get("eval_count", 0)
+                }
+        except urllib.error.URLError as e:
+            raise RuntimeError(f"Ollama server not running or model not found. Make sure Ollama is installed and running on {self.endpoint_url}. Error: {str(e)}")
 
     def embed(self, text: str) -> List[float]:
         # Simple local 8-dim embedding simulation

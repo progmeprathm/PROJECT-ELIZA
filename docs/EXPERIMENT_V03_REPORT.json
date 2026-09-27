@@ -1,0 +1,115 @@
+{
+  "experiment": "ELIZA_V03_MEMORY_SEPARATION",
+  "configurations": {
+    "A": {
+      "experiment": "Configuration A - Stateless LLM",
+      "provider": "mock",
+      "cycles": 10,
+      "goal_completed": false,
+      "actions": [
+        "move_forward",
+        "move_forward",
+        "move_forward",
+        "move_forward",
+        "move_forward",
+        "move_forward",
+        "move_forward",
+        "move_forward",
+        "move_forward",
+        "move_forward"
+      ],
+      "errors": [],
+      "memory_retrievals": 0,
+      "successful_memory_retrievals": 0,
+      "world_model_updates": 0,
+      "model_calls": 10,
+      "fallback_actions": 0,
+      "invalid_actions": 0,
+      "environment_errors": 7,
+      "critical_actions": []
+    },
+    "B": {
+      "experiment": "Configuration B - World Model Only",
+      "provider": "mock",
+      "cycles": 10,
+      "goal_completed": false,
+      "actions": [
+        "move_forward",
+        "read_note",
+        "move_forward",
+        "move_forward",
+        "move_backward",
+        "move_forward",
+        "move_backward",
+        "move_forward",
+        "move_backward",
+        "move_forward"
+      ],
+      "errors": [],
+      "memory_retrievals": 0,
+      "successful_memory_retrievals": 0,
+      "world_model_updates": 10,
+      "model_calls": 10,
+      "fallback_actions": 0,
+      "invalid_actions": 0,
+      "environment_errors": 0,
+      "critical_actions": []
+    },
+    "C": {
+      "experiment": "Configuration C - Memory Only",
+      "provider": "mock",
+      "cycles": 10,
+      "goal_completed": false,
+      "actions": [
+        "move_forward",
+        "move_forward",
+        "move_forward",
+        "move_forward",
+        "move_forward",
+        "move_forward",
+        "move_forward",
+        "move_forward",
+        "move_forward",
+        "move_forward"
+      ],
+      "errors": [],
+      "memory_retrievals": 10,
+      "successful_memory_retrievals": 9,
+      "world_model_updates": 0,
+      "model_calls": 10,
+      "fallback_actions": 0,
+      "invalid_actions": 0,
+      "environment_errors": 7,
+      "critical_actions": []
+    },
+    "D": {
+      "experiment": "Configuration D - E.L.I.Z.A.",
+      "provider": "mock",
+      "cycles": 6,
+      "goal_completed": true,
+      "actions": [
+        "move_forward",
+        "read_note",
+        "move_forward",
+        "move_forward",
+        "unlock_door_8592",
+        "move_forward"
+      ],
+      "errors": [],
+      "memory_retrievals": 6,
+      "successful_memory_retrievals": 5,
+      "world_model_updates": 6,
+      "model_calls": 6,
+      "fallback_actions": 0,
+      "invalid_actions": 0,
+      "environment_errors": 0,
+      "critical_actions": [
+        {
+          "action": "unlock_door_8592",
+          "required_information": "8592",
+          "information_source": "MEMORY"
+        }
+      ]
+    }
+  }
+}
