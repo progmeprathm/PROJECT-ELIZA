@@ -3,6 +3,7 @@ Model Router.
 Dynamically routes cognitive requests to the optimal LLM execution engine based on task intent, registry metadata, and benchmarks.
 """
 
+import os
 from enum import Enum
 from typing import Any, Dict, Optional
 
@@ -31,38 +32,52 @@ class ModelRouter:
 
     def __init__(self, registry: Optional[ModelRegistry] = None) -> None:
         self.registry = registry or ModelRegistry()
+        
+        provider_config = os.environ.get("ELIZA_MODEL_PROVIDER", "mock").lower()
 
-        # Instantiate default adapters pool
+        # Instantiate adapters pool based on config
+        from llms.adapters.mock import MockAdapter
+        from llms.adapters.cloud import CloudAPIAdapter
+        
+        if provider_config == "cloud":
+            default_adapter = CloudAPIAdapter()
+        else:
+            default_adapter = MockAdapter()
+            
         self.adapters: Dict[str, LanguageModel] = {
-            "deepseek-coder": DeepSeekAdapter(),
-            "qwen-2.5-72b": QwenAdapter(),
-            "llama-3.1-8b": LlamaAdapter(),
-            "gemma-2-9b": GemmaAdapter(),
-            "mistral-large": MistralAdapter(),
+            "default": default_adapter,
+            "deepseek-coder": CloudAPIAdapter(model_name="deepseek-coder") if provider_config == "cloud" else MockAdapter(model_name="deepseek-coder"),
+            "qwen-2.5-72b": CloudAPIAdapter(model_name="qwen-2.5-72b") if provider_config == "cloud" else MockAdapter(model_name="qwen-2.5-72b"),
+            "llama-3.1-8b": CloudAPIAdapter(model_name="llama-3.1-8b") if provider_config == "cloud" else MockAdapter(model_name="llama-3.1-8b"),
+            "gemma-2-9b": CloudAPIAdapter(model_name="gemma-2-9b") if provider_config == "cloud" else MockAdapter(model_name="gemma-2-9b"),
+            "mistral-large": CloudAPIAdapter(model_name="mistral-large") if provider_config == "cloud" else MockAdapter(model_name="mistral-large"),
         }
 
     def route_task(self, intent: TaskIntent, prompt: str, schema: Optional[Dict[str, Any]] = None) -> Dict[str, Any]:
         """Route prompt to optimal model adapter based on task intent, with local fallback."""
         selected_model_name = self.select_model(intent)
-        adapter = self.adapters.get(selected_model_name, self.adapters["llama-3.1-8b"])
+        adapter = self.adapters.get(selected_model_name, self.adapters["default"])
 
         try:
             # Execute on selected engine
             result = adapter.generate(prompt=prompt, schema=schema)
-            result["routed_by"] = "ModelRouter"
+            if "routed_by" not in result:
+                result["routed_by"] = "ModelRouter"
             result["task_intent"] = intent.value
             result["selected_model"] = selected_model_name
             return result
         except Exception as e:
-            # Automatic fallback to local execution engine
-            fallback_model = "llama-3.1-8b"
-            fallback_adapter = self.adapters[fallback_model]
-            result = fallback_adapter.generate(prompt=prompt, schema=schema)
-            result["routed_by"] = "ModelRouter_Fallback"
-            result["task_intent"] = intent.value
-            result["selected_model"] = fallback_model
-            result["fallback_reason"] = str(e)
-            return result
+            # Automatic fallback
+            fallback_adapter = self.adapters["default"]
+            try:
+                result = fallback_adapter.generate(prompt=prompt, schema=schema)
+                result["routed_by"] = "ModelRouter_Fallback"
+                result["task_intent"] = intent.value
+                result["selected_model"] = "fallback"
+                result["fallback_reason"] = str(e)
+                return result
+            except Exception as e2:
+                raise RuntimeError(f"MODEL_ERROR: Fallback failed. {e2}")
 
     def select_model(self, intent: TaskIntent) -> str:
         """Select best model name for a given TaskIntent based on registry capabilities."""

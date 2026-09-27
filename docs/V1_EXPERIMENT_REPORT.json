@@ -1,0 +1,95 @@
+{
+  "experiment": "v1_long_horizon",
+  "seed": 42,
+  "tasks": 3,
+  "conditions": {
+    "MODEL_ONLY": {
+      "config": "MODEL_ONLY",
+      "success_rate": 0.0,
+      "total_success": 0,
+      "traces": [
+        {
+          "task": "lh-task-00",
+          "success": false,
+          "state": "COMPLETED"
+        },
+        {
+          "task": "lh-task-01",
+          "success": false,
+          "state": "COMPLETED"
+        },
+        {
+          "task": "lh-task-02",
+          "success": false,
+          "state": "COMPLETED"
+        }
+      ]
+    },
+    "SINGLE_ELIZA": {
+      "config": "SINGLE_ELIZA",
+      "success_rate": 0.6666666666666666,
+      "total_success": 2,
+      "traces": [
+        {
+          "task": "lh-task-00",
+          "success": true,
+          "state": "COMPLETED"
+        },
+        {
+          "task": "lh-task-01",
+          "success": false,
+          "state": "COMPLETED"
+        },
+        {
+          "task": "lh-task-02",
+          "success": true,
+          "state": "COMPLETED"
+        }
+      ]
+    },
+    "PERSISTENT_ELIZA": {
+      "config": "PERSISTENT_ELIZA",
+      "success_rate": 0.0,
+      "total_success": 0,
+      "traces": [
+        {
+          "task": "lh-task-00",
+          "success": false,
+          "state": "COMPLETED"
+        },
+        {
+          "task": "lh-task-01",
+          "success": false,
+          "state": "COMPLETED"
+        },
+        {
+          "task": "lh-task-02",
+          "success": false,
+          "state": "COMPLETED"
+        }
+      ]
+    },
+    "FULL_MULTI_AGENT_ELIZA": {
+      "config": "FULL_MULTI_AGENT_ELIZA",
+      "success_rate": 1.0,
+      "total_success": 3,
+      "traces": [
+        {
+          "task": "lh-task-00",
+          "success": true,
+          "state": "COMPLETED"
+        },
+        {
+          "task": "lh-task-01",
+          "success": true,
+          "state": "COMPLETED"
+        },
+        {
+          "task": "lh-task-02",
+          "success": true,
+          "state": "COMPLETED"
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,2081 @@
+{
+  "experiment": "ELIZA_V04_2D_GENERALIZATION",
+  "mode": "mock",
+  "timestamp": 1790526934.2152464,
+  "provider": "mock",
+  "embedding_provider": "deterministic",
+  "configurations": {
+    "A": {
+      "experiment": "Configuration A - Stateless LLM",
+      "success_rate": "0/1",
+      "trials": [
+        {
+          "trial_id": 1,
+          "cycles": 15,
+          "goal_completed": false,
+          "actions": [
+            "move_east",
+            "move_north",
+            "move_forward",
+            "move_forward",
+            "move_forward",
+            "move_forward",
+            "move_forward",
+            "move_forward",
+            "move_forward",
+            "move_forward",
+            "move_forward",
+            "move_forward",
+            "move_forward",
+            "move_forward",
+            "move_forward"
+          ],
+          "errors": [],
+          "memory_retrievals": 0,
+          "successful_memory_retrievals": 0,
+          "world_model_updates": 0,
+          "model_calls": 15,
+          "fallback_actions": 0,
+          "invalid_actions": 0,
+          "environment_errors": 13,
+          "critical_actions": [],
+          "traces": [
+            {
+              "cycle": 1,
+              "observation": {
+                "agent_location": [
+                  0,
+                  0
+                ],
+                "door_locked": true,
+                "message": "You are standing in an empty corridor at coordinates (0, 0)."
+              },
+              "world_model_context": {},
+              "memory_query": "Navigate the 2D grid and reach the final destination at (3, 3).",
+              "retrieved_memories": [],
+              "model": "qwen-2.5-72b",
+              "decision": "Deterministic mock logic.",
+              "action": "move_east",
+              "environment_result": {
+                "agent_location": [
+                  1,
+                  0
+                ],
+                "door_locked": true,
+                "message": "You are standing in an empty corridor at coordinates (1, 0)."
+              }
+            },
+            {
+              "cycle": 2,
+              "observation": {
+                "agent_location": [
+                  1,
+                  0
+                ],
+                "door_locked": true,
+                "message": "You are standing in an empty corridor at coordinates (1, 0)."
+              },
+              "world_model_context": {},
+              "memory_query": "Navigate the 2D grid and reach the final destination at (3, 3).",
+              "retrieved_memories": [],
+              "model": "qwen-2.5-72b",
+              "decision": "Deterministic mock logic.",
+              "action": "move_north",
+              "environment_result": {
+                "agent_location": [
+                  1,
+                  1
+                ],
+                "door_locked": true,
+                "message": "You are in a room with a desk. There is a piece of paper here."
+              }
+            },
+            {
+              "cycle": 3,
+              "observation": {
+                "agent_location": [
+                  1,
+                  1
+                ],
+                "door_locked": true,
+                "message": "You are in a room with a desk. There is a piece of paper here."
+              },
+              "world_model_context": {},
+              "memory_query": "Navigate the 2D grid and reach the final destination at (3, 3).",
+              "retrieved_memories": [],
+              "model": "qwen-2.5-72b",
+              "decision": "Deterministic mock logic.",
+              "action": "move_forward",
+              "environment_result": {
+                "agent_location": [
+                  1,
+                  1
+                ],
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 4,
+              "observation": {
+                "agent_location": [
+                  1,
+                  1
+                ],
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              },
+              "world_model_context": {},
+              "memory_query": "Navigate the 2D grid and reach the final destination at (3, 3).",
+              "retrieved_memories": [],
+              "model": "qwen-2.5-72b",
+              "decision": "Deterministic mock logic.",
+              "action": "move_forward",
+              "environment_result": {
+                "agent_location": [
+                  1,
+                  1
+                ],
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 5,
+              "observation": {
+                "agent_location": [
+                  1,
+                  1
+                ],
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              },
+              "world_model_context": {},
+              "memory_query": "Navigate the 2D grid and reach the final destination at (3, 3).",
+              "retrieved_memories": [],
+              "model": "qwen-2.5-72b",
+              "decision": "Deterministic mock logic.",
+              "action": "move_forward",
+              "environment_result": {
+                "agent_location": [
+                  1,
+                  1
+                ],
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 6,
+              "observation": {
+                "agent_location": [
+                  1,
+                  1
+                ],
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              },
+              "world_model_context": {},
+              "memory_query": "Navigate the 2D grid and reach the final destination at (3, 3).",
+              "retrieved_memories": [],
+              "model": "qwen-2.5-72b",
+              "decision": "Deterministic mock logic.",
+              "action": "move_forward",
+              "environment_result": {
+                "agent_location": [
+                  1,
+                  1
+                ],
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 7,
+              "observation": {
+                "agent_location": [
+                  1,
+                  1
+                ],
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              },
+              "world_model_context": {},
+              "memory_query": "Navigate the 2D grid and reach the final destination at (3, 3).",
+              "retrieved_memories": [],
+              "model": "qwen-2.5-72b",
+              "decision": "Deterministic mock logic.",
+              "action": "move_forward",
+              "environment_result": {
+                "agent_location": [
+                  1,
+                  1
+                ],
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 8,
+              "observation": {
+                "agent_location": [
+                  1,
+                  1
+                ],
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              },
+              "world_model_context": {},
+              "memory_query": "Navigate the 2D grid and reach the final destination at (3, 3).",
+              "retrieved_memories": [],
+              "model": "qwen-2.5-72b",
+              "decision": "Deterministic mock logic.",
+              "action": "move_forward",
+              "environment_result": {
+                "agent_location": [
+                  1,
+                  1
+                ],
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 9,
+              "observation": {
+                "agent_location": [
+                  1,
+                  1
+                ],
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              },
+              "world_model_context": {},
+              "memory_query": "Navigate the 2D grid and reach the final destination at (3, 3).",
+              "retrieved_memories": [],
+              "model": "qwen-2.5-72b",
+              "decision": "Deterministic mock logic.",
+              "action": "move_forward",
+              "environment_result": {
+                "agent_location": [
+                  1,
+                  1
+                ],
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 10,
+              "observation": {
+                "agent_location": [
+                  1,
+                  1
+                ],
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              },
+              "world_model_context": {},
+              "memory_query": "Navigate the 2D grid and reach the final destination at (3, 3).",
+              "retrieved_memories": [],
+              "model": "qwen-2.5-72b",
+              "decision": "Deterministic mock logic.",
+              "action": "move_forward",
+              "environment_result": {
+                "agent_location": [
+                  1,
+                  1
+                ],
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 11,
+              "observation": {
+                "agent_location": [
+                  1,
+                  1
+                ],
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              },
+              "world_model_context": {},
+              "memory_query": "Navigate the 2D grid and reach the final destination at (3, 3).",
+              "retrieved_memories": [],
+              "model": "qwen-2.5-72b",
+              "decision": "Deterministic mock logic.",
+              "action": "move_forward",
+              "environment_result": {
+                "agent_location": [
+                  1,
+                  1
+                ],
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 12,
+              "observation": {
+                "agent_location": [
+                  1,
+                  1
+                ],
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              },
+              "world_model_context": {},
+              "memory_query": "Navigate the 2D grid and reach the final destination at (3, 3).",
+              "retrieved_memories": [],
+              "model": "qwen-2.5-72b",
+              "decision": "Deterministic mock logic.",
+              "action": "move_forward",
+              "environment_result": {
+                "agent_location": [
+                  1,
+                  1
+                ],
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 13,
+              "observation": {
+                "agent_location": [
+                  1,
+                  1
+                ],
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              },
+              "world_model_context": {},
+              "memory_query": "Navigate the 2D grid and reach the final destination at (3, 3).",
+              "retrieved_memories": [],
+              "model": "qwen-2.5-72b",
+              "decision": "Deterministic mock logic.",
+              "action": "move_forward",
+              "environment_result": {
+                "agent_location": [
+                  1,
+                  1
+                ],
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 14,
+              "observation": {
+                "agent_location": [
+                  1,
+                  1
+                ],
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              },
+              "world_model_context": {},
+              "memory_query": "Navigate the 2D grid and reach the final destination at (3, 3).",
+              "retrieved_memories": [],
+              "model": "qwen-2.5-72b",
+              "decision": "Deterministic mock logic.",
+              "action": "move_forward",
+              "environment_result": {
+                "agent_location": [
+                  1,
+                  1
+                ],
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 15,
+              "observation": {
+                "agent_location": [
+                  1,
+                  1
+                ],
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              },
+              "world_model_context": {},
+              "memory_query": "Navigate the 2D grid and reach the final destination at (3, 3).",
+              "retrieved_memories": [],
+              "model": "qwen-2.5-72b",
+              "decision": "Deterministic mock logic.",
+              "action": "move_forward",
+              "environment_result": {
+                "agent_location": [
+                  1,
+                  1
+                ],
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "B": {
+      "experiment": "Configuration B - World Model Only",
+      "success_rate": "0/1",
+      "trials": [
+        {
+          "trial_id": 1,
+          "cycles": 15,
+          "goal_completed": false,
+          "actions": [
+            "move_east",
+            "move_north",
+            "read_note",
+            "move_east",
+            "move_north",
+            "move_north",
+            "move_north",
+            "move_north",
+            "move_north",
+            "move_north",
+            "move_north",
+            "move_north",
+            "move_north",
+            "move_north",
+            "move_north"
+          ],
+          "errors": [],
+          "memory_retrievals": 0,
+          "successful_memory_retrievals": 0,
+          "world_model_updates": 15,
+          "model_calls": 15,
+          "fallback_actions": 0,
+          "invalid_actions": 0,
+          "environment_errors": 0,
+          "critical_actions": [],
+          "traces": [
+            {
+              "cycle": 1,
+              "observation": {
+                "agent_location": [
+                  0,
+                  0
+                ],
+                "door_locked": true,
+                "message": "You are standing in an empty corridor at coordinates (0, 0)."
+              },
+              "world_model_context": {
+                "agent_location": [
+                  0,
+                  0
+                ],
+                "door_locked": true
+              },
+              "memory_query": "Navigate the 2D grid and reach the final destination at (3, 3).",
+              "retrieved_memories": [],
+              "model": "qwen-2.5-72b",
+              "decision": "Deterministic mock logic.",
+              "action": "move_east",
+              "environment_result": {
+                "agent_location": [
+                  1,
+                  0
+                ],
+                "door_locked": true,
+                "message": "You are standing in an empty corridor at coordinates (1, 0)."
+              }
+            },
+            {
+              "cycle": 2,
+              "observation": {
+                "agent_location": [
+                  1,
+                  0
+                ],
+                "door_locked": true,
+                "message": "You are standing in an empty corridor at coordinates (1, 0)."
+              },
+              "world_model_context": {
+                "agent_location": [
+                  1,
+                  0
+                ],
+                "door_locked": true
+              },
+              "memory_query": "Navigate the 2D grid and reach the final destination at (3, 3).",
+              "retrieved_memories": [],
+              "model": "qwen-2.5-72b",
+              "decision": "Deterministic mock logic.",
+              "action": "move_north",
+              "environment_result": {
+                "agent_location": [
+                  1,
+                  1
+                ],
+                "door_locked": true,
+                "message": "You are in a room with a desk. There is a piece of paper here."
+              }
+            },
+            {
+              "cycle": 3,
+              "observation": {
+                "agent_location": [
+                  1,
+                  1
+                ],
+                "door_locked": true,
+                "message": "You are in a room with a desk. There is a piece of paper here."
+              },
+              "world_model_context": {
+                "agent_location": [
+                  1,
+                  1
+                ],
+                "door_locked": true
+              },
+              "memory_query": "Navigate the 2D grid and reach the final destination at (3, 3).",
+              "retrieved_memories": [],
+              "model": "qwen-2.5-72b",
+              "decision": "Deterministic mock logic.",
+              "action": "read_note",
+              "environment_result": {
+                "agent_location": [
+                  1,
+                  1
+                ],
+                "door_locked": true,
+                "message": "The paper beside you says the entry number is 8592."
+              }
+            },
+            {
+              "cycle": 4,
+              "observation": {
+                "agent_location": [
+                  1,
+                  1
+                ],
+                "door_locked": true,
+                "message": "The paper beside you says the entry number is 8592."
+              },
+              "world_model_context": {
+                "agent_location": [
+                  1,
+                  1
+                ],
+                "door_locked": true
+              },
+              "memory_query": "Navigate the 2D grid and reach the final destination at (3, 3).",
+              "retrieved_memories": [],
+              "model": "qwen-2.5-72b",
+              "decision": "Deterministic mock logic.",
+              "action": "move_east",
+              "environment_result": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true,
+                "message": "You are standing in an empty corridor at coordinates (2, 1)."
+              }
+            },
+            {
+              "cycle": 5,
+              "observation": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true,
+                "message": "You are standing in an empty corridor at coordinates (2, 1)."
+              },
+              "world_model_context": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true
+              },
+              "memory_query": "Navigate the 2D grid and reach the final destination at (3, 3).",
+              "retrieved_memories": [],
+              "model": "qwen-2.5-72b",
+              "decision": "Deterministic mock logic.",
+              "action": "move_north",
+              "environment_result": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true,
+                "message": "You bumped into the locked door. You cannot pass."
+              }
+            },
+            {
+              "cycle": 6,
+              "observation": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true,
+                "message": "You bumped into the locked door. You cannot pass."
+              },
+              "world_model_context": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true
+              },
+              "memory_query": "Navigate the 2D grid and reach the final destination at (3, 3).",
+              "retrieved_memories": [],
+              "model": "qwen-2.5-72b",
+              "decision": "Deterministic mock logic.",
+              "action": "move_north",
+              "environment_result": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true,
+                "message": "You bumped into the locked door. You cannot pass."
+              }
+            },
+            {
+              "cycle": 7,
+              "observation": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true,
+                "message": "You bumped into the locked door. You cannot pass."
+              },
+              "world_model_context": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true
+              },
+              "memory_query": "Navigate the 2D grid and reach the final destination at (3, 3).",
+              "retrieved_memories": [],
+              "model": "qwen-2.5-72b",
+              "decision": "Deterministic mock logic.",
+              "action": "move_north",
+              "environment_result": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true,
+                "message": "You bumped into the locked door. You cannot pass."
+              }
+            },
+            {
+              "cycle": 8,
+              "observation": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true,
+                "message": "You bumped into the locked door. You cannot pass."
+              },
+              "world_model_context": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true
+              },
+              "memory_query": "Navigate the 2D grid and reach the final destination at (3, 3).",
+              "retrieved_memories": [],
+              "model": "qwen-2.5-72b",
+              "decision": "Deterministic mock logic.",
+              "action": "move_north",
+              "environment_result": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true,
+                "message": "You bumped into the locked door. You cannot pass."
+              }
+            },
+            {
+              "cycle": 9,
+              "observation": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true,
+                "message": "You bumped into the locked door. You cannot pass."
+              },
+              "world_model_context": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true
+              },
+              "memory_query": "Navigate the 2D grid and reach the final destination at (3, 3).",
+              "retrieved_memories": [],
+              "model": "qwen-2.5-72b",
+              "decision": "Deterministic mock logic.",
+              "action": "move_north",
+              "environment_result": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true,
+                "message": "You bumped into the locked door. You cannot pass."
+              }
+            },
+            {
+              "cycle": 10,
+              "observation": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true,
+                "message": "You bumped into the locked door. You cannot pass."
+              },
+              "world_model_context": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true
+              },
+              "memory_query": "Navigate the 2D grid and reach the final destination at (3, 3).",
+              "retrieved_memories": [],
+              "model": "qwen-2.5-72b",
+              "decision": "Deterministic mock logic.",
+              "action": "move_north",
+              "environment_result": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true,
+                "message": "You bumped into the locked door. You cannot pass."
+              }
+            },
+            {
+              "cycle": 11,
+              "observation": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true,
+                "message": "You bumped into the locked door. You cannot pass."
+              },
+              "world_model_context": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true
+              },
+              "memory_query": "Navigate the 2D grid and reach the final destination at (3, 3).",
+              "retrieved_memories": [],
+              "model": "qwen-2.5-72b",
+              "decision": "Deterministic mock logic.",
+              "action": "move_north",
+              "environment_result": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true,
+                "message": "You bumped into the locked door. You cannot pass."
+              }
+            },
+            {
+              "cycle": 12,
+              "observation": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true,
+                "message": "You bumped into the locked door. You cannot pass."
+              },
+              "world_model_context": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true
+              },
+              "memory_query": "Navigate the 2D grid and reach the final destination at (3, 3).",
+              "retrieved_memories": [],
+              "model": "qwen-2.5-72b",
+              "decision": "Deterministic mock logic.",
+              "action": "move_north",
+              "environment_result": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true,
+                "message": "You bumped into the locked door. You cannot pass."
+              }
+            },
+            {
+              "cycle": 13,
+              "observation": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true,
+                "message": "You bumped into the locked door. You cannot pass."
+              },
+              "world_model_context": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true
+              },
+              "memory_query": "Navigate the 2D grid and reach the final destination at (3, 3).",
+              "retrieved_memories": [],
+              "model": "qwen-2.5-72b",
+              "decision": "Deterministic mock logic.",
+              "action": "move_north",
+              "environment_result": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true,
+                "message": "You bumped into the locked door. You cannot pass."
+              }
+            },
+            {
+              "cycle": 14,
+              "observation": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true,
+                "message": "You bumped into the locked door. You cannot pass."
+              },
+              "world_model_context": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true
+              },
+              "memory_query": "Navigate the 2D grid and reach the final destination at (3, 3).",
+              "retrieved_memories": [],
+              "model": "qwen-2.5-72b",
+              "decision": "Deterministic mock logic.",
+              "action": "move_north",
+              "environment_result": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true,
+                "message": "You bumped into the locked door. You cannot pass."
+              }
+            },
+            {
+              "cycle": 15,
+              "observation": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true,
+                "message": "You bumped into the locked door. You cannot pass."
+              },
+              "world_model_context": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true
+              },
+              "memory_query": "Navigate the 2D grid and reach the final destination at (3, 3).",
+              "retrieved_memories": [],
+              "model": "qwen-2.5-72b",
+              "decision": "Deterministic mock logic.",
+              "action": "move_north",
+              "environment_result": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true,
+                "message": "You bumped into the locked door. You cannot pass."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "C": {
+      "experiment": "Configuration C - Memory Only",
+      "success_rate": "0/1",
+      "trials": [
+        {
+          "trial_id": 1,
+          "cycles": 15,
+          "goal_completed": false,
+          "actions": [
+            "move_east",
+            "move_east",
+            "move_north",
+            "move_north",
+            "move_north",
+            "move_forward",
+            "move_forward",
+            "move_forward",
+            "move_forward",
+            "move_forward",
+            "move_forward",
+            "move_forward",
+            "move_forward",
+            "move_forward",
+            "move_forward"
+          ],
+          "errors": [],
+          "memory_retrievals": 15,
+          "successful_memory_retrievals": 14,
+          "world_model_updates": 0,
+          "model_calls": 15,
+          "fallback_actions": 0,
+          "invalid_actions": 0,
+          "environment_errors": 10,
+          "critical_actions": [],
+          "traces": [
+            {
+              "cycle": 1,
+              "observation": {
+                "agent_location": [
+                  0,
+                  0
+                ],
+                "door_locked": true,
+                "message": "You are standing in an empty corridor at coordinates (0, 0)."
+              },
+              "world_model_context": {},
+              "memory_query": "Navigate the 2D grid and reach the final destination at (3, 3).",
+              "retrieved_memories": [],
+              "model": "qwen-2.5-72b",
+              "decision": "Deterministic mock logic.",
+              "action": "move_east",
+              "environment_result": {
+                "agent_location": [
+                  1,
+                  0
+                ],
+                "door_locked": true,
+                "message": "You are standing in an empty corridor at coordinates (1, 0)."
+              }
+            },
+            {
+              "cycle": 2,
+              "observation": {
+                "agent_location": [
+                  1,
+                  0
+                ],
+                "door_locked": true,
+                "message": "You are standing in an empty corridor at coordinates (1, 0)."
+              },
+              "world_model_context": {},
+              "memory_query": "Navigate the 2D grid and reach the final destination at (3, 3).",
+              "retrieved_memories": [
+                {
+                  "type": "episode",
+                  "goal": "Navigate the 2D grid and reach the final destination at (3, 3).",
+                  "observation": "You are standing in an empty corridor at coordinates (0, 0).",
+                  "action": "move_east",
+                  "decision_summary": "Deterministic mock logic.",
+                  "state_before": {}
+                }
+              ],
+              "model": "qwen-2.5-72b",
+              "decision": "Deterministic mock logic.",
+              "action": "move_east",
+              "environment_result": {
+                "agent_location": [
+                  2,
+                  0
+                ],
+                "door_locked": true,
+                "message": "You are standing in an empty corridor at coordinates (2, 0)."
+              }
+            },
+            {
+              "cycle": 3,
+              "observation": {
+                "agent_location": [
+                  2,
+                  0
+                ],
+                "door_locked": true,
+                "message": "You are standing in an empty corridor at coordinates (2, 0)."
+              },
+              "world_model_context": {},
+              "memory_query": "Navigate the 2D grid and reach the final destination at (3, 3).",
+              "retrieved_memories": [
+                {
+                  "type": "episode",
+                  "goal": "Navigate the 2D grid and reach the final destination at (3, 3).",
+                  "observation": "You are standing in an empty corridor at coordinates (1, 0).",
+                  "action": "move_east",
+                  "decision_summary": "Deterministic mock logic.",
+                  "state_before": {}
+                }
+              ],
+              "model": "qwen-2.5-72b",
+              "decision": "Deterministic mock logic.",
+              "action": "move_north",
+              "environment_result": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true,
+                "message": "You are standing in an empty corridor at coordinates (2, 1)."
+              }
+            },
+            {
+              "cycle": 4,
+              "observation": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true,
+                "message": "You are standing in an empty corridor at coordinates (2, 1)."
+              },
+              "world_model_context": {},
+              "memory_query": "Navigate the 2D grid and reach the final destination at (3, 3).",
+              "retrieved_memories": [
+                {
+                  "type": "episode",
+                  "goal": "Navigate the 2D grid and reach the final destination at (3, 3).",
+                  "observation": "You are standing in an empty corridor at coordinates (2, 0).",
+                  "action": "move_north",
+                  "decision_summary": "Deterministic mock logic.",
+                  "state_before": {}
+                }
+              ],
+              "model": "qwen-2.5-72b",
+              "decision": "Deterministic mock logic.",
+              "action": "move_north",
+              "environment_result": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true,
+                "message": "You bumped into the locked door. You cannot pass."
+              }
+            },
+            {
+              "cycle": 5,
+              "observation": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true,
+                "message": "You bumped into the locked door. You cannot pass."
+              },
+              "world_model_context": {},
+              "memory_query": "Navigate the 2D grid and reach the final destination at (3, 3).",
+              "retrieved_memories": [
+                {
+                  "type": "episode",
+                  "goal": "Navigate the 2D grid and reach the final destination at (3, 3).",
+                  "observation": "You are standing in an empty corridor at coordinates (2, 1).",
+                  "action": "move_north",
+                  "decision_summary": "Deterministic mock logic.",
+                  "state_before": {}
+                }
+              ],
+              "model": "qwen-2.5-72b",
+              "decision": "Deterministic mock logic.",
+              "action": "move_north",
+              "environment_result": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true,
+                "message": "You bumped into the locked door. You cannot pass."
+              }
+            },
+            {
+              "cycle": 6,
+              "observation": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true,
+                "message": "You bumped into the locked door. You cannot pass."
+              },
+              "world_model_context": {},
+              "memory_query": "Navigate the 2D grid and reach the final destination at (3, 3).",
+              "retrieved_memories": [
+                {
+                  "type": "episode",
+                  "goal": "Navigate the 2D grid and reach the final destination at (3, 3).",
+                  "observation": "You bumped into the locked door. You cannot pass.",
+                  "action": "move_north",
+                  "decision_summary": "Deterministic mock logic.",
+                  "state_before": {}
+                }
+              ],
+              "model": "qwen-2.5-72b",
+              "decision": "Deterministic mock logic.",
+              "action": "move_forward",
+              "environment_result": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 7,
+              "observation": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              },
+              "world_model_context": {},
+              "memory_query": "Navigate the 2D grid and reach the final destination at (3, 3).",
+              "retrieved_memories": [
+                {
+                  "type": "episode",
+                  "goal": "Navigate the 2D grid and reach the final destination at (3, 3).",
+                  "observation": "You bumped into the locked door. You cannot pass.",
+                  "action": "move_forward",
+                  "decision_summary": "Deterministic mock logic.",
+                  "state_before": {}
+                }
+              ],
+              "model": "qwen-2.5-72b",
+              "decision": "Deterministic mock logic.",
+              "action": "move_forward",
+              "environment_result": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 8,
+              "observation": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              },
+              "world_model_context": {},
+              "memory_query": "Navigate the 2D grid and reach the final destination at (3, 3).",
+              "retrieved_memories": [
+                {
+                  "type": "episode",
+                  "goal": "Navigate the 2D grid and reach the final destination at (3, 3).",
+                  "observation": "Unknown or invalid action.",
+                  "action": "move_forward",
+                  "decision_summary": "Deterministic mock logic.",
+                  "state_before": {}
+                }
+              ],
+              "model": "qwen-2.5-72b",
+              "decision": "Deterministic mock logic.",
+              "action": "move_forward",
+              "environment_result": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 9,
+              "observation": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              },
+              "world_model_context": {},
+              "memory_query": "Navigate the 2D grid and reach the final destination at (3, 3).",
+              "retrieved_memories": [
+                {
+                  "type": "episode",
+                  "goal": "Navigate the 2D grid and reach the final destination at (3, 3).",
+                  "observation": "Unknown or invalid action.",
+                  "action": "move_forward",
+                  "decision_summary": "Deterministic mock logic.",
+                  "state_before": {}
+                }
+              ],
+              "model": "qwen-2.5-72b",
+              "decision": "Deterministic mock logic.",
+              "action": "move_forward",
+              "environment_result": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 10,
+              "observation": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              },
+              "world_model_context": {},
+              "memory_query": "Navigate the 2D grid and reach the final destination at (3, 3).",
+              "retrieved_memories": [
+                {
+                  "type": "episode",
+                  "goal": "Navigate the 2D grid and reach the final destination at (3, 3).",
+                  "observation": "Unknown or invalid action.",
+                  "action": "move_forward",
+                  "decision_summary": "Deterministic mock logic.",
+                  "state_before": {}
+                }
+              ],
+              "model": "qwen-2.5-72b",
+              "decision": "Deterministic mock logic.",
+              "action": "move_forward",
+              "environment_result": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 11,
+              "observation": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              },
+              "world_model_context": {},
+              "memory_query": "Navigate the 2D grid and reach the final destination at (3, 3).",
+              "retrieved_memories": [
+                {
+                  "type": "episode",
+                  "goal": "Navigate the 2D grid and reach the final destination at (3, 3).",
+                  "observation": "Unknown or invalid action.",
+                  "action": "move_forward",
+                  "decision_summary": "Deterministic mock logic.",
+                  "state_before": {}
+                }
+              ],
+              "model": "qwen-2.5-72b",
+              "decision": "Deterministic mock logic.",
+              "action": "move_forward",
+              "environment_result": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 12,
+              "observation": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              },
+              "world_model_context": {},
+              "memory_query": "Navigate the 2D grid and reach the final destination at (3, 3).",
+              "retrieved_memories": [
+                {
+                  "type": "episode",
+                  "goal": "Navigate the 2D grid and reach the final destination at (3, 3).",
+                  "observation": "Unknown or invalid action.",
+                  "action": "move_forward",
+                  "decision_summary": "Deterministic mock logic.",
+                  "state_before": {}
+                }
+              ],
+              "model": "qwen-2.5-72b",
+              "decision": "Deterministic mock logic.",
+              "action": "move_forward",
+              "environment_result": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 13,
+              "observation": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              },
+              "world_model_context": {},
+              "memory_query": "Navigate the 2D grid and reach the final destination at (3, 3).",
+              "retrieved_memories": [
+                {
+                  "type": "episode",
+                  "goal": "Navigate the 2D grid and reach the final destination at (3, 3).",
+                  "observation": "Unknown or invalid action.",
+                  "action": "move_forward",
+                  "decision_summary": "Deterministic mock logic.",
+                  "state_before": {}
+                }
+              ],
+              "model": "qwen-2.5-72b",
+              "decision": "Deterministic mock logic.",
+              "action": "move_forward",
+              "environment_result": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 14,
+              "observation": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              },
+              "world_model_context": {},
+              "memory_query": "Navigate the 2D grid and reach the final destination at (3, 3).",
+              "retrieved_memories": [
+                {
+                  "type": "episode",
+                  "goal": "Navigate the 2D grid and reach the final destination at (3, 3).",
+                  "observation": "Unknown or invalid action.",
+                  "action": "move_forward",
+                  "decision_summary": "Deterministic mock logic.",
+                  "state_before": {}
+                }
+              ],
+              "model": "qwen-2.5-72b",
+              "decision": "Deterministic mock logic.",
+              "action": "move_forward",
+              "environment_result": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 15,
+              "observation": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              },
+              "world_model_context": {},
+              "memory_query": "Navigate the 2D grid and reach the final destination at (3, 3).",
+              "retrieved_memories": [
+                {
+                  "type": "episode",
+                  "goal": "Navigate the 2D grid and reach the final destination at (3, 3).",
+                  "observation": "Unknown or invalid action.",
+                  "action": "move_forward",
+                  "decision_summary": "Deterministic mock logic.",
+                  "state_before": {}
+                }
+              ],
+              "model": "qwen-2.5-72b",
+              "decision": "Deterministic mock logic.",
+              "action": "move_forward",
+              "environment_result": {
+                "agent_location": [
+                  2,
+                  1
+                ],
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            }
+          ]
+        }
+      ]
+    },
+    "D": {
+      "experiment": "Configuration D - E.L.I.Z.A.",
+      "success_rate": "1/1",
+      "trials": [
+        {
+          "trial_id": 1,
+          "cycles": 9,
+          "goal_completed": true,
+          "actions": [
+            "move_east",
+            "move_east",
+            "move_east",
+            "move_east",
+            "move_north",
+            "move_east",
+            "move_north",
+            "move_east",
+            "move_north"
+          ],
+          "errors": [],
+          "memory_retrievals": 9,
+          "successful_memory_retrievals": 8,
+          "world_model_updates": 9,
+          "model_calls": 9,
+          "fallback_actions": 0,
+          "invalid_actions": 0,
+          "environment_errors": 3,
+          "critical_actions": [],
+          "traces": [
+            {
+              "cycle": 1,
+              "observation": {
+                "agent_location": [
+                  0,
+                  0
+                ],
+                "door_locked": true,
+                "message": "You are standing in an empty corridor at coordinates (0, 0)."
+              },
+              "world_model_context": {
+                "agent_location": [
+                  0,
+                  0
+                ],
+                "door_locked": true
+              },
+              "memory_query": "Navigate the 2D grid and reach the final destination at (3, 3).",
+              "retrieved_memories": [],
+              "model": "qwen-2.5-72b",
+              "decision": "Deterministic mock logic.",
+              "action": "move_east",
+              "environment_result": {
+                "agent_location": [
+                  1,
+                  0
+                ],
+                "door_locked": true,
+                "message": "You are standing in an empty corridor at coordinates (1, 0)."
+              }
+            },
+            {
+              "cycle": 2,
+              "observation": {
+                "agent_location": [
+                  1,
+                  0
+                ],
+                "door_locked": true,
+                "message": "You are standing in an empty corridor at coordinates (1, 0)."
+              },
+              "world_model_context": {
+                "agent_location": [
+                  1,
+                  0
+                ],
+                "door_locked": true
+              },
+              "memory_query": "Navigate the 2D grid and reach the final destination at (3, 3).",
+              "retrieved_memories": [
+                {
+                  "type": "episode",
+                  "goal": "Navigate the 2D grid and reach the final destination at (3, 3).",
+                  "observation": "You are standing in an empty corridor at coordinates (0, 0).",
+                  "action": "move_east",
+                  "decision_summary": "Deterministic mock logic.",
+                  "state_before": {
+                    "agent_location": [
+                      0,
+                      0
+                    ],
+                    "door_locked": true
+                  }
+                }
+              ],
+              "model": "qwen-2.5-72b",
+              "decision": "Deterministic mock logic.",
+              "action": "move_east",
+              "environment_result": {
+                "agent_location": [
+                  2,
+                  0
+                ],
+                "door_locked": true,
+                "message": "You are standing in an empty corridor at coordinates (2, 0)."
+              }
+            },
+            {
+              "cycle": 3,
+              "observation": {
+                "agent_location": [
+                  2,
+                  0
+                ],
+                "door_locked": true,
+                "message": "You are standing in an empty corridor at coordinates (2, 0)."
+              },
+              "world_model_context": {
+                "agent_location": [
+                  2,
+                  0
+                ],
+                "door_locked": true
+              },
+              "memory_query": "Navigate the 2D grid and reach the final destination at (3, 3).",
+              "retrieved_memories": [
+                {
+                  "type": "episode",
+                  "goal": "Navigate the 2D grid and reach the final destination at (3, 3).",
+                  "observation": "You are standing in an empty corridor at coordinates (1, 0).",
+                  "action": "move_east",
+                  "decision_summary": "Deterministic mock logic.",
+                  "state_before": {
+                    "agent_location": [
+                      1,
+                      0
+                    ],
+                    "door_locked": true
+                  }
+                },
+                {
+                  "type": "episode",
+                  "goal": "Navigate the 2D grid and reach the final destination at (3, 3).",
+                  "observation": "You are standing in an empty corridor at coordinates (0, 0).",
+                  "action": "move_east",
+                  "decision_summary": "Deterministic mock logic.",
+                  "state_before": {
+                    "agent_location": [
+                      0,
+                      0
+                    ],
+                    "door_locked": true
+                  }
+                }
+              ],
+              "model": "qwen-2.5-72b",
+              "decision": "Deterministic mock logic.",
+              "action": "move_east",
+              "environment_result": {
+                "agent_location": [
+                  3,
+                  0
+                ],
+                "door_locked": true,
+                "message": "You are standing in an empty corridor at coordinates (3, 0)."
+              }
+            },
+            {
+              "cycle": 4,
+              "observation": {
+                "agent_location": [
+                  3,
+                  0
+                ],
+                "door_locked": true,
+                "message": "You are standing in an empty corridor at coordinates (3, 0)."
+              },
+              "world_model_context": {
+                "agent_location": [
+                  3,
+                  0
+                ],
+                "door_locked": true
+              },
+              "memory_query": "Navigate the 2D grid and reach the final destination at (3, 3).",
+              "retrieved_memories": [
+                {
+                  "type": "episode",
+                  "goal": "Navigate the 2D grid and reach the final destination at (3, 3).",
+                  "observation": "You are standing in an empty corridor at coordinates (2, 0).",
+                  "action": "move_east",
+                  "decision_summary": "Deterministic mock logic.",
+                  "state_before": {
+                    "agent_location": [
+                      2,
+                      0
+                    ],
+                    "door_locked": true
+                  }
+                },
+                {
+                  "type": "episode",
+                  "goal": "Navigate the 2D grid and reach the final destination at (3, 3).",
+                  "observation": "You are standing in an empty corridor at coordinates (1, 0).",
+                  "action": "move_east",
+                  "decision_summary": "Deterministic mock logic.",
+                  "state_before": {
+                    "agent_location": [
+                      1,
+                      0
+                    ],
+                    "door_locked": true
+                  }
+                },
+                {
+                  "type": "episode",
+                  "goal": "Navigate the 2D grid and reach the final destination at (3, 3).",
+                  "observation": "You are standing in an empty corridor at coordinates (0, 0).",
+                  "action": "move_east",
+                  "decision_summary": "Deterministic mock logic.",
+                  "state_before": {
+                    "agent_location": [
+                      0,
+                      0
+                    ],
+                    "door_locked": true
+                  }
+                }
+              ],
+              "model": "qwen-2.5-72b",
+              "decision": "Deterministic mock logic.",
+              "action": "move_east",
+              "environment_result": {
+                "agent_location": [
+                  3,
+                  0
+                ],
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 5,
+              "observation": {
+                "agent_location": [
+                  3,
+                  0
+                ],
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              },
+              "world_model_context": {
+                "agent_location": [
+                  3,
+                  0
+                ],
+                "door_locked": true
+              },
+              "memory_query": "Navigate the 2D grid and reach the final destination at (3, 3).",
+              "retrieved_memories": [
+                {
+                  "type": "episode",
+                  "goal": "Navigate the 2D grid and reach the final destination at (3, 3).",
+                  "observation": "You are standing in an empty corridor at coordinates (3, 0).",
+                  "action": "move_east",
+                  "decision_summary": "Deterministic mock logic.",
+                  "state_before": {
+                    "agent_location": [
+                      3,
+                      0
+                    ],
+                    "door_locked": true
+                  }
+                },
+                {
+                  "type": "episode",
+                  "goal": "Navigate the 2D grid and reach the final destination at (3, 3).",
+                  "observation": "You are standing in an empty corridor at coordinates (2, 0).",
+                  "action": "move_east",
+                  "decision_summary": "Deterministic mock logic.",
+                  "state_before": {
+                    "agent_location": [
+                      2,
+                      0
+                    ],
+                    "door_locked": true
+                  }
+                },
+                {
+                  "type": "episode",
+                  "goal": "Navigate the 2D grid and reach the final destination at (3, 3).",
+                  "observation": "You are standing in an empty corridor at coordinates (1, 0).",
+                  "action": "move_east",
+                  "decision_summary": "Deterministic mock logic.",
+                  "state_before": {
+                    "agent_location": [
+                      1,
+                      0
+                    ],
+                    "door_locked": true
+                  }
+                }
+              ],
+              "model": "qwen-2.5-72b",
+              "decision": "Deterministic mock logic.",
+              "action": "move_north",
+              "environment_result": {
+                "agent_location": [
+                  3,
+                  1
+                ],
+                "door_locked": true,
+                "message": "You are standing in an empty corridor at coordinates (3, 1)."
+              }
+            },
+            {
+              "cycle": 6,
+              "observation": {
+                "agent_location": [
+                  3,
+                  1
+                ],
+                "door_locked": true,
+                "message": "You are standing in an empty corridor at coordinates (3, 1)."
+              },
+              "world_model_context": {
+                "agent_location": [
+                  3,
+                  1
+                ],
+                "door_locked": true
+              },
+              "memory_query": "Navigate the 2D grid and reach the final destination at (3, 3).",
+              "retrieved_memories": [
+                {
+                  "type": "episode",
+                  "goal": "Navigate the 2D grid and reach the final destination at (3, 3).",
+                  "observation": "You are standing in an empty corridor at coordinates (2, 0).",
+                  "action": "move_east",
+                  "decision_summary": "Deterministic mock logic.",
+                  "state_before": {
+                    "agent_location": [
+                      2,
+                      0
+                    ],
+                    "door_locked": true
+                  }
+                },
+                {
+                  "type": "episode",
+                  "goal": "Navigate the 2D grid and reach the final destination at (3, 3).",
+                  "observation": "You are standing in an empty corridor at coordinates (1, 0).",
+                  "action": "move_east",
+                  "decision_summary": "Deterministic mock logic.",
+                  "state_before": {
+                    "agent_location": [
+                      1,
+                      0
+                    ],
+                    "door_locked": true
+                  }
+                },
+                {
+                  "type": "episode",
+                  "goal": "Navigate the 2D grid and reach the final destination at (3, 3).",
+                  "observation": "You are standing in an empty corridor at coordinates (0, 0).",
+                  "action": "move_east",
+                  "decision_summary": "Deterministic mock logic.",
+                  "state_before": {
+                    "agent_location": [
+                      0,
+                      0
+                    ],
+                    "door_locked": true
+                  }
+                }
+              ],
+              "model": "qwen-2.5-72b",
+              "decision": "Deterministic mock logic.",
+              "action": "move_east",
+              "environment_result": {
+                "agent_location": [
+                  3,
+                  1
+                ],
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 7,
+              "observation": {
+                "agent_location": [
+                  3,
+                  1
+                ],
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              },
+              "world_model_context": {
+                "agent_location": [
+                  3,
+                  1
+                ],
+                "door_locked": true
+              },
+              "memory_query": "Navigate the 2D grid and reach the final destination at (3, 3).",
+              "retrieved_memories": [
+                {
+                  "type": "episode",
+                  "goal": "Navigate the 2D grid and reach the final destination at (3, 3).",
+                  "observation": "You are standing in an empty corridor at coordinates (3, 1).",
+                  "action": "move_east",
+                  "decision_summary": "Deterministic mock logic.",
+                  "state_before": {
+                    "agent_location": [
+                      3,
+                      1
+                    ],
+                    "door_locked": true
+                  }
+                },
+                {
+                  "type": "episode",
+                  "goal": "Navigate the 2D grid and reach the final destination at (3, 3).",
+                  "observation": "You are standing in an empty corridor at coordinates (2, 0).",
+                  "action": "move_east",
+                  "decision_summary": "Deterministic mock logic.",
+                  "state_before": {
+                    "agent_location": [
+                      2,
+                      0
+                    ],
+                    "door_locked": true
+                  }
+                },
+                {
+                  "type": "episode",
+                  "goal": "Navigate the 2D grid and reach the final destination at (3, 3).",
+                  "observation": "You are standing in an empty corridor at coordinates (1, 0).",
+                  "action": "move_east",
+                  "decision_summary": "Deterministic mock logic.",
+                  "state_before": {
+                    "agent_location": [
+                      1,
+                      0
+                    ],
+                    "door_locked": true
+                  }
+                }
+              ],
+              "model": "qwen-2.5-72b",
+              "decision": "Deterministic mock logic.",
+              "action": "move_north",
+              "environment_result": {
+                "agent_location": [
+                  3,
+                  2
+                ],
+                "door_locked": true,
+                "message": "You are standing in an empty corridor at coordinates (3, 2)."
+              }
+            },
+            {
+              "cycle": 8,
+              "observation": {
+                "agent_location": [
+                  3,
+                  2
+                ],
+                "door_locked": true,
+                "message": "You are standing in an empty corridor at coordinates (3, 2)."
+              },
+              "world_model_context": {
+                "agent_location": [
+                  3,
+                  2
+                ],
+                "door_locked": true
+              },
+              "memory_query": "Navigate the 2D grid and reach the final destination at (3, 3).",
+              "retrieved_memories": [
+                {
+                  "type": "episode",
+                  "goal": "Navigate the 2D grid and reach the final destination at (3, 3).",
+                  "observation": "You are standing in an empty corridor at coordinates (2, 0).",
+                  "action": "move_east",
+                  "decision_summary": "Deterministic mock logic.",
+                  "state_before": {
+                    "agent_location": [
+                      2,
+                      0
+                    ],
+                    "door_locked": true
+                  }
+                },
+                {
+                  "type": "episode",
+                  "goal": "Navigate the 2D grid and reach the final destination at (3, 3).",
+                  "observation": "You are standing in an empty corridor at coordinates (1, 0).",
+                  "action": "move_east",
+                  "decision_summary": "Deterministic mock logic.",
+                  "state_before": {
+                    "agent_location": [
+                      1,
+                      0
+                    ],
+                    "door_locked": true
+                  }
+                },
+                {
+                  "type": "episode",
+                  "goal": "Navigate the 2D grid and reach the final destination at (3, 3).",
+                  "observation": "You are standing in an empty corridor at coordinates (0, 0).",
+                  "action": "move_east",
+                  "decision_summary": "Deterministic mock logic.",
+                  "state_before": {
+                    "agent_location": [
+                      0,
+                      0
+                    ],
+                    "door_locked": true
+                  }
+                }
+              ],
+              "model": "qwen-2.5-72b",
+              "decision": "Deterministic mock logic.",
+              "action": "move_east",
+              "environment_result": {
+                "agent_location": [
+                  3,
+                  2
+                ],
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              }
+            },
+            {
+              "cycle": 9,
+              "observation": {
+                "agent_location": [
+                  3,
+                  2
+                ],
+                "door_locked": true,
+                "message": "Unknown or invalid action."
+              },
+              "world_model_context": {
+                "agent_location": [
+                  3,
+                  2
+                ],
+                "door_locked": true
+              },
+              "memory_query": "Navigate the 2D grid and reach the final destination at (3, 3).",
+              "retrieved_memories": [
+                {
+                  "type": "episode",
+                  "goal": "Navigate the 2D grid and reach the final destination at (3, 3).",
+                  "observation": "You are standing in an empty corridor at coordinates (3, 2).",
+                  "action": "move_east",
+                  "decision_summary": "Deterministic mock logic.",
+                  "state_before": {
+                    "agent_location": [
+                      3,
+                      2
+                    ],
+                    "door_locked": true
+                  }
+                },
+                {
+                  "type": "episode",
+                  "goal": "Navigate the 2D grid and reach the final destination at (3, 3).",
+                  "observation": "You are standing in an empty corridor at coordinates (2, 0).",
+                  "action": "move_east",
+                  "decision_summary": "Deterministic mock logic.",
+                  "state_before": {
+                    "agent_location": [
+                      2,
+                      0
+                    ],
+                    "door_locked": true
+                  }
+                },
+                {
+                  "type": "episode",
+                  "goal": "Navigate the 2D grid and reach the final destination at (3, 3).",
+                  "observation": "You are standing in an empty corridor at coordinates (1, 0).",
+                  "action": "move_east",
+                  "decision_summary": "Deterministic mock logic.",
+                  "state_before": {
+                    "agent_location": [
+                      1,
+                      0
+                    ],
+                    "door_locked": true
+                  }
+                }
+              ],
+              "model": "qwen-2.5-72b",
+              "decision": "Deterministic mock logic.",
+              "action": "move_north",
+              "environment_result": {
+                "agent_location": [
+                  3,
+                  3
+                ],
+                "door_locked": true,
+                "message": "You have reached the final destination."
+              }
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

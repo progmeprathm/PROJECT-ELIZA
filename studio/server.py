@@ -35,15 +35,29 @@ from ecos.simulation.simulator import ECOSSimulator
 from ecos.strategies.library import StrategyLibrary
 from ecos.world.graph import ECOSWorldModel
 
-# Global ECOS Runtime & Companion Instances
-ecos_os = ECOSOperatingSystem()
-ecos_os.boot()
-marketplace = CognitiveMarketplaceManager()
-marketplace.install("planner")
-marketplace.install("scientist")
+# Multi-Tenant Session Management
+active_sessions = {}
 
-conversation_mgr = ConversationManager()
-cognitive_shell = CognitiveShell()
+def get_session(user_id: str):
+    if user_id not in active_sessions:
+        # Create a new OS & Companion per user!
+        os_instance = ECOSOperatingSystem()
+        os_instance.boot()
+        
+        market = CognitiveMarketplaceManager()
+        market.install("planner")
+        market.install("scientist")
+        
+        chat = ConversationManager()
+        shell = CognitiveShell()
+        
+        active_sessions[user_id] = {
+            "ecos_os": os_instance,
+            "marketplace": market,
+            "conversation_mgr": chat,
+            "cognitive_shell": shell
+        }
+    return active_sessions[user_id]
 
 
 class ELIZAStudioRequestHandler(BaseHTTPRequestHandler):
@@ -56,6 +70,17 @@ class ELIZAStudioRequestHandler(BaseHTTPRequestHandler):
         self.send_header("Access-Control-Allow-Headers", "Content-Type")
         self.end_headers()
 
+    def _get_context(self):
+        user_id = self.headers.get("X-User-ID", "default-user")
+        openai = self.headers.get("X-OpenAI-Key")
+        groq = self.headers.get("X-Groq-Key")
+        if openai:
+            os.environ["OPENAI_API_KEY"] = openai
+        if groq:
+            os.environ["GROQ_API_KEY"] = groq
+        session = get_session(user_id)
+        return session["ecos_os"], session["conversation_mgr"], session["cognitive_shell"], session["marketplace"]
+
     def do_GET(self) -> None:
         parsed_path = urlparse(self.path)
         path = parsed_path.path
@@ -66,6 +91,7 @@ class ELIZAStudioRequestHandler(BaseHTTPRequestHandler):
             self._serve_static_file(path)
 
     def do_POST(self) -> None:
+        ecos_os, conversation_mgr, cognitive_shell, marketplace = self._get_context()
         parsed_path = urlparse(self.path)
         path = parsed_path.path
 
@@ -86,18 +112,25 @@ class ELIZAStudioRequestHandler(BaseHTTPRequestHandler):
             user_msg = payload.get("message", "Hello ELIZA")
             assistant_id = payload.get("assistant", "architect")
             conversation_mgr.set_assistant(assistant_id)
-            chat_res = conversation_mgr.process_message(user_msg)
-            # convert trace dataclass to dict
-            trace_obj = chat_res["trace"]
-            chat_res["trace"] = {
-                "trace_id": trace_obj.trace_id,
-                "goal_description": trace_obj.goal_description,
-                "evidence": trace_obj.evidence,
-                "alternatives": trace_obj.alternatives,
-                "chosen_option": trace_obj.chosen_option,
-                "confidence": trace_obj.confidence,
-                "assumptions": trace_obj.assumptions,
-            }
+            try:
+                chat_res = conversation_mgr.process_message(user_msg)
+                trace_obj = chat_res["trace"]
+                chat_res["trace"] = {
+                    "trace_id": trace_obj.trace_id,
+                    "goal_description": trace_obj.goal_description,
+                    "evidence": trace_obj.evidence,
+                    "alternatives": trace_obj.alternatives,
+                    "chosen_option": trace_obj.chosen_option,
+                    "confidence": trace_obj.confidence,
+                    "assumptions": trace_obj.assumptions,
+                }
+            except Exception as e:
+                print(f"Error processing message: {e}")
+                chat_res = {
+                    "response": f"SYSTEM ERROR: The cognitive engine encountered an error. This is likely an LLM Rate Limit (429 Too Many Requests). Wait a minute and try again.\nDetails: {e}",
+                    "state": "error"
+                }
+
             self._set_headers()
             self.wfile.write(json.dumps({"status": "SUCCESS", "chat": chat_res}).encode("utf-8"))
 
@@ -127,6 +160,7 @@ class ELIZAStudioRequestHandler(BaseHTTPRequestHandler):
             self.wfile.write(json.dumps({"error": "POST Endpoint Not Found"}).encode("utf-8"))
 
     def _handle_api_get(self, path: str, query_str: str) -> None:
+        ecos_os, conversation_mgr, cognitive_shell, marketplace = self._get_context()
         params = parse_qs(query_str)
         self._set_headers()
 
@@ -141,123 +175,110 @@ class ELIZAStudioRequestHandler(BaseHTTPRequestHandler):
             self.wfile.write(json.dumps(data).encode("utf-8"))
 
         elif path == "/api/dashboard":
+            processes = []
+            for pid, proc in ecos_os.active_processes.items():
+                processes.append({
+                    "pid": pid,
+                    "name": proc.name,
+                    "priority": "HIGH" if proc.priority > 5 else "NORMAL",
+                    "status": proc.state.name,
+                    "cpu_pct": 0.0,
+                    "mem_mb": 0.0,
+                })
+            
             data = {
                 "kernel_status": "ONLINE",
-                "uptime_seconds": 1420.5,
-                "active_processes": [
-                    {"pid": 83, "name": "Research AGI Process", "priority": "HIGH", "status": "RUNNING", "cpu_pct": 14.2, "mem_mb": 42.1},
-                    {"pid": 104, "name": "Build ECOS Kernel", "priority": "CRITICAL", "status": "RUNNING", "cpu_pct": 28.5, "mem_mb": 84.0},
-                    {"pid": 112, "name": "Memory Consolidation", "priority": "BACKGROUND", "status": "QUEUED", "cpu_pct": 2.1, "mem_mb": 12.0},
-                ],
+                "uptime_seconds": 0,
+                "active_processes": processes,
                 "active_thought": {
-                    "current_goal": "Build ECOS Kernel Runtime Architecture",
-                    "subroutines": ["Retrieving Memory", "Comparing Designs", "Generating Plan"],
-                    "confidence_pct": 82,
-                    "assumptions_count": 5,
-                    "next_action": "Write Scheduler Specification",
+                    "current_goal": list(ecos_os.active_processes.values())[0].goal.description if ecos_os.active_processes else "Idle",
+                    "subroutines": [],
+                    "confidence_pct": 100,
+                    "assumptions_count": 0,
+                    "next_action": "Awaiting Input",
                 },
-                "cpu_usage_pct": 44.8,
-                "memory_usage_mb": 138.1,
-                "reasoning_stage": "PLANNING",
-                "scheduler_queue_depth": 3,
-                "active_modules_count": 11,
+                "cpu_usage_pct": len(processes) * 10,
+                "memory_usage_mb": sum([t.current_count for t in ecos_os.memory_hierarchy.tiers.values()]),
+                "reasoning_stage": "IDLE" if not processes else "EXECUTING",
+                "scheduler_queue_depth": len(ecos_os.active_processes),
+                "active_modules_count": 5,
             }
             self.wfile.write(json.dumps(data).encode("utf-8"))
 
         elif path == "/api/memory":
             data = {
-                "tiers": [
-                    {"name": "Attention Register", "latency_ms": 0.1, "capacity": 1, "count": 1, "items": ["Active Instruction OBSERVE"]},
-                    {"name": "Working Memory", "latency_ms": 1.0, "capacity": 10, "count": 4, "items": ["Context Frame A", "Target PID 104", "Goal Object #1", "Belief Statement"]},
-                    {"name": "Context Cache", "latency_ms": 5.0, "capacity": 50, "count": 18, "items": ["Session Token", "User Request Specs"]},
-                    {"name": "Episodic Memory", "latency_ms": 15.0, "capacity": 500, "count": 142, "items": ["Milestone 1 Run", "Phase 3 Execution Log"]},
-                    {"name": "Semantic Memory", "latency_ms": 25.0, "capacity": 5000, "count": 1240, "items": ["ECOS Kernel Spec", "FCRL Invariants"]},
-                    {"name": "Knowledge Graph", "latency_ms": 50.0, "capacity": 50000, "count": 18201, "items": ["Cognitive ISA Graph", "Entity Triplets"]},
-                    {"name": "Long-Term Storage", "latency_ms": 100.0, "capacity": 999999999, "count": 42100, "items": ["Full System Backups"]},
-                ]
+                "tiers": []
             }
+            for name, tier in ecos_os.memory_hierarchy.tiers.items():
+                items = [str(item) for item in list(tier.items.values())[:5]]
+                data["tiers"].append({
+                    "name": name.replace("_", " ").title(),
+                    "latency_ms": tier.latency_ms,
+                    "capacity": tier.capacity,
+                    "count": tier.current_count,
+                    "items": items if items else ["(Empty)"]
+                })
             self.wfile.write(json.dumps(data).encode("utf-8"))
 
         elif path == "/api/worldmodel":
+            # Real world model isn't populated on boot without tasks, so we return current kernel files
             data = {
-                "stats": {"entities": 2341, "relationships": 18201, "beliefs": 422, "evidence": 1204},
-                "nodes": [
-                    {"id": "e1", "label": "ECOS Kernel", "type": "Entity", "confidence": 0.98},
-                    {"id": "e2", "label": "Cognitive ISA", "type": "Entity", "confidence": 0.95},
-                    {"id": "e3", "label": "Memory Hierarchy", "type": "Entity", "confidence": 0.94},
-                    {"id": "b1", "label": "LLM is Coprocessor", "type": "Belief", "confidence": 0.92},
-                    {"id": "b2", "label": "Safety Overrides Opt", "type": "Belief", "confidence": 0.99},
-                    {"id": "ev1", "label": "Benchmark Run #42", "type": "Evidence", "confidence": 0.91},
-                ],
-                "edges": [
-                    {"source": "e1", "target": "e2", "label": "EXECUTES"},
-                    {"source": "e1", "target": "e3", "label": "MANAGES"},
-                    {"source": "b1", "target": "e1", "label": "VALIDATES"},
-                    {"source": "b2", "target": "e1", "label": "GOVERNS"},
-                    {"source": "ev1", "target": "b1", "label": "SUPPORTS"},
-                ],
+                "stats": {"entities": len(ecos_os.cfs.get_full_tree()), "relationships": 0, "beliefs": 0, "evidence": 0},
+                "nodes": [{"id": p, "label": p, "type": "File", "confidence": 1.0} for p in ecos_os.cfs.get_full_tree().keys()] or [{"id": "empty", "label": "No Data", "type": "Info", "confidence": 1.0}],
+                "edges": [],
             }
             self.wfile.write(json.dumps(data).encode("utf-8"))
 
         elif path == "/api/goals":
-            data = {
-                "goals": [
-                    {
-                        "id": "goal-1",
-                        "description": "Build ECOS Kernel Architecture",
-                        "priority": 10,
+            goals = []
+            for pid, proc in ecos_os.active_processes.items():
+                if proc.goal:
+                    goals.append({
+                        "id": proc.goal.id,
+                        "description": proc.goal.description,
+                        "priority": proc.goal.priority,
                         "status": "active",
-                        "progress": 0.85,
-                        "subgoals": [
-                            {"id": "sub-1", "description": "Implement Cognitive ISA Opcodes", "status": "completed"},
-                            {"id": "sub-2", "description": "Build 7-Tier Memory Stack", "status": "completed"},
-                            {"id": "sub-3", "description": "Launch ELIZA Studio Control Deck", "status": "active"},
-                        ],
-                    },
-                    {
-                        "id": "goal-2",
-                        "description": "Publish Cognitive Benchmark Paper",
-                        "priority": 7,
-                        "status": "queued",
-                        "progress": 0.30,
+                        "progress": 0.0,
                         "subgoals": [],
-                    },
-                ]
-            }
+                    })
+            if not goals:
+                goals = [{"id": "sys", "description": "Idle - Awaiting Goal", "priority": 0, "status": "idle", "progress": 0, "subgoals": []}]
+            
+            data = {"goals": goals}
             self.wfile.write(json.dumps(data).encode("utf-8"))
 
         elif path == "/api/planner":
             data = {
-                "goal": "Optimize Complex Multi-step Planning",
-                "plans": [
-                    {"id": "Plan A", "name": "A* Search & Fast Heuristic", "est_time_s": 1.2, "cost": 0.45, "risk": 0.08, "confidence": 0.92, "recommended": True},
-                    {"id": "Plan B", "name": "Exhaustive Counterfactual Simulation", "est_time_s": 4.8, "cost": 1.80, "risk": 0.02, "confidence": 0.96, "recommended": False},
-                    {"id": "Plan C", "name": "Greedy Single-pass Decomposition", "est_time_s": 0.4, "cost": 0.15, "risk": 0.25, "confidence": 0.74, "recommended": False},
-                ],
+                "goal": "No active planning",
+                "plans": [],
             }
+            # Attempt to find an active plan in the scheduler
+            for pid, proc in ecos_os.active_processes.items():
+                if proc.goal:
+                    data["goal"] = proc.goal.description
+                    break
+                    
             self.wfile.write(json.dumps(data).encode("utf-8"))
 
         elif path == "/api/reasoning":
             data = {
-                "question": "How does ECOS prevent architecture paralysis?",
-                "evidence": ["Evidence #104: 16 Test Cases Passing", "Evidence #105: Executable Cognitive ISA VM"],
-                "retrieved_memory": "Memory Tier #2: Phase 2 Milestone Execution",
-                "beliefs": ["Belief #42: Single Source of Truth Code", "Belief #43: Verification before claim"],
-                "inference": "By strictly tying every specification to compiling, runnable Python code.",
-                "conclusion": "Architecture paralysis is avoided by building executable milestones at every phase.",
-                "confidence": 0.96,
+                "question": "Awaiting Inquiry",
+                "evidence": [],
+                "retrieved_memory": "None",
+                "beliefs": [],
+                "inference": "",
+                "conclusion": "",
+                "confidence": 0.0,
             }
             self.wfile.write(json.dumps(data).encode("utf-8"))
 
         elif path == "/api/reflection":
             data = {
-                "task_id": "task-phase4-run",
-                "succeeded": True,
-                "wrong_assumptions": ["Assumed 10ms memory retrieval latency, actual was 1.2ms"],
-                "lessons_learned": ["Working memory caching reduces CPU cycle count by 34%"],
-                "learning_candidates": [
-                    {"id": "cand-1", "target": "retrieval_heuristics", "change": "Hierarchical BM25 indexing", "status": "BENCHMARKED"},
-                ],
+                "task_id": "none",
+                "succeeded": False,
+                "wrong_assumptions": [],
+                "lessons_learned": [],
+                "learning_candidates": [],
             }
             self.wfile.write(json.dumps(data).encode("utf-8"))
 
