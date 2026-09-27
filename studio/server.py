@@ -178,31 +178,7 @@ class ELIZAStudioRequestHandler(BaseHTTPRequestHandler):
             }
             self.wfile.write(json.dumps(data).encode("utf-8"))
 
-        elif path == "/api/memory":
-            data = {
-                "tiers": []
-            }
-            for name, tier in ecos_os.memory_hierarchy.tiers.items():
-                items = [str(item) for item in list(tier.items.values())[:5]]
-                data["tiers"].append({
-                    "name": name.replace("_", " ").title(),
-                    "latency_ms": tier.latency_ms,
-                    "capacity": tier.capacity,
-                    "count": tier.current_count,
-                    "items": items if items else ["(Empty)"]
-                })
-            self.wfile.write(json.dumps(data).encode("utf-8"))
-
-        elif path == "/api/worldmodel":
-            # Real world model isn't populated on boot without tasks, so we return current kernel files
-            data = {
-                "stats": {"entities": len(ecos_os.cfs.get_full_tree()), "relationships": 0, "beliefs": 0, "evidence": 0},
-                "nodes": [{"id": p, "label": p, "type": "File", "confidence": 1.0} for p in ecos_os.cfs.get_full_tree().keys()] or [{"id": "empty", "label": "No Data", "type": "Info", "confidence": 1.0}],
-                "edges": [],
-            }
-            self.wfile.write(json.dumps(data).encode("utf-8"))
-
-        elif path == "/api/goals":
+        elif path == "/api/state":
             goals = []
             for pid, proc in ecos_os.active_processes.items():
                 if proc.goal:
@@ -210,44 +186,51 @@ class ELIZAStudioRequestHandler(BaseHTTPRequestHandler):
                         "id": proc.goal.id,
                         "description": proc.goal.description,
                         "priority": proc.goal.priority,
-                        "status": "active",
-                        "progress": 0.0,
-                        "subgoals": [],
+                        "status": "active"
                     })
-            if not goals:
-                goals = [{"id": "sys", "description": "Idle - Awaiting Goal", "priority": 0, "status": "idle", "progress": 0, "subgoals": []}]
+            data = {
+                "runtime_id": getattr(ecos_os, 'runtime_id', 'sys'),
+                "goals": goals,
+                "agents": [{"id": "planner", "role": "planner"}], # simplified for now
+                "memory_tiers": list(ecos_os.memory_hierarchy.tiers.keys())
+            }
+            self.wfile.write(json.dumps(data).encode("utf-8"))
+
+        elif path == "/api/stream":
+            self.send_response(200)
+            self.send_header('Content-type', 'text/event-stream')
+            self.send_header('Cache-Control', 'no-cache')
+            self.send_header('Connection', 'keep-alive')
+            self.send_header('Access-Control-Allow-Origin', '*')
+            self.end_headers()
             
-            data = {"goals": goals}
-            self.wfile.write(json.dumps(data).encode("utf-8"))
+            import queue
+            client_queue = queue.Queue()
+            
+            def sse_callback(event):
+                client_queue.put(event)
+                
+            sub_id = ecos_os.event_bus.subscribe(sse_callback)
+            
+            try:
+                while True:
+                    try:
+                        event = client_queue.get(timeout=1.0)
+                        data = event.model_dump_json()
+                        self.wfile.write(f"event: {event.event_type.value}\n".encode('utf-8'))
+                        self.wfile.write(f"data: {data}\n\n".encode('utf-8'))
+                        self.wfile.flush()
+                    except queue.Empty:
+                        self.wfile.write(b": keepalive\n\n")
+                        self.wfile.flush()
+            except Exception as e:
+                # Client disconnected or broken pipe
+                pass
+            finally:
+                ecos_os.event_bus.unsubscribe(sub_id)
+            return
 
-        elif path == "/api/planner":
-            data = {
-                "goal": "No active planning",
-                "plans": [],
-            }
-            # Attempt to find an active plan in the scheduler
-            for pid, proc in ecos_os.active_processes.items():
-                if proc.goal:
-                    data["goal"] = proc.goal.description
-                    break
-                    
-            self.wfile.write(json.dumps(data).encode("utf-8"))
-
-        elif path == "/api/reasoning":
-            data = {
-                "question": "Awaiting Inquiry",
-                "evidence": [],
-                "retrieved_memory": "None",
-                "beliefs": [],
-                "inference": "",
-                "conclusion": "",
-                "confidence": 0.0,
-            }
-            self.wfile.write(json.dumps(data).encode("utf-8"))
-
-        elif path == "/api/reflection":
-            data = {
-                "task_id": "none",
+        elif path == "/api/dashboard":
                 "succeeded": False,
                 "wrong_assumptions": [],
                 "lessons_learned": [],

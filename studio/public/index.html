@@ -3,348 +3,279 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>ELIZA Mission Control</title>
+  <title>E.L.I.Z.A. STUDIO</title>
   
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
 
-  <link rel="stylesheet" href="style.css">
-
-  <script type="importmap">
-    {
-      "imports": {
-        "@material/web/": "https://esm.run/@material/web/"
-      }
+  <style>
+    :root {
+      --bg: #09090b;
+      --surface: #18181b;
+      --surface-hover: #27272a;
+      --outline: #27272a;
+      --text: #fafafa;
+      --text-muted: #a1a1aa;
+      --primary: #3b82f6;
+      --success: #22c55e;
+      --warning: #eab308;
+      --danger: #ef4444;
     }
-  </script>
-  <script type="module">
-    import '@material/web/all.js';
-  </script>
+
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      overflow: hidden;
+    }
+
+    .font-mono {
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    .border-subtle {
+      border: 1px solid var(--outline);
+    }
+
+    .bg-surface {
+      background-color: var(--surface);
+    }
+    
+    .text-muted {
+      color: var(--text-muted);
+    }
+
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
+      height: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: var(--outline);
+      border-radius: 4px;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: var(--text-muted);
+    }
+  </style>
 </head>
-<body class="bg-background text-on-background">
-  
-  <header class="header flex items-center justify-between px-6 py-4 glass-panel sticky top-0 z-50 border-b border-outline-variant">
-    <div class="brand flex items-center gap-3 cursor-pointer group" id="btn-go-home">
-      <div class="w-8 h-8 rounded-md bg-transparent border border-outline-variant flex items-center justify-center shadow-glow group-hover:border-primary transition-all">
-        <span class="material-symbols-outlined text-primary text-lg">memory</span>
-      </div>
-      <div class="flex-col">
-        <span class="title font-bold text-sm tracking-wider text-on-surface">E.L.I.Z.A.</span>
-        <span class="text-xs text-secondary font-mono">ECOS RUNTIME v0.8</span>
-      </div>
-    </div>
-    
-    <div class="header-actions flex items-center gap-6" id="header-user-info">
-      <div class="flex items-center gap-2">
-        <div class="w-2 h-2 rounded-full bg-success animate-pulse"></div>
-        <span class="text-xs font-mono text-secondary tracking-wider">SYSTEM ONLINE</span>
-      </div>
-      <div class="w-px h-4 bg-outline-variant"></div>
-      <span class="text-sm font-medium text-secondary" id="lbl-persona"></span>
-      <div class="w-8 h-8 rounded-full border border-outline-variant flex items-center justify-center">
-        <md-icon class="text-sm">person</md-icon>
-      </div>
-      <md-outlined-button id="btn-reset" class="text-xs">Reboot</md-outlined-button>
-    </div>
-  </header>
+<body class="flex h-screen w-screen text-sm">
 
-  <main class="app-container relative w-full overflow-hidden" style="height: calc(100vh - 65px);">
-    
-    <!-- ========================================== -->
-    <!-- SCREEN A: ONBOARDING (BOOT SEQUENCE)       -->
-    <!-- ========================================== -->
-    <div id="screen-onboarding" class="screen w-full h-full flex flex-col items-center justify-center bg-background absolute inset-0 z-40 p-6 overflow-y-auto">
-      <div class="max-w-[800px] w-full flex-col gap-10 animate-fade-in items-center">
-        <div class="text-center flex-col items-center">
-          <div class="w-16 h-16 rounded-lg border border-primary flex items-center justify-center shadow-glow-primary mb-6 animate-pulse">
-            <md-icon class="text-primary text-3xl">bolt</md-icon>
-          </div>
-          <h1 class="text-4xl font-bold mb-3 gradient-text">Initialize Cognitive Runtime</h1>
-          <p class="text-base text-secondary font-mono mt-2">Select a Companion Persona to boot the multi-agent operating system.</p>
-        </div>
-        <div class="flex-col gap-4 w-full max-w-[500px] mt-6 bg-surface p-6 rounded-xl border border-outline-variant shadow-sm">
-          <h3 class="font-mono text-primary text-sm font-bold border-b border-outline-variant pb-2">User Authentication & API Keys</h3>
-          <div class="flex-col gap-1">
-            <label class="text-xs text-secondary font-mono">User ID (Simulated OAuth)</label>
-            <input type="text" id="inp-auth-user" placeholder="e.g. user-123" class="w-full bg-background border border-outline-variant rounded px-3 py-2 text-sm text-on-surface font-mono" value="user-123">
-          </div>
-          <div class="flex-col gap-1">
-            <label class="text-xs text-secondary font-mono">OpenAI API Key (<a href="https://platform.openai.com/api-keys" target="_blank" class="text-primary hover:underline">Get Key</a>)</label>
-            <input type="password" id="inp-key-openai" placeholder="sk-proj-..." class="w-full bg-background border border-outline-variant rounded px-3 py-2 text-sm text-on-surface font-mono">
-          </div>
-          <div class="flex-col gap-1">
-            <label class="text-xs text-secondary font-mono">Groq API Key (<a href="https://console.groq.com/keys" target="_blank" class="text-primary hover:underline">Get Key</a>)</label>
-            <input type="password" id="inp-key-groq" placeholder="gsk_..." class="w-full bg-background border border-outline-variant rounded px-3 py-2 text-sm text-on-surface font-mono">
-          </div>
-        </div>
-
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-4 w-full mt-8">
-          <div class="persona-card flex-col gap-3 p-5 rounded-xl border hover:shadow-glow cursor-pointer transition-all items-center text-center group" data-persona="Architect">
-            <md-icon class="text-tertiary text-3xl group-hover:text-primary transition-colors">architecture</md-icon>
-            <h3 class="font-bold text-sm text-on-surface">Architect</h3>
-            <p class="text-xs text-secondary">System design & planning</p>
-          </div>
-          <div class="persona-card flex-col gap-3 p-5 rounded-xl border hover:shadow-glow cursor-pointer transition-all items-center text-center group" data-persona="Engineer">
-            <md-icon class="text-primary text-3xl group-hover:text-cyan transition-colors">terminal</md-icon>
-            <h3 class="font-bold text-sm text-on-surface">Engineer</h3>
-            <p class="text-xs text-secondary">Code execution</p>
-          </div>
-          <div class="persona-card flex-col gap-3 p-5 rounded-xl border hover:shadow-glow cursor-pointer transition-all items-center text-center group" data-persona="Researcher">
-            <md-icon class="text-cyan text-3xl group-hover:text-success transition-colors">biotech</md-icon>
-            <h3 class="font-bold text-sm text-on-surface">Researcher</h3>
-            <p class="text-xs text-secondary">Data synthesis</p>
-          </div>
-          <div class="persona-card flex-col gap-3 p-5 rounded-xl border hover:shadow-glow cursor-pointer transition-all items-center text-center group" data-persona="Planner">
-            <md-icon class="text-warning text-3xl group-hover:text-primary transition-colors">account_tree</md-icon>
-            <h3 class="font-bold text-sm text-on-surface">Planner</h3>
-            <p class="text-xs text-secondary">Task decomposition</p>
-          </div>
+  <!-- Left Navigation -->
+  <nav class="w-64 bg-surface border-r border-subtle flex flex-col justify-between flex-shrink-0">
+    <div>
+      <div class="p-6 border-b border-subtle flex items-center gap-3">
+        <span class="material-symbols-outlined text-primary">memory</span>
+        <div>
+          <h1 class="font-bold tracking-widest text-xs">E.L.I.Z.A. STUDIO</h1>
+          <div class="text-[10px] text-muted font-mono mt-1">RUNTIME: ONLINE</div>
         </div>
       </div>
-    </div>
 
-    <!-- ========================================== -->
-    <!-- SCREEN B: HOME DASHBOARD                   -->
-    <!-- ========================================== -->
-    <div id="screen-home" class="screen w-full h-full bg-background absolute inset-0 z-30 p-8 overflow-y-auto hidden">
-      <div class="max-w-[1200px] mx-auto flex-col gap-8 animate-fade-in">
+      <div class="flex flex-col p-4 gap-1">
+        <div class="text-[10px] uppercase font-bold text-muted tracking-wider mb-2 px-3">Navigation</div>
         
-        <header class="flex justify-between items-end border-b pb-6">
-          <div>
-            <h1 class="text-3xl font-bold mb-2 tracking-tight gradient-text">Command Center</h1>
-            <p class="text-sm font-mono text-secondary" id="lbl-home-persona">Persona: Unknown</p>
-          </div>
-          <md-outlined-button id="btn-open-create-goal" class="border-primary text-primary hover:bg-primary-container">
-            <md-icon slot="icon">add</md-icon> Assign Goal to E.L.I.Z.A.
-          </md-outlined-button>
-        </header>
-
-        <div class="grid grid-cols-3 gap-8">
-          
-          <!-- Main Focus Column: Goals & Telemetry -->
-          <div class="col-span-2 flex-col gap-8">
-            
-            <!-- Process Scheduler Queue (Active Goals) -->
-            <section>
-              <h2 class="text-xs font-mono font-bold tracking-wider text-secondary mb-4 flex items-center gap-2">
-                <md-icon class="text-sm">view_timeline</md-icon> PROCESS SCHEDULER QUEUE
-              </h2>
-              <div class="flex-col gap-4" id="home-active-goals">
-                <!-- Injected via JS -->
-              </div>
-            </section>
-
-            <!-- Cognitive Stream / Telemetry -->
-            <section>
-              <h2 class="text-xs font-mono font-bold tracking-wider text-secondary mb-4 flex items-center gap-2">
-                <md-icon class="text-sm">query_stats</md-icon> LIVE TELEMETRY
-              </h2>
-              <div class="code-block flex-col gap-2">
-                <div class="flex justify-between text-xs text-secondary border-b border-outline-variant pb-2 mb-2">
-                  <span>[ECOS] STREAM</span>
-                  <span class="animate-pulse text-primary">● LIVE</span>
-                </div>
-                <div class="flex items-center gap-3 font-mono text-xs">
-                  <span class="text-tertiary">sys></span>
-                  <span class="text-on-surface">Evaluating scheduler capacity...</span>
-                </div>
-                <div class="flex items-center gap-3 font-mono text-xs">
-                  <span class="text-tertiary">sys></span>
-                  <span class="text-cyan">Memory allocation stable at 42%.</span>
-                </div>
-                <div class="flex items-center gap-3 font-mono text-xs">
-                  <span class="text-tertiary">sys></span>
-                  <span class="text-secondary">Awaiting instruction dispatch.</span>
-                </div>
-              </div>
-            </section>
-
-          </div>
-
-          <!-- Sidebar Column: World Model & 7-Tier Memory -->
-          <div class="col-span-1 flex-col gap-8">
-            
-            <!-- World Model Stats -->
-            <section>
-              <h2 class="text-xs font-mono font-bold tracking-wider text-secondary mb-4 flex items-center gap-2">
-                <md-icon class="text-sm">public</md-icon> WORLD MODEL (FCRL)
-              </h2>
-              <div class="grid grid-cols-2 gap-4">
-                <div class="stat-card p-4 flex-col justify-center items-center">
-                  <span class="text-2xl font-mono font-bold text-primary mb-1">1,204</span>
-                  <span class="text-xs text-secondary text-center">Entities</span>
-                </div>
-                <div class="stat-card p-4 flex-col justify-center items-center">
-                  <span class="text-2xl font-mono font-bold text-tertiary mb-1">8,392</span>
-                  <span class="text-xs text-secondary text-center">Relationships</span>
-                </div>
-                <div class="stat-card p-4 flex-col justify-center items-center col-span-2">
-                  <span class="text-2xl font-mono font-bold text-cyan mb-1">98.2%</span>
-                  <span class="text-xs text-secondary text-center">Average Belief Confidence</span>
-                </div>
-              </div>
-            </section>
-
-            <!-- Memory Hierarchy Quick View -->
-            <section>
-              <h2 class="text-xs font-mono font-bold tracking-wider text-secondary mb-4 flex items-center gap-2">
-                <md-icon class="text-sm">layers</md-icon> 7-TIER MEMORY STACK
-              </h2>
-              <div class="p-4 rounded-xl border bg-surface-variant flex-col gap-3 font-mono text-xs">
-                <div class="flex justify-between items-center">
-                  <span class="text-secondary">Attention Reg</span>
-                  <span class="text-primary animate-pulse">1 / 1</span>
-                </div>
-                <div class="w-full bg-background h-1 rounded-full overflow-hidden"><div class="bg-primary h-full w-[100%]"></div></div>
-                
-                <div class="flex justify-between items-center mt-2">
-                  <span class="text-secondary">Working Mem</span>
-                  <span class="text-cyan">4 / 10</span>
-                </div>
-                <div class="w-full bg-background h-1 rounded-full overflow-hidden"><div class="bg-cyan h-full w-[40%]"></div></div>
-
-                <div class="flex justify-between items-center mt-2">
-                  <span class="text-secondary">Context Cache</span>
-                  <span class="text-tertiary">18 / 50</span>
-                </div>
-                <div class="w-full bg-background h-1 rounded-full overflow-hidden"><div class="bg-tertiary h-full w-[36%]"></div></div>
-                
-                <div class="text-center mt-2 pt-2 border-t border-outline-variant">
-                  <span class="text-[10px] text-secondary cursor-pointer hover:text-primary transition-colors">View Deep Storage &rarr;</span>
-                </div>
-              </div>
-            </section>
-
-          </div>
-
-        </div>
+        <button class="flex items-center gap-3 px-3 py-2 bg-zinc-800 rounded-md text-white font-medium text-left">
+          <span class="material-symbols-outlined text-[18px]">dashboard</span>
+          Mission Control
+        </button>
+        <button class="flex items-center gap-3 px-3 py-2 text-muted hover:bg-zinc-800 hover:text-white rounded-md font-medium text-left transition-colors">
+          <span class="material-symbols-outlined text-[18px]">terminal</span>
+          Workspace
+        </button>
+        <button class="flex items-center gap-3 px-3 py-2 text-muted hover:bg-zinc-800 hover:text-white rounded-md font-medium text-left transition-colors">
+          <span class="material-symbols-outlined text-[18px]">psychology</span>
+          Cognition
+        </button>
+        <button class="flex items-center gap-3 px-3 py-2 text-muted hover:bg-zinc-800 hover:text-white rounded-md font-medium text-left transition-colors">
+          <span class="material-symbols-outlined text-[18px]">groups</span>
+          Agents
+        </button>
+        <button class="flex items-center gap-3 px-3 py-2 text-muted hover:bg-zinc-800 hover:text-white rounded-md font-medium text-left transition-colors">
+          <span class="material-symbols-outlined text-[18px]">speed</span>
+          Runtime
+        </button>
+        <button class="flex items-center gap-3 px-3 py-2 text-muted hover:bg-zinc-800 hover:text-white rounded-md font-medium text-left transition-colors">
+          <span class="material-symbols-outlined text-[18px]">analytics</span>
+          Evaluation
+        </button>
       </div>
     </div>
 
-    <!-- ========================================== -->
-    <!-- SCREEN C: COGNITIVE WORKSPACE              -->
-    <!-- ========================================== -->
-    <div id="screen-workspace" class="screen w-full h-full flex absolute inset-0 z-20 hidden bg-background">
-      
-      <!-- Left Pane: Persistent Goal & Plan State -->
-      <aside class="w-[45%] h-full border-r bg-surface overflow-y-auto p-8 flex-col gap-8 relative z-10">
-        
-        <header class="border-b pb-6">
-          <div class="flex items-center gap-3 mb-3">
-            <div class="px-2 py-1 rounded bg-primary-container text-primary font-mono text-[10px] tracking-wider" id="ws-status">EXECUTING</div>
-            <div class="px-2 py-1 rounded bg-surface-variant border text-secondary font-mono text-[10px] tracking-wider">PRIORITY: HIGH</div>
-          </div>
-          <h1 class="text-2xl font-bold mb-4 leading-tight text-on-surface" id="ws-goal-title">Build ECOS Kernel</h1>
-          
-          <div class="flex items-center gap-4 mt-4">
-            <div class="flex-1 bg-background h-2 rounded-full overflow-hidden border">
-              <div class="bg-gradient-to-r from-primary to-cyan h-full w-[14%]" id="ws-progress-bar-fill" style="width: 14%;"></div>
-            </div>
-            <span class="text-sm font-bold font-mono text-cyan" id="ws-progress-text">14%</span>
-          </div>
-          <!-- Hidden native progress bar, kept for app.js value setting compatibility -->
-          <progress id="ws-progress-bar" value="0.14" max="1" class="hidden"></progress>
-        </header>
-
-        <!-- Current Focus (Cognitive Process) -->
-        <section class="glass-panel p-5 rounded-lg border">
-          <div class="flex items-center justify-between mb-3">
-            <div class="text-[10px] font-mono font-bold text-secondary tracking-wider">ACTIVE SUBROUTINE</div>
-            <div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
-          </div>
-          <div class="font-mono text-sm text-primary mb-4 bg-background p-2 rounded border" id="ws-activity">Running Kernel Process</div>
-        </section>
-
-        <!-- Plan Tree -->
-        <section>
-          <div class="flex items-center justify-between mb-4 border-b pb-2">
-            <h2 class="text-xs font-mono font-bold tracking-wider text-secondary">DECOMPOSED PLAN (GOAL TREE)</h2>
-          </div>
-          <div class="flex-col gap-2 pl-2 border-l border-outline-variant ml-2" id="ws-plan-tree">
-            <!-- Dynamic via JS -->
-          </div>
-        </section>
-
-      </aside>
-
-      <!-- Right Pane: Conversational Interface -->
-      <main class="flex-1 h-full flex-col relative bg-background">
-        <div class="chat-header p-4 border-b flex items-center justify-between bg-surface-variant">
-          <div class="flex items-center gap-3">
-            <div class="w-8 h-8 rounded border border-outline-variant bg-surface flex items-center justify-center shadow-glow">
-              <md-icon class="text-primary text-sm">smart_toy</md-icon>
-            </div>
-            <div class="flex-col">
-              <span class="font-bold text-sm text-on-surface">ELIZA Companion Agent</span>
-              <span class="text-[10px] font-mono text-success">LLM Engine Linked</span>
-            </div>
-          </div>
-          <button id="btn-trace" class="px-3 py-1.5 rounded-md border text-xs font-mono text-secondary hover:text-primary hover:border-primary transition-all flex items-center gap-2">
-            <md-icon class="text-[14px]">psychology</md-icon> Inspect Trace
-          </button>
-        </div>
-
-        <div class="chat-messages flex-1 overflow-y-auto p-6 flex-col gap-6" id="chat-messages-container">
-          <!-- Chat bubbles go here -->
-        </div>
-
-        <div class="chat-input-area p-4 bg-surface border-t relative">
-          <input 
-            type="text" 
-            id="chat-user-input" 
-            class="w-full bg-background border rounded-lg px-4 py-3 text-sm font-mono text-on-surface focus:outline-none focus:border-primary transition-colors"
-            placeholder="> Command E.L.I.Z.A. runtime..."
-          />
-          <button id="btn-send-chat" class="absolute right-6 top-6 bottom-6 w-8 h-8 flex items-center justify-center text-primary hover:text-cyan transition-colors">
-            <md-icon class="text-lg">send</md-icon>
-          </button>
-        </div>
-      </main>
-
+    <div class="p-4 border-t border-subtle">
+      <button onclick="toggleSettings()" class="w-full flex items-center gap-3 px-3 py-2 text-muted hover:bg-zinc-800 hover:text-white rounded-md font-medium text-left transition-colors">
+        <span class="material-symbols-outlined text-[18px]">settings</span>
+        Settings
+      </button>
     </div>
+  </nav>
 
+  <!-- Main Content Area -->
+  <main class="flex-1 flex flex-col min-w-0 bg-bg">
+    
+    <!-- Top Bar -->
+    <header class="h-14 border-b border-subtle flex items-center justify-between px-6 bg-surface flex-shrink-0">
+      <div class="flex items-center gap-4">
+        <h2 class="font-semibold text-lg">Mission Control</h2>
+      </div>
+      <div class="flex items-center gap-6 font-mono text-xs cursor-pointer hover:bg-zinc-800 px-3 py-1.5 rounded transition-colors border border-subtle">
+        <div class="flex items-center gap-2">
+          <div class="w-2 h-2 rounded-full bg-success shadow-[0_0_8px_rgba(34,197,94,0.6)]"></div>
+          <span class="text-white">ONLINE</span>
+        </div>
+        <div class="w-px h-4 bg-outline"></div>
+        <span class="text-muted">CPU: <span class="text-white">24%</span></span>
+        <span class="text-muted">GPU: <span class="text-white">64%</span></span>
+        <span class="text-muted">MEM: <span class="text-success">OK</span></span>
+      </div>
+    </header>
+
+    <!-- Grid Layout -->
+    <div class="flex-1 overflow-auto p-6">
+      <div class="grid grid-cols-12 gap-6 h-full">
+        
+        <!-- Active Goals -->
+        <div class="col-span-8 flex flex-col gap-6">
+          
+          <div class="bg-surface border-subtle rounded-lg flex-1 flex flex-col min-h-[300px]">
+            <div class="p-4 border-b border-subtle flex justify-between items-center">
+              <h3 class="font-semibold flex items-center gap-2"><span class="material-symbols-outlined text-sm">target</span> Active Goals</h3>
+              <button class="text-xs font-medium text-primary hover:text-blue-400">+ New Goal</button>
+            </div>
+            <div class="p-4 flex-1 overflow-auto">
+              <!-- Goal Item -->
+              <div class="border border-subtle rounded-md p-4 mb-4 hover:border-zinc-600 transition-colors cursor-pointer group">
+                <div class="flex justify-between items-start mb-2">
+                  <div class="flex items-center gap-3">
+                    <div class="w-2 h-2 rounded-full bg-primary animate-pulse"></div>
+                    <span class="font-medium group-hover:text-primary transition-colors">Analyze auth.js memory leak</span>
+                  </div>
+                  <span class="text-xs font-mono text-muted bg-zinc-800 px-2 py-0.5 rounded">#GOAL-184</span>
+                </div>
+                <div class="w-full bg-zinc-800 rounded-full h-1.5 mb-2 mt-4">
+                  <div class="bg-primary h-1.5 rounded-full" style="width: 72%"></div>
+                </div>
+                <div class="flex justify-between text-xs text-muted font-mono mt-3">
+                  <span>Progress: 72%</span>
+                  <span>Agent: ResearchAgent</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Current Activity / Chat -->
+          <div class="bg-surface border-subtle rounded-lg h-64 flex flex-col">
+            <div class="p-4 border-b border-subtle">
+              <h3 class="font-semibold flex items-center gap-2"><span class="material-symbols-outlined text-sm">terminal</span> Current Activity</h3>
+            </div>
+            <div class="p-4 flex-1 overflow-auto font-mono text-xs text-muted flex flex-col gap-2" id="activity-log">
+              <div class="text-primary">> E.L.I.Z.A. OS v0.9 Ready.</div>
+              <div>> CoordinatorAgent routing GOAL-184...</div>
+              <div>> ResearchAgent reading project workspace...</div>
+            </div>
+            <div class="p-3 border-t border-subtle bg-bg">
+              <input type="text" placeholder="Assign a new goal (e.g. 'Analyze memory leak')..." class="w-full bg-transparent outline-none font-mono text-xs placeholder:text-zinc-600 text-white">
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Column: Timeline & Health -->
+        <div class="col-span-4 flex flex-col gap-6">
+          
+          <!-- System Health -->
+          <div class="bg-surface border-subtle rounded-lg">
+            <div class="p-4 border-b border-subtle">
+              <h3 class="font-semibold flex items-center gap-2"><span class="material-symbols-outlined text-sm">health_and_safety</span> System Health</h3>
+            </div>
+            <div class="p-4 font-mono text-xs flex flex-col gap-3">
+              <div class="flex justify-between"><span class="text-muted">Model</span><span class="text-blue-400">llama-3.1-70b-versatile</span></div>
+              <div class="flex justify-between"><span class="text-muted">Routing</span><span class="text-white">Cloud Fallback</span></div>
+              <div class="flex justify-between"><span class="text-muted">Memory</span><span class="text-success">HEALTHY</span></div>
+              <div class="flex justify-between"><span class="text-muted">World Model</span><span class="text-success">HEALTHY</span></div>
+              <div class="flex justify-between"><span class="text-muted">Active Agents</span><span class="text-white">3</span></div>
+              <div class="flex justify-between"><span class="text-muted">Task Queue</span><span class="text-warning">2 pending</span></div>
+            </div>
+          </div>
+
+          <!-- Runtime Timeline -->
+          <div class="bg-surface border-subtle rounded-lg flex-1 flex flex-col min-h-[300px]">
+            <div class="p-4 border-b border-subtle">
+              <h3 class="font-semibold flex items-center gap-2"><span class="material-symbols-outlined text-sm">history</span> Runtime Timeline</h3>
+            </div>
+            <div class="p-4 flex-1 overflow-auto font-mono text-[11px] flex flex-col gap-3">
+              
+              <div class="flex gap-3">
+                <span class="text-muted">10:42:01</span>
+                <span class="text-white font-medium">GOAL RECEIVED</span>
+              </div>
+              <div class="flex gap-3">
+                <span class="text-muted">10:42:02</span>
+                <span class="text-blue-400">PLAN CREATED</span>
+              </div>
+              <div class="flex gap-3">
+                <span class="text-muted">10:42:03</span>
+                <span class="text-zinc-400">TASK DELEGATED → ResearchAgent</span>
+              </div>
+              <div class="flex gap-3">
+                <span class="text-muted">10:42:08</span>
+                <span class="text-warning">TOOL CALL → filesystem.read</span>
+              </div>
+              <div class="flex gap-3 cursor-pointer hover:text-white transition-colors">
+                <span class="text-muted">10:42:09</span>
+                <span class="text-success">EVIDENCE FOUND</span>
+              </div>
+              <div class="flex gap-3">
+                <span class="text-muted">10:42:12</span>
+                <span class="text-zinc-400">VERIFICATION STARTED</span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </main>
 
-  <!-- Modals -->
-  <md-dialog id="modal-create-goal">
-    <div slot="headline" class="font-mono text-sm tracking-wider text-primary">INITIALIZE GOAL</div>
-    <form slot="content" id="form-create-goal" method="dialog" class="flex-col gap-4 min-w-[400px]">
-      <p class="text-xs text-secondary mb-4">Establish a persistent objective for the Cognitive Scheduler.</p>
-      
-      <div class="flex-col gap-1">
-        <label class="text-[10px] font-mono text-secondary">GOAL DESCRIPTION</label>
-        <input type="text" id="inp-goal-title" class="w-full bg-background border rounded px-3 py-2 text-sm text-on-surface focus:border-primary focus:outline-none" placeholder="e.g. Refactor authentication module" required>
+  <!-- Settings Modal -->
+  <div id="modal-settings" class="fixed inset-0 z-[70] bg-black/80 backdrop-blur-sm hidden items-center justify-center p-4 transition-opacity duration-300 opacity-0">
+    <div class="bg-surface border border-subtle rounded-xl shadow-2xl w-full max-w-md overflow-hidden flex flex-col">
+      <div class="p-6 border-b border-subtle flex justify-between items-center">
+        <h2 class="font-semibold text-lg">Runtime Configuration</h2>
+        <button onclick="toggleSettings()" class="text-muted hover:text-white">
+          <span class="material-symbols-outlined text-sm">close</span>
+        </button>
       </div>
-      
-      <div class="flex-col gap-1 mt-3">
-        <label class="text-[10px] font-mono text-secondary">SCHEDULER PRIORITY</label>
-        <select id="inp-goal-priority" class="w-full bg-background border rounded px-3 py-2 text-sm text-on-surface focus:border-primary focus:outline-none appearance-none">
-          <option value="High">CRITICAL (Priority 10)</option>
-          <option value="Medium">HIGH (Priority 5)</option>
-          <option value="Low">BACKGROUND (Priority 2)</option>
-        </select>
+      <div class="p-6 overflow-y-auto flex flex-col gap-6">
+        <div>
+          <label class="text-xs font-bold text-muted uppercase tracking-wider mb-2 block">API Keys (Cloud Routing)</label>
+          <div class="flex flex-col gap-3">
+            <input type="password" id="set-openai" placeholder="OpenAI API Key (sk-...)" class="w-full bg-bg border border-subtle rounded-md px-3 py-2 text-sm outline-none font-mono focus:border-primary text-white">
+            <input type="password" id="set-groq" placeholder="Groq API Key (gsk_...)" class="w-full bg-bg border border-subtle rounded-md px-3 py-2 text-sm outline-none font-mono focus:border-primary text-white">
+          </div>
+        </div>
+        <div>
+          <label class="text-xs font-bold text-muted uppercase tracking-wider mb-2 block">Compute Engine</label>
+          <div class="flex items-center justify-between bg-bg border border-subtle rounded-md p-3">
+            <div>
+              <span class="text-sm font-medium block">Force Local LLM</span>
+              <span class="text-xs text-muted">Uses Ollama completely offline.</span>
+            </div>
+            <label class="relative inline-flex items-center cursor-pointer">
+              <input type="checkbox" id="set-local-mode" class="sr-only peer">
+              <div class="w-9 h-5 bg-outline peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full after:absolute after:top-[2px] after:left-[2px] after:bg-white after:rounded-full after:h-4 after:w-4 after:transition-all peer-checked:bg-primary"></div>
+            </label>
+          </div>
+        </div>
+        <button onclick="saveSettings()" class="w-full bg-primary text-white font-medium py-2 rounded-md hover:bg-blue-600 transition-colors">Save & Restart Runtime</button>
       </div>
-    </form>
-    <div slot="actions" class="pt-4 border-t w-full flex justify-end gap-3">
-      <button id="btn-cancel-goal" class="px-4 py-2 text-xs font-mono text-secondary hover:text-on-surface transition-colors">ABORT</button>
-      <button id="btn-submit-goal" class="px-4 py-2 text-xs font-mono bg-primary text-white rounded hover:shadow-glow transition-all">DISPATCH</button>
     </div>
-  </md-dialog>
-
-  <!-- Trace Modal -->
-  <md-dialog id="modal-trace">
-    <div slot="headline" class="font-mono text-sm tracking-wider text-tertiary flex items-center gap-2">
-      <md-icon class="text-sm">memory</md-icon> DECISION TRACE & MEMORY DUMP
-    </div>
-    <div slot="content" id="trace-modal-body" class="flex-col gap-4 min-w-[500px] bg-background p-4 rounded border font-mono text-xs overflow-y-auto max-h-[400px]">
-      <!-- Dynamic -->
-    </div>
-    <div slot="actions" class="border-t pt-4 w-full">
-      <button id="btn-close-trace" class="px-4 py-2 text-xs font-mono text-secondary hover:text-on-surface w-full text-center transition-colors">CLOSE</button>
-    </div>
-  </md-dialog>
+  </div>
 
   <script src="app.js"></script>
 </body>

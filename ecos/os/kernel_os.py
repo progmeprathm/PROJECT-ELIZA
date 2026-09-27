@@ -15,9 +15,6 @@ from ecos.process.process import CognitiveProcess, ProcessScheduler
 from llms.router import ModelRouter, TaskIntent
 
 
-import uuid
-from eliza.kernel.event_bus import RuntimeEventBus
-
 class ECOSOperatingSystem:
     """
     ECOS Cognitive Operating System.
@@ -25,16 +22,13 @@ class ECOSOperatingSystem:
     """
 
     def __init__(self) -> None:
-        self.runtime_id = f"runtime_{uuid.uuid4().hex[:8]}"
-        self.event_bus = RuntimeEventBus(self.runtime_id)
-        
         self.compiler = CognitiveCompiler()
         self.cpu = CognitiveCPU()
         self.memory_hierarchy = CognitiveMemoryHierarchy()
         self.cfs = CognitiveFilesystem()
         self.process_scheduler = ProcessScheduler()
         self.active_processes: Dict[int, CognitiveProcess] = {}
-        self.model_router = ModelRouter(event_bus=self.event_bus, runtime_id=self.runtime_id)
+        self.model_router = ModelRouter()
 
     def boot(self) -> bool:
         self.cpu.isa_vm.clear()

@@ -20,7 +20,7 @@ class OllamaAdapter(LanguageModel):
         import urllib.error
         
         payload = {
-            "model": self.model_name,
+            "model": self.model_name.replace("-local-fallback", "").replace("-local", ""),
             "prompt": prompt,
             "stream": False,
             "options": {
